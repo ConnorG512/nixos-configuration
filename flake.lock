@@ -1,0 +1,49 @@
+{
+  "nodes": {
+    "lsfg-vk-flake": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1756367273,
+        "narHash": "sha256-u7/qG5xQxW+o51R2lBPj0NxU3oFrUwj78UlCKKNHGAc=",
+        "owner": "pabloaul",
+        "repo": "lsfg-vk-flake",
+        "rev": "62aadfc844b2002abe47cbbc9dfd028033376248",
+        "type": "github"
+      },
+      "original": {
+        "owner": "pabloaul",
+        "ref": "main",
+        "repo": "lsfg-vk-flake",
+        "type": "github"
+      }
+    },
+    "nixpkgs": {
+      "locked": {
+        "lastModified": 1758690382,
+        "narHash": "sha256-NY3kSorgqE5LMm1LqNwGne3ZLMF2/ILgLpFr1fS4X3o=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "e643668fd71b949c53f8626614b21ff71a07379d",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "root": {
+      "inputs": {
+        "lsfg-vk-flake": "lsfg-vk-flake",
+        "nixpkgs": "nixpkgs"
+      }
+    }
+  },
+  "root": "root",
+  "version": 7
+}

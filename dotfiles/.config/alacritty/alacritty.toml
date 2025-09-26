@@ -1,0 +1,10 @@
+[window]
+opacity = 0.5
+blur = true
+
+[colors.primary]
+foreground = "#68C2D9"
+# RGB 104, 194, 217
+
+background = "#06273B"
+# RGB 6, 39, 59

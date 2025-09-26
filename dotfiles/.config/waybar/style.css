@@ -1,0 +1,77 @@
+* {
+    border: none;
+    border-radius: 0;
+    font-family: "Zedmono Nerd Font Mono";
+    font-size: 13px;
+    color: rgba(0,0,0,1);
+    min-height: 0;
+}
+
+window#waybar {
+    background: rgba(00, 00, 00, 0.0);
+    /* border-bottom: 1px solid rgba(104, 194, 217, 1.0); */
+    border-bottom: 1px solid rgba(104, 194, 217, 0.0);
+    color: rgba(104, 194, 217, 1.0);
+}
+
+#tray{
+  background-color: rgba(15,27,53,0.9);
+  padding: 4px 6px; 
+  margin-top: 6px; 
+  margin-left: 6px; 
+  margin-right: 6px; 
+  border-radius: 10px;
+  border-width: 0px;
+}
+
+/* Common theme colour. */
+#clock,
+#memory,
+#cpu,
+#pulseaudio {
+  background-color: rgba(104, 194, 217, 1.0);
+}
+
+#clock{
+  padding: 4px 6px; 
+  margin-top: 6px; 
+  margin-left: 6px; 
+  margin-right: 6px; 
+  border-radius: 10px;
+  border-width: 0px;
+}
+
+/* Joined design parameters for memory and CPU */
+#memory,
+#cpu {
+  padding: 4px 4px; 
+  margin-top: 6px; 
+  margin-left: 0px; 
+  margin-right: 0px; 
+  border-radius: 0px;
+  border-width: 0px;
+}
+
+/* right module: rounded corners on the left, no right border */
+#memory {
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  border-left: none;
+}
+
+/* Left module: rounded corners on the right, no left border */
+#cpu {
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border-right: none;
+}
+
+#pulseaudio {
+  padding: 4px 6px; 
+  margin-top: 6px; 
+  margin-left: 6px; 
+  margin-right: 6px; 
+  border-radius: 10px;
+  border-width: 0px;
+}
+
