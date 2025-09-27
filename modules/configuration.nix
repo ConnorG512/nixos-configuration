@@ -9,8 +9,11 @@
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   imports =
-    [ # Include the results of the hardware scan.
+    [ 
+      # Hardware configuration will be different per computer installed on.
+      # This requires --impure flag as breaks Nix's purity rules.
       /etc/nixos/hardware-configuration.nix 
+
       ./kernel.nix
       ./networking.nix
       ./system-packages.nix

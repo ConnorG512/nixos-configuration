@@ -17,6 +17,6 @@ echo "Moving hardware-configuration.nix to modules directory..."
 cp -v "/etc/nixos/hardware-configuration.nix" ./modules/ 
 
 echo "Creating system..."
-sudo nixos-rebuild boot --flake .
+sudo nixos-rebuild boot --flake --impure .
 
 echo "Done, reccomended to restart the computer."
