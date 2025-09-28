@@ -34,6 +34,7 @@
   man-pages-posix
   nil
   patchelfUnstable
+  goverlay
 
   # Custom flake
   ];
