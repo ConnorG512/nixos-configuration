@@ -6,6 +6,11 @@
     histSize = 1500;
     enableCompletion = true;
 
+    zsh-autoenv = {
+      package = pkgs.zsh-autoenv;
+      enable = false;
+    };
+
     autosuggestions = {
       enable = true;
       async = true;
