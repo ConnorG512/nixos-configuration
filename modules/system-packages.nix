@@ -35,6 +35,7 @@
   nil
   patchelfUnstable
   goverlay
+  radeontop
 
   # Custom flake
   ];
