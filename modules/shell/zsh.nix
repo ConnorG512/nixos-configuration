@@ -10,5 +10,9 @@
       enable = true;
       async = true;
     };
+
+    ohMyZsh = {
+      package = pkgs.oh-my-zsh;
+    };
   };
 }
