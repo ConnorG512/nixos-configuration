@@ -11,74 +11,81 @@
   ];
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.connor = {
-    isNormalUser = true;
-    home = "/home/connor";
-    description = "connor";
-    extraGroups = [ "networkmanager" "wheel" "gamemode" ];
-    
-    # User installed packages
-    packages = with pkgs; [
-    yt-dlp
-    keepassxc
-    firefox-bin 
-    syncthing
-    mpv
-    gearlever
-    termusic
-    qbittorrent
-    mpvpaper
-    winetricks
-    git
-    lazygit
-    btop
-    wget
-    lf
-    unzip
-    fastfetch
-    tmux
-    fzf
-    wineWowPackages.wayland
-    podman
-    distrobox
-    dxvk
-    vkd3d-proton
-    blender
-    gparted
-    mangohud
-    protonup
-    obs-studio
-    blender
-    krita
-    inkscape
-    libreoffice-qt6-fresh
-    kdePackages.kdenlive
-    grim 
-    slurp 
-    neovim
-    gnumake
-    cmakeWithGui
-    rocmPackages.clang
-    cava
-    ncurses
-    valgrind
-    luanti
-    # nzportable
-    gdb
-    lutris
-    kdbg
-    kdePackages.ark
-    ghidra-bin
-    tor-browser
-    localsend
-    scanmem
-    strace
-    kdePackages.ghostwriter
+  users = {
 
-    # UNFREE
-    steam
-    discord-canary
-    spotify
-    ];
+    defaultUserShell = pkgs.zsh;
+
+    users.connor = {
+      isNormalUser = true;
+      home = "/home/connor";
+      description = "connor";
+      extraGroups = [ "networkmanager" "wheel" "gamemode" ];
+
+      useDefaultShell = false;
+      
+      # User installed packages
+      packages = with pkgs; [
+      yt-dlp
+      keepassxc
+      firefox-bin 
+      syncthing
+      mpv
+      gearlever
+      termusic
+      qbittorrent
+      mpvpaper
+      winetricks
+      git
+      lazygit
+      btop
+      wget
+      lf
+      unzip
+      fastfetch
+      tmux
+      fzf
+      wineWowPackages.wayland
+      podman
+      distrobox
+      dxvk
+      vkd3d-proton
+      blender
+      gparted
+      mangohud
+      protonup
+      obs-studio
+      blender
+      krita
+      inkscape
+      libreoffice-qt6-fresh
+      kdePackages.kdenlive
+      grim 
+      slurp 
+      neovim
+      gnumake
+      cmakeWithGui
+      rocmPackages.clang
+      cava
+      ncurses
+      valgrind
+      luanti
+      # nzportable
+      gdb
+      lutris
+      kdbg
+      kdePackages.ark
+      ghidra-bin
+      tor-browser
+      localsend
+      scanmem
+      strace
+      kdePackages.ghostwriter
+
+      # UNFREE
+      steam
+      discord-canary
+      spotify
+      ];
+    };
   };
 }
