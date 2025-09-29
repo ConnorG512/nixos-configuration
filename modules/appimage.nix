@@ -1,6 +1,8 @@
 { config, pkgs, ... }:
 
 {
-  programs.appimage.enable = true;
-  programs.appimage.binfmt = true;
+  programs.appimage = {
+    enable = true;
+    binfmt = true;
+  };
 }
