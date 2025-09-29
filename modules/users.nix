@@ -58,7 +58,6 @@
       krita
       inkscape
       libreoffice-qt6-fresh
-      kdePackages.kdenlive
       grim 
       slurp 
       neovim
@@ -74,6 +73,8 @@
       lutris
       kdbg
       kdePackages.ark
+      kdePackages.kdenlive
+      kdePackages.okular
       ghidra-bin
       tor-browser
       localsend
