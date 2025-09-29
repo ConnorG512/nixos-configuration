@@ -21,7 +21,7 @@
       description = "connor";
       extraGroups = [ "networkmanager" "wheel" "gamemode" ];
 
-      useDefaultShell = false;
+      useDefaultShell = true;
       
       # User installed packages
       packages = with pkgs; [
