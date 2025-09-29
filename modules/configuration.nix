@@ -25,6 +25,7 @@
       ./shell/zsh.nix
       ./amd-gpu.nix
       ./dark-theme.nix
+      ./xdg-mime.nix
       # wm / de
       ./desktop/wm/hyprland.nix
       # Apps 
