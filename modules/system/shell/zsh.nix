@@ -25,7 +25,7 @@
 
     ohMyZsh = {
       package = pkgs.oh-my-zsh;
-      plugins = [ "z" "git" "sudo" "docker" ]; 
+      plugins = [ "z" "git" "docker" ]; 
     };
   };
 }
