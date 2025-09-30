@@ -14,19 +14,29 @@
       # This requires --impure flag as breaks Nix's purity rules.
       /etc/nixos/hardware-configuration.nix 
 
-      ./kernel.nix
-      ./networking.nix
-      ./system-packages.nix
+      # System 
+      ./system/amd-gpu.nix
+      ./system/dyn-libraries.nix
+      ./system/kernel.nix
+      ./system/networking.nix
+      ./system/packages.nix
+      ./system/systemd-resolve.nix
+
+      ./system/audio/pipewire.nix
+
+      ./system/locale/keymap.nix
+      ./system/locale/locale.nix
+      
+      ./system/shell/zsh.nix
+
       ./users.nix
       ./fonts.nix
-      ./dyn-libraries.nix
       ./appimage.nix
-      ./systemd-resolve.nix
-      ./shell/zsh.nix
-      ./amd-gpu.nix
       ./dark-theme.nix
+
       # wm / de
       ./desktop/wm/hyprland.nix
+
       # Apps 
       ./apps/xdg-mime.nix
       ./apps/openssh.nix
@@ -39,11 +49,6 @@
       ./apps/gamescope.nix
       ./apps/podman.nix
       ./apps/machine-vm.nix
-      # Locale 
-      ./locale/keymap.nix
-      ./locale/locale.nix
-      # Audio
-      ./audio/pipewire.nix
     ];
 
   # Bootloader.
