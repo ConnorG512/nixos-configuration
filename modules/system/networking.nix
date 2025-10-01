@@ -20,6 +20,13 @@
       pingLimit = null;
       rejectPackets = false;
 
+      extraCommands = "";
+      extraStopCommands = "";
+      
+      extraInputRules = "";
+      extraForwardRules = "";
+      extraReversePathFilterRules = "";
+
       allowedTCPPorts = [
         80      # HTTP
         443     # HTTPS
