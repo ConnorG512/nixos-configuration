@@ -28,10 +28,10 @@
       ./system/bootloader.nix
 
       ./user/users.nix
-      ./fonts.nix
       ./appimage.nix
       
       ./theming/dark-theme.nix
+      ./theming/fonts.nix
 
       ./desktop/wm/hyprland.nix
 
