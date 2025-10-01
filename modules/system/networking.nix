@@ -16,8 +16,8 @@
 
     firewall = {
       enable = true;
-      
       allowPing = true;
+      pingLimit = null;
       rejectPackets = false;
 
       allowedTCPPorts = [
