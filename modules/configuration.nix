@@ -27,7 +27,7 @@
       ./system/shell/zsh.nix
       ./system/bootloader.nix
 
-      ./users.nix
+      ./user/users.nix
       ./fonts.nix
       ./appimage.nix
       
