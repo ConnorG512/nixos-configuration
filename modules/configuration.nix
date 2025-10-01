@@ -31,13 +31,10 @@
       ./fonts.nix
       ./appimage.nix
       
-      # Theming
       ./theming/dark-theme.nix
 
-      # wm / de
       ./desktop/wm/hyprland.nix
 
-      # Apps 
       ./apps/xdg-mime.nix
       ./apps/openssh.nix
       ./apps/gamemode.nix
