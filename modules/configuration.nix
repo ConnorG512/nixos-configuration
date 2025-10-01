@@ -32,7 +32,9 @@
       ./users.nix
       ./fonts.nix
       ./appimage.nix
-      ./dark-theme.nix
+      
+      # Theming
+      ./theming/dark-theme.nix
 
       # wm / de
       ./desktop/wm/hyprland.nix
