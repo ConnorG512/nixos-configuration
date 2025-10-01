@@ -21,13 +21,11 @@
       ./system/networking.nix
       ./system/packages.nix
       ./system/systemd-resolve.nix
-
       ./system/audio/pipewire.nix
-
       ./system/locale/keymap.nix
       ./system/locale/locale.nix
-      
       ./system/shell/zsh.nix
+      ./system/bootloader.nix
 
       ./users.nix
       ./fonts.nix
@@ -52,10 +50,6 @@
       ./apps/podman.nix
       ./apps/machine-vm.nix
     ];
-
-  # Bootloader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
