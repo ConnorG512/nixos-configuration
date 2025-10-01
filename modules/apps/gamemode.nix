@@ -1,6 +1,9 @@
 { config, pkgs, ...}:
   
 {
-  programs.gamemode.enable = true;
-  programs.gamemode.enableRenice = true;
+  programs.gamemode = {
+    enable = true;
+    enableRenice = true;
+    settings = { };
+  };
 }
