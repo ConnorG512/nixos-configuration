@@ -8,6 +8,9 @@
   };
 
   outputs = { self, nixpkgs, lsfg-vk-flake, ...}: 
+  let
+    userName = "connor";
+  in 
   {
     # nixosConfigurations.(hostname)
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
@@ -16,6 +19,7 @@
         ./modules/configuration.nix
         lsfg-vk-flake.nixosModules.default
       ];
+      specialArgs = { inherit userName; };
     };
   };
 }

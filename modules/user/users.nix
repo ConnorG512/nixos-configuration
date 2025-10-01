@@ -1,13 +1,13 @@
-{ config, pkgs, ... }:
+{ config, pkgs, userName, ... }:
 
 {
   # Creating directories in the user homes dir.
   systemd.tmpfiles.rules = [
-    "d /home/connor/documents 0755 connor connor -"
-    "d /home/connor/pictures 0755 connor connor -"
-    "d /home/connor/videos 0755 connor connor -"
-    "d /home/connor/music 0755 connor connor -"
-    "d /home/connor/.btrfsSnapshot 0755 connor connor -"
+    "d /home/connor/documents 0755 ${userName} ${userName} -"
+    "d /home/connor/pictures 0755 ${userName} ${userName} -"
+    "d /home/connor/videos 0755 ${userName} ${userName} -"
+    "d /home/connor/music 0755 ${userName} ${userName} -"
+    "d /home/connor/.btrfsSnapshot 0755 ${userName} ${userName} -"
   ];
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
@@ -15,10 +15,10 @@
 
     defaultUserShell = pkgs.zsh;
 
-    users.connor = {
+    users.${userName}= {
       isNormalUser = true;
-      home = "/home/connor";
-      description = "connor";
+      home = "/home/${userName}";
+      description = "${userName}";
       extraGroups = [ "networkmanager" "wheel" "gamemode" ];
 
       useDefaultShell = true;
