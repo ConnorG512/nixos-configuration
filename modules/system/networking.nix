@@ -1,8 +1,8 @@
-{ config, pkgs, ... }:
+{ config, pkgs, hostName, ... }:
 
 {
   networking = {
-    hostName = "nixos";
+    hostName = "${hostName}";
 
     networkmanager = {
       enable = true;

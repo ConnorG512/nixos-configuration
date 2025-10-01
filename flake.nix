@@ -10,16 +10,16 @@
   outputs = { self, nixpkgs, lsfg-vk-flake, ...}: 
   let
     userName = "connor";
+    hostName = "nixos";
   in 
   {
-    # nixosConfigurations.(hostname)
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [ 
         ./modules/configuration.nix
         lsfg-vk-flake.nixosModules.default
       ];
-      specialArgs = { inherit userName; };
+      specialArgs = { inherit userName; inherit hostName; };
     };
   };
 }
