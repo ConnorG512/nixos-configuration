@@ -61,7 +61,6 @@
       libreoffice-qt6-fresh
       grim 
       slurp 
-      neovim
       gnumake
       cmakeWithGui
       rocmPackages.clang
