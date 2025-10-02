@@ -47,6 +47,7 @@
       wineWowPackages.wayland
       podman
       distrobox
+      boxbuddy
       dxvk
       vkd3d-proton
       blender
