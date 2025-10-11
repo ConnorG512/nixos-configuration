@@ -2,9 +2,10 @@
 
 {
   # Latest linux kernel:
-  # kernelPackages = pkgs.linuxPackages_latest;
 
   boot = {
+    kernelPackages = pkgs.linuxPackages_latest;
+    
     # Boot parameters.
     kernelParams = [ "split_lock_detect=off" ];
   };
