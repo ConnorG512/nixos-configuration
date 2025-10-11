@@ -36,6 +36,7 @@
   patchelfUnstable
   goverlay
   radeontop
+  cloc
 
   # Custom flake
   ];
