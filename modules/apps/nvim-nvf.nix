@@ -37,8 +37,8 @@
               cmd = [ "clangd" ];
               filetypes = [ "c" "cpp" "h" "hpp" ];
             };
-            "nil" = {
-              cmd = [ "nil-ls" ];
+            "nil-ls" = {
+              cmd = [ "nil" ];
               filetypes = [ "nix" "flake" "lock" ];
             };
             "zls" = {
@@ -52,6 +52,9 @@
           enableFormat = true;
 
           clang = {
+            enable = true;
+          };
+          nix = {
             enable = true;
           };
         };
