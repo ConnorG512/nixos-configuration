@@ -53,7 +53,7 @@
       blender
       gparted
       mangohud
-      protonup
+      protonup-ng
       obs-studio
       blender
       krita
