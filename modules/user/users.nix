@@ -22,7 +22,7 @@
       extraGroups = [ "networkmanager" "wheel" "gamemode" ];
 
       useDefaultShell = true;
-      
+
       # User installed packages
       packages = with pkgs; [
       yt-dlp
@@ -89,4 +89,6 @@
       ];
     };
   };
+  
+  nix.settings.trusted-users = [ "root" "@wheel" "connor" ];
 }
