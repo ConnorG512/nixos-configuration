@@ -38,6 +38,7 @@
   radeontop
   cloc
   tree
+  inetutils
 
   # Custom flake
   ];
