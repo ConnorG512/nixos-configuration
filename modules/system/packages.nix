@@ -37,6 +37,7 @@
   goverlay
   radeontop
   cloc
+  tree
 
   # Custom flake
   ];
