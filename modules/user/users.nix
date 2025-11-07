@@ -81,6 +81,7 @@
       scanmem
       strace
       kdePackages.ghostwriter
+      gef
 
       # UNFREE
       steam
