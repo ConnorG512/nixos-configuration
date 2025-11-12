@@ -8,6 +8,20 @@
     settings = {
       vim = {
         luaConfigRC = { };
+        keymaps = [
+        {
+          key = "<leader>e";
+          mode = "n";
+          silent = true;
+          action = ":Neotree toggle<CR>";
+        }
+        {
+          key = "<leader>cf";
+          mode = "n";
+          silent = true;
+          action = ":%!clang-format<CR>";
+        }
+        ];
         treesitter = {
           indent.enable = false;
         };
@@ -45,6 +59,20 @@
               cmd = [ "zls" ];
               filetypes = [ "zig" "zig.zon" ];
             };
+          };
+        };
+        filetree.neo-tree = {
+          enable = true;
+          setupOpts = {
+            enable_diagnostics = true;
+            enable_cursor_hijack = false;
+            enable_git_status = true;
+            enable_modified_markers = true;
+            enable_refresh_on_write = true;
+            git_status_async = false;
+            hide_root_node = false;
+            open_files_in_last_window = true;
+            retain_hidden_root_indent = false;
           };
         };
         languages = {
