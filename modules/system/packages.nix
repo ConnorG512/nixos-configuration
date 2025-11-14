@@ -1,8 +1,6 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 {
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
   vim
@@ -39,7 +37,12 @@
   cloc
   tree
   inetutils
-
-  # Custom flake
+  btop
+  fzf
+  tmux
+  mpvpaper
+  unzip
+  grim 
+  slurp 
   ];
 }

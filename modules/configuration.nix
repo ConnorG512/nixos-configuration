@@ -2,11 +2,12 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ ... }:
 
 {
   # Enable NixOS experimental features.
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  
 
   imports =
     [ 
@@ -58,6 +59,4 @@
   system.stateVersion = "24.11"; # Did you read the comment?
   
   services.lsfg-vk.enable = true;  
-
-
 }

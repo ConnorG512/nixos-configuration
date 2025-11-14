@@ -1,8 +1,8 @@
-{ config, pkgs, hostName, ... }:
+{ prefNetwork, ... }:
 
 {
   networking = {
-    hostName = "${hostName}";
+    hostName = "${prefNetwork.hostName}";
 
     networkmanager = {
       enable = true;
@@ -15,9 +15,9 @@
     };
 
     firewall = {
-      enable = true;
-      allowPing = true;
-      pingLimit = null;
+      enable = prefNetwork.firewall.enable;
+      allowPing = prefNetwork.firewall.ping.enable;
+      pingLimit = prefNetwork.firewall.ping.limit;
       rejectPackets = false;
 
       extraCommands = "";
@@ -30,17 +30,10 @@
       allowedTCPPorts = [
         80      # HTTP
         443     # HTTPS
-        30000   # Luanti
-        5069    # System Shock 2 Remastered LAN?
-        40050   # computer-stat-net
-        53317   # localsend
-      ];
+      ] ++ prefNetwork.firewall.networkPorts.TCP;
       
       allowedUDPPorts = [
-        30000   # Luanti
-        5069    # System Shock 2 Remastered LAN?
-        53317   # localsend
-      ];
+      ] ++ prefNetwork.firewall.networkPorts.UDP;
     };
 
     wireless = {

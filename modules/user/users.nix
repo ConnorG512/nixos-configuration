@@ -1,95 +1,42 @@
-{ config, pkgs, userName, ... }:
+{ pkgs, prefUser, ... }:
 
 {
+  
+  nixpkgs.config.allowUnfree = true; 
+  
   # Creating directories in the user homes dir.
   systemd.tmpfiles.rules = [
-    "d /home/${userName}/documents 0755 ${userName} ${userName} -"
-    "d /home/${userName}/pictures 0755 ${userName} ${userName} -"
-    "d /home/${userName}/videos 0755 ${userName} ${userName} -"
-    "d /home/${userName}/music 0755 ${userName} ${userName} -"
-    "d /home/${userName}/.btrfsSnapshot 0755 ${userName} ${userName} -"
+    "d /home/${prefUser.userName}/${prefUser.homeDirNames.documents} 0755 ${prefUser.userName} ${prefUser.userName} -"
+    "d /home/${prefUser.userName}/${prefUser.homeDirNames.pictures} 0755 ${prefUser.userName} ${prefUser.userName} -"
+    "d /home/${prefUser.userName}/${prefUser.homeDirNames.videos} 0755 ${prefUser.userName} ${prefUser.userName} -"
+    "d /home/${prefUser.userName}/${prefUser.homeDirNames.music} 0755 ${prefUser.userName} ${prefUser.userName} -"
+    "d /home/${prefUser.userName}/.btrfsSnapshot 0755 ${prefUser.userName} ${prefUser.userName} -"
   ];
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users = {
-
     defaultUserShell = pkgs.zsh;
 
-    users.${userName}= {
+    users.${prefUser.userName}= {
       isNormalUser = true;
-      home = "/home/${userName}";
-      description = "${userName}";
-      extraGroups = [ "networkmanager" "wheel" "gamemode" ];
+      home = "/home/${prefUser.userName}";
+      description = "${prefUser.userName}";
+      extraGroups = prefUser.userGroups;
 
       useDefaultShell = true;
 
       # User installed packages
-      packages = with pkgs; [
-      yt-dlp
-      keepassxc
-      firefox-bin 
-      syncthing
-      mpv
-      gearlever
-      termusic
-      qbittorrent
-      mpvpaper
-      winetricks
-      git
-      lazygit
-      btop
-      wget
-      lf
-      unzip
-      fastfetch
-      tmux
-      fzf
-      wineWowPackages.wayland
-      podman
-      distrobox
-      boxbuddy
-      dxvk
-      vkd3d-proton
-      blender
-      gparted
-      mangohud
-      protonup-ng
-      obs-studio
-      blender
-      krita
-      inkscape
-      libreoffice-qt6-fresh
-      grim 
-      slurp 
-      gnumake
-      cmakeWithGui
-      rocmPackages.clang
-      cava
-      ncurses
-      valgrind
-      luanti
-      # nzportable
-      gdb
-      lutris
-      kdbg
-      kdePackages.ark
-      kdePackages.kdenlive
-      kdePackages.okular
-      ghidra-bin
-      tor-browser
-      localsend
-      scanmem
-      strace
-      kdePackages.ghostwriter
-      gef
-
-      # UNFREE
-      steam
-      discord-canary
-      spotify
-      ];
+      packages = with prefUser.userPackages; 
+        utility 
+        ++ development 
+        ++ gaming 
+        ++ webBrowsing 
+        ++ productivity 
+        ++ entertainment 
+        ++ containerisation 
+        ++ communication;
     };
   };
   
-  nix.settings.trusted-users = [ "root" "@wheel" "connor" ];
+  nix.settings.trusted-users = [ "root" "@wheel" "${prefUser.userName}" ];
 }
