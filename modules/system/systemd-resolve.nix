@@ -1,4 +1,4 @@
-{ config, pkgs, ... }: 
+{ ... }: 
 
 # Systemd-resolve is required for mullvad-vpn to work.
 {

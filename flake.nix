@@ -6,26 +6,37 @@
     lsfg-vk-flake.url = "github:pabloaul/lsfg-vk-flake/main";
     lsfg-vk-flake.inputs.nixpkgs.follows = "nixpkgs";
     nvf.url = "github:notashelf/nvf";
+    home-manager.url = "github:nix-community/home-manager";
+    home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
   
-  outputs = { nixpkgs, lsfg-vk-flake, nvf, ...}: 
+  outputs = inputs@{ nixpkgs, lsfg-vk-flake, nvf, home-manager, ...}: 
   let 
-    pkgs = nixpkgs.legacyPackages.x86_64-linux;
-  in
-  {
-    nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
+    pkgsUnfree = import nixpkgs {
       system = "x86_64-linux";
-      modules = [ 
-        ./modules/configuration.nix
-        lsfg-vk-flake.nixosModules.default
-	nvf.nixosModules.default
-      ];
-      specialArgs = { 
-        prefUser = import ./preferences/user/user.nix {
-          inherit pkgs;
-        }; 
-        prefSystem = import ./preferences/system.nix;
-        prefNetwork = import ./preferences/networking.nix;
+      config = { allowUnfree = true; };
+    };
+  in {
+    nixosConfigurations = {
+        nixos = nixpkgs.lib.nixosSystem {
+        pkgs = pkgsUnfree;
+        modules = [
+          ./modules/configuration.nix 
+          lsfg-vk-flake.nixosModules.default
+          nvf.nixosModules.default
+          home-manager.nixosModules.home-manager {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.connor = import ./user-preferences/home.nix;
+          }
+        ];
+        specialArgs = {
+          prefUser = import ./user-preferences/user.nix {
+            inherit pkgsUnfree;
+          }; 
+          prefSystem = import ./user-preferences/system.nix;
+          prefNetwork = import ./user-preferences/networking.nix;
+        };
       };
     };
   };

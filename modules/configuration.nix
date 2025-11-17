@@ -2,31 +2,27 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ ... }:
-
+{ pkgs, ... }:
 {
   # Enable NixOS experimental features.
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
-  
 
   imports =
     [ 
-      # Hardware configuration will be different per computer installed on.
-      # This requires --impure flag as breaks Nix's purity rules.
-      /etc/nixos/hardware-configuration.nix 
-
       # System 
-      ./system/amd-gpu.nix
+      ./system/amd-gpu.nix {}
       ./system/dyn-libraries.nix
       ./system/kernel.nix
       ./system/networking.nix
-      ./system/packages.nix
       ./system/systemd-resolve.nix
       ./system/audio/pipewire.nix
       ./system/locale/keymap.nix
       ./system/locale/locale.nix
       ./system/shell/zsh.nix
       ./system/bootloader.nix
+      
+      # requires --impure
+      /etc/nixos/hardware-configuration.nix
 
       ./user/users.nix
       ./appimage.nix
@@ -59,4 +55,21 @@
   system.stateVersion = "24.11"; # Did you read the comment?
   
   services.lsfg-vk.enable = true;  
+  
+  # Core system packages installed to all users.
+  environment.systemPackages = with pkgs; [
+    mesa
+    xdg-desktop-portal-hyprland
+    waybar
+    hyprcursor
+    alacritty
+    tofi
+    hyprpaper
+    hyprlock
+    hyprpolkitagent
+    fuse3
+    grim 
+    slurp 
+    exfat
+  ];
 }

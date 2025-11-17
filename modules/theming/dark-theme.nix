@@ -1,8 +1,8 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 {
   # Install themes to system
-  environment.systemPackages = with pkgs; [
+  environment.systemPackages= with pkgs; [
   ];
 
   # Environment Variables 

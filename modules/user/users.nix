@@ -1,9 +1,6 @@
 { pkgs, prefUser, ... }:
 
 {
-  
-  nixpkgs.config.allowUnfree = true; 
-  
   # Creating directories in the user homes dir.
   systemd.tmpfiles.rules = [
     "d /home/${prefUser.userName}/${prefUser.homeDirNames.documents} 0755 ${prefUser.userName} ${prefUser.userName} -"
@@ -24,17 +21,6 @@
       extraGroups = prefUser.userGroups;
 
       useDefaultShell = true;
-
-      # User installed packages
-      packages = with prefUser.userPackages; 
-        utility 
-        ++ development 
-        ++ gaming 
-        ++ webBrowsing 
-        ++ productivity 
-        ++ entertainment 
-        ++ containerisation 
-        ++ communication;
     };
   };
   

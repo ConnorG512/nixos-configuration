@@ -1,14 +1,31 @@
-{ pkgs }:
+{config, pkgs, ...}:
 
 {
-  allowUnfreePackages = true;
+  home.packages = with pkgs; [
+    # Core:
 
-  utility = with pkgs; [
+    # Utility:
     yt-dlp
     mangohud
+    lsof
+    unzip
+    hdparm
+    vulkan-tools
+    pwvucontrol
+    file
+    fileinfo
+    tmux
+    openssl
+    curl
+    patchelfUnstable
+    goverlay
+    cloc
+    tree
+    inetutils
+    btop
+    mpvpaper
     keepassxc
     gearlever
-    fastfetch
     gparted
     cava
     localsend
@@ -16,8 +33,14 @@
     kdePackages.ark
     kdePackages.okular
     qbittorrent
-  ];
-  development = with pkgs; [
+    man
+    man-pages
+    man-pages-posix
+    radeontop
+    fzf
+    fastfetch
+    
+    # Development:
     git
     lazygit
     gef
@@ -25,8 +48,8 @@
     kdbg
     strace
     scanmem
-  ];
-  gaming = with pkgs; [
+    
+    # Gaming:
     lutris
     dxvk
     vkd3d-proton
@@ -35,12 +58,12 @@
     luanti
     protonup-ng
     steam
-  ];
-  webBrowsing = with pkgs; [
+
+    # Web browsing:
     firefox-bin 
     tor-browser
-  ];
-  productivity = with pkgs; [
+    
+    # productivity:
     kdePackages.kdenlive
     kdePackages.ghostwriter
     krita
@@ -49,18 +72,20 @@
     obs-studio
     libreoffice-qt6-fresh
     blender
-  ];
-  entertainment = with pkgs; [
+
+    # Entertainment:
     spotify
     termusic
     mpv
-  ];
-  containerisation = with pkgs; [
+    feh
+
+    # Containerisation: 
     podman
     distrobox
     boxbuddy
-  ];
-  communication = with pkgs; [
+
+    # Communication:
     discord-canary
+    discordo
   ];
 }

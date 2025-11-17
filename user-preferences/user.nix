@@ -1,8 +1,6 @@
-{ pkgs }:
+{ pkgsUnfree }:
 
 {
-  userPackages = import ./packages.nix { inherit pkgs; };
-
   userName = "connor";
   userGroups = [
     "networkmanager" 
