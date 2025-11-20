@@ -1,4 +1,4 @@
-{ pkgs, ... }: 
+{ pkgs, ... }:
 
 {
   programs.zsh = {
@@ -25,7 +25,11 @@
 
     ohMyZsh = {
       package = pkgs.oh-my-zsh;
-      plugins = [ "z" "git" "docker" ]; 
+      plugins = [
+        "z"
+        "git"
+        "docker"
+      ];
     };
   };
 }

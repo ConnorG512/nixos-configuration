@@ -3,16 +3,16 @@
 {
   userName = "connor";
   userGroups = [
-    "networkmanager" 
-    "wheel" 
+    "networkmanager"
+    "wheel"
     "gamemode"
     "libvirtd"
   ];
 
   homeDirNames = {
-   documents = "documents";
-   pictures = "pictures";
-   videos = "videos";
-   music = "music";
+    documents = "documents";
+    pictures = "pictures";
+    videos = "videos";
+    music = "music";
   };
 }

@@ -9,5 +9,5 @@
   # Force RADV
   environment.variables.AMD_VULKAN_ICD = "RADV";
 
-  services.xserver.videoDrivers = ["amdgpu"];
+  services.xserver.videoDrivers = [ "amdgpu" ];
 }

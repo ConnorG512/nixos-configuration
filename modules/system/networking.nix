@@ -22,18 +22,20 @@
 
       extraCommands = "";
       extraStopCommands = "";
-      
+
       extraInputRules = "";
       extraForwardRules = "";
       extraReversePathFilterRules = "";
 
       allowedTCPPorts = [
-        80      # HTTP
-        443     # HTTPS
-      ] ++ prefNetwork.firewall.networkPorts.TCP;
-      
+        80 # HTTP
+        443 # HTTPS
+      ]
+      ++ prefNetwork.firewall.networkPorts.TCP;
+
       allowedUDPPorts = [
-      ] ++ prefNetwork.firewall.networkPorts.UDP;
+      ]
+      ++ prefNetwork.firewall.networkPorts.UDP;
     };
 
     wireless = {

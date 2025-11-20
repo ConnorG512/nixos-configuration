@@ -1,4 +1,9 @@
-{config, pkgs, nvf, ... }:
+{
+  config,
+  pkgs,
+  nvf,
+  ...
+}:
 
 {
   programs.nvf = {
@@ -9,24 +14,24 @@
       vim = {
         luaConfigRC = { };
         keymaps = [
-        {
-          key = "<leader>e";
-          mode = "n";
-          silent = true;
-          action = ":Neotree toggle<CR>";
-        }
-        {
-          key = "<leader>cf";
-          mode = "n";
-          silent = true;
-          action = ":%!clang-format<CR>";
-        }
-        {
-          key = "<leader>nf";
-          mode = "n";
-          silent = true;
-          action = ":%!nixfmt<CR>";
-        }
+          {
+            key = "<leader>e";
+            mode = "n";
+            silent = true;
+            action = ":Neotree toggle<CR>";
+          }
+          {
+            key = "<leader>cf";
+            mode = "n";
+            silent = true;
+            action = ":%!clang-format<CR>";
+          }
+          {
+            key = "<leader>nf";
+            mode = "n";
+            silent = true;
+            action = ":%!nixfmt<CR>";
+          }
         ];
         treesitter = {
           indent.enable = false;
@@ -39,7 +44,7 @@
           enable = true;
           name = "tokyonight";
           style = "night";
-        };          
+        };
         lsp = {
           servers = {
             "*" = {
@@ -55,15 +60,27 @@
 
             "clangd" = {
               cmd = [ "clangd" ];
-              filetypes = [ "c" "cpp" "h" "hpp" ];
+              filetypes = [
+                "c"
+                "cpp"
+                "h"
+                "hpp"
+              ];
             };
             "nil-ls" = {
               cmd = [ "nil" ];
-              filetypes = [ "nix" "flake" "lock" ];
+              filetypes = [
+                "nix"
+                "flake"
+                "lock"
+              ];
             };
             "zls" = {
               cmd = [ "zls" ];
-              filetypes = [ "zig" "zig.zon" ];
+              filetypes = [
+                "zig"
+                "zig.zon"
+              ];
             };
           };
         };
@@ -123,4 +140,3 @@
     };
   };
 }
-

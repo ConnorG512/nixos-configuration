@@ -14,7 +14,7 @@
   users = {
     defaultUserShell = pkgs.zsh;
 
-    users.${prefUser.userName}= {
+    users.${prefUser.userName} = {
       isNormalUser = true;
       home = "/home/${prefUser.userName}";
       description = "${prefUser.userName}";
@@ -23,6 +23,10 @@
       useDefaultShell = true;
     };
   };
-  
-  nix.settings.trusted-users = [ "root" "@wheel" "${prefUser.userName}" ];
+
+  nix.settings.trusted-users = [
+    "root"
+    "@wheel"
+    "${prefUser.userName}"
+  ];
 }

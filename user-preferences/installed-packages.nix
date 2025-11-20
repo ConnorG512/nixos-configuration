@@ -1,4 +1,4 @@
-{config, pkgs, ...}:
+{ config, pkgs, ... }:
 
 {
   home.packages = with pkgs; [
@@ -39,7 +39,7 @@
     radeontop
     fzf
     fastfetch
-    
+
     # Development:
     git
     lazygit
@@ -48,7 +48,7 @@
     kdbg
     strace
     scanmem
-    
+
     # Gaming:
     lutris
     dxvk
@@ -60,9 +60,9 @@
     steam
 
     # Web browsing:
-    firefox-bin 
+    firefox-bin
     tor-browser
-    
+
     # productivity:
     kdePackages.kdenlive
     kdePackages.ghostwriter
@@ -79,7 +79,7 @@
     mpv
     feh
 
-    # Containerisation: 
+    # Containerisation:
     podman
     distrobox
     boxbuddy

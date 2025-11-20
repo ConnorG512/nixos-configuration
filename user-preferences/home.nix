@@ -1,6 +1,6 @@
 { config, pkgs, ... }:
 
-let 
+let
   currentUser = "connor";
 in
 {
@@ -12,9 +12,9 @@ in
     username = currentUser;
     homeDirectory = "/home/${currentUser}";
     stateVersion = "24.11";
-    
-    # Import the config files directly to the home user. 
-    # relative to the user $HOME 
+
+    # Import the config files directly to the home user.
+    # relative to the user $HOME
     # So ".zshrc" is symlinked to ~/.zshrc / $HOME/.zshrc
     file = {
       ".zshrc".source = ../dotfiles/.zshrc;
@@ -29,7 +29,7 @@ in
       ".config/hypr/hyprland.conf".source = ../dotfiles/.config/hypr/hyprland.conf;
       ".config/hypr/hyprlock.conf".source = ../dotfiles/.config/hypr/hyprlock.conf;
       ".config/hypr/hyprpaper.conf".source = ../dotfiles/.config/hypr/hyprpaper.conf;
-      
+
       ".config/tofi/config".source = ../dotfiles/.config/tofi/config;
       ".config/waybar/config.jsonc".source = ../dotfiles/.config/waybar/config.jsonc;
       ".config/waybar/style.css".source = ../dotfiles/.config/waybar/style.css;

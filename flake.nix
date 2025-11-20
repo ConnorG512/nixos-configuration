@@ -9,35 +9,46 @@
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
-  
-  outputs = inputs@{ nixpkgs, lsfg-vk-flake, nvf, home-manager, ...}: 
-  let 
-    pkgsUnfree = import nixpkgs {
-      system = "x86_64-linux";
-      config = { allowUnfree = true; };
-    };
-  in {
-    nixosConfigurations = {
+
+  outputs =
+    inputs@{
+      nixpkgs,
+      lsfg-vk-flake,
+      nvf,
+      home-manager,
+      ...
+    }:
+    let
+      pkgsUnfree = import nixpkgs {
+        system = "x86_64-linux";
+        config = {
+          allowUnfree = true;
+        };
+      };
+    in
+    {
+      nixosConfigurations = {
         nixos = nixpkgs.lib.nixosSystem {
-        pkgs = pkgsUnfree;
-        modules = [
-          ./modules/configuration.nix 
-          lsfg-vk-flake.nixosModules.default
-          nvf.nixosModules.default
-          home-manager.nixosModules.home-manager {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.users.connor = import ./user-preferences/home.nix;
-          }
-        ];
-        specialArgs = {
-          prefUser = import ./user-preferences/user.nix {
-            inherit pkgsUnfree;
-          }; 
-          prefSystem = import ./user-preferences/system.nix;
-          prefNetwork = import ./user-preferences/networking.nix;
+          pkgs = pkgsUnfree;
+          modules = [
+            ./modules/configuration.nix
+            lsfg-vk-flake.nixosModules.default
+            nvf.nixosModules.default
+            home-manager.nixosModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.users.connor = import ./user-preferences/home.nix;
+            }
+          ];
+          specialArgs = {
+            prefUser = import ./user-preferences/user.nix {
+              inherit pkgsUnfree;
+            };
+            prefSystem = import ./user-preferences/system.nix;
+            prefNetwork = import ./user-preferences/networking.nix;
+          };
         };
       };
     };
-  };
 }

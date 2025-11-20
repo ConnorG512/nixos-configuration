@@ -5,46 +5,49 @@
 { pkgs, ... }:
 {
   # Enable NixOS experimental features.
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 
-  imports =
-    [ 
-      # System 
-      ./system/amd-gpu.nix {}
-      ./system/dyn-libraries.nix
-      ./system/kernel.nix
-      ./system/networking.nix
-      ./system/systemd-resolve.nix
-      ./system/audio/pipewire.nix
-      ./system/locale/keymap.nix
-      ./system/locale/locale.nix
-      ./system/shell/zsh.nix
-      ./system/bootloader.nix
-      
-      # requires --impure
-      /etc/nixos/hardware-configuration.nix
+  imports = [
+    # System
+    ./system/amd-gpu.nix
+    { }
+    ./system/dyn-libraries.nix
+    ./system/kernel.nix
+    ./system/networking.nix
+    ./system/systemd-resolve.nix
+    ./system/audio/pipewire.nix
+    ./system/locale/keymap.nix
+    ./system/locale/locale.nix
+    ./system/shell/zsh.nix
+    ./system/bootloader.nix
 
-      ./user/users.nix
-      ./appimage.nix
-      
-      ./theming/dark-theme.nix
-      ./theming/fonts.nix
+    # requires --impure
+    /etc/nixos/hardware-configuration.nix
 
-      ./desktop/wm/hyprland.nix
+    ./user/users.nix
+    ./appimage.nix
 
-      ./apps/xdg-mime.nix
-      ./apps/openssh.nix
-      ./apps/gamemode.nix
-      ./apps/steam.nix
-      ./apps/syncthing.nix
-      ./apps/mullvad-vpn.nix
-      ./apps/pcmanfm.nix
-      ./apps/gnupg.nix
-      ./apps/gamescope.nix
-      ./apps/podman.nix
-      ./apps/machine-vm.nix
-      ./apps/nvim-nvf.nix
-    ];
+    ./theming/dark-theme.nix
+    ./theming/fonts.nix
+
+    ./desktop/wm/hyprland.nix
+
+    ./apps/xdg-mime.nix
+    ./apps/openssh.nix
+    ./apps/gamemode.nix
+    ./apps/steam.nix
+    ./apps/syncthing.nix
+    ./apps/mullvad-vpn.nix
+    ./apps/pcmanfm.nix
+    ./apps/gnupg.nix
+    ./apps/gamescope.nix
+    ./apps/podman.nix
+    ./apps/machine-vm.nix
+    ./apps/nvim-nvf.nix
+  ];
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
@@ -53,9 +56,9 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "24.11"; # Did you read the comment?
-  
-  services.lsfg-vk.enable = true;  
-  
+
+  services.lsfg-vk.enable = true;
+
   # Core system packages installed to all users.
   environment.systemPackages = with pkgs; [
     mesa
@@ -68,8 +71,8 @@
     hyprlock
     hyprpolkitagent
     fuse3
-    grim 
-    slurp 
+    grim
+    slurp
     exfat
     nixfmt-rfc-style
   ];
