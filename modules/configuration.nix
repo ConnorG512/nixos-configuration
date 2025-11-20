@@ -71,5 +71,6 @@
     grim 
     slurp 
     exfat
+    nixfmt-rfc-style
   ];
 }
