@@ -21,6 +21,12 @@
           silent = true;
           action = ":%!clang-format<CR>";
         }
+        {
+          key = "<leader>nf";
+          mode = "n";
+          silent = true;
+          action = ":%!nixfmt<CR>";
+        }
         ];
         treesitter = {
           indent.enable = false;
