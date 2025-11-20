@@ -131,34 +131,37 @@
             nvim_lsp = "[LSP]";
             path = "[Path]";
             treesitter = "[Treesitter]";
-            luasnip = "[Snippet]";
+            #luasnip = "[Snippet]";
           };
         };
         autopairs.nvim-autopairs.enable = true;
         statusline.lualine.enable = true;
         telescope.enable = true;
-        snippets.luasnip.customSnippets.snipmate = {
-          # Examples taken from https://notashelf.github.io/nvf/options.html#opt-vim.snippets.luasnip.customSnippets.snipmate
-          all = [
-            {
-              trigger = "if";
-              body = "if $1 else $2";
-            }
-          ];
 
-          nix = [
-            {
-              trigger = "mkOption";
-              body = ''
-                mkOption {
-                  type = $1;
-                  default = $2;
-                  description = $3;
-                  example = $4;
-                }
-              '';
-            }
-          ];
+        snippets.luasnip = {
+          enable = true;
+
+          customSnippets.snipmate = {
+            # Examples taken from https://notashelf.github.io/nvf/options.html#opt-vim.snippets.luasnip.customSnippets.snipmate
+            # $0 = place your cursor will be set after finishing the command.
+            # $n = The order in which the template will move your cursor to fill it in.
+
+            all = [ ];
+            nix = [
+              {
+                trigger = "mkOption";
+                body = ''
+                  mkOption {
+                    type = $1;
+                    default = $2;
+                    description = $3;
+                    example = $4;
+                  }
+                '';
+              }
+            ];
+            cpp = import ./cpp-snipmate.nix;
+          };
         };
       };
     };

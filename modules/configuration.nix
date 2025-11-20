@@ -46,7 +46,7 @@
     ./apps/gamescope.nix
     ./apps/podman.nix
     ./apps/machine-vm.nix
-    ./apps/nvim-nvf.nix
+    ./apps/nvf/nvim-nvf.nix
   ];
 
   # This value determines the NixOS release from which the default
