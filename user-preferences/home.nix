@@ -33,6 +33,8 @@ in
       ".config/tofi/config".source = ../dotfiles/.config/tofi/config;
       ".config/waybar/config.jsonc".source = ../dotfiles/.config/waybar/config.jsonc;
       ".config/waybar/style.css".source = ../dotfiles/.config/waybar/style.css;
+
+      # ".config/nvim/lua/snippets/cpp.lua".source = ../dotfiles/.config/nvim/lua/snippets/cpp.lua;
     };
   };
   programs.home-manager.enable = true;

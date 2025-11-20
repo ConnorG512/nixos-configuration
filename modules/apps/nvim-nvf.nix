@@ -124,6 +124,7 @@
             "comment-nvim"
             "harpoon"
             "nix-develop-nvim"
+            "luasnip"
           ];
           sources = {
             buffer = "[Buffer]";
@@ -136,6 +137,29 @@
         autopairs.nvim-autopairs.enable = true;
         statusline.lualine.enable = true;
         telescope.enable = true;
+        snippets.luasnip.customSnippets.snipmate = {
+          # Examples taken from https://notashelf.github.io/nvf/options.html#opt-vim.snippets.luasnip.customSnippets.snipmate
+          all = [
+            {
+              trigger = "if";
+              body = "if $1 else $2";
+            }
+          ];
+
+          nix = [
+            {
+              trigger = "mkOption";
+              body = ''
+                mkOption {
+                  type = $1;
+                  default = $2;
+                  description = $3;
+                  example = $4;
+                }
+              '';
+            }
+          ];
+        };
       };
     };
   };
