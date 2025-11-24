@@ -34,6 +34,7 @@
     ./theming/fonts.nix
 
     ./desktop/wm/hyprland.nix
+    ./desktop/wm/niri.nix
 
     ./apps/xdg-mime.nix
     ./apps/openssh.nix

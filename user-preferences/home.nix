@@ -34,6 +34,8 @@ in
       ".config/waybar/config.jsonc".source = ../dotfiles/.config/waybar/config.jsonc;
       ".config/waybar/style.css".source = ../dotfiles/.config/waybar/style.css;
 
+      ".config/niri/config.kdl".source = ../dotfiles/.config/niri/config.kdl;
+
       # ".config/nvim/lua/snippets/cpp.lua".source = ../dotfiles/.config/nvim/lua/snippets/cpp.lua;
     };
   };
