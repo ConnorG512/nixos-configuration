@@ -61,18 +61,7 @@
 
   # Core system packages installed to all users.
   environment.systemPackages = with pkgs; [
-    mesa
-    xdg-desktop-portal-hyprland
-    waybar
-    hyprcursor
-    alacritty
-    tofi
-    hyprpaper
-    hyprlock
-    hyprpolkitagent
     fuse3
-    grim
-    slurp
     exfat
     nixfmt-rfc-style
   ];

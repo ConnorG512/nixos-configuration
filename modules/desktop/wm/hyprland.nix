@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, config, ... }:
 
 {
   programs.hyprland = {
@@ -7,4 +7,19 @@
     xwayland.enable = true;
     withUWSM = true;
   };
+  
+  environment.systemPackages = with pkgs; [
+    xdg-desktop-portal-hyprland
+    waybar
+    hyprcursor
+    alacritty
+    tofi
+    hyprpaper
+    hyprlock
+    hyprpolkitagent
+    grim
+    slurp
+    mesa
+  ];
 }
+
