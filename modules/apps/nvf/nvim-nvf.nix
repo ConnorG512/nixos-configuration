@@ -67,6 +67,15 @@
                 "hpp"
               ];
             };
+            "ccls" = {
+              cmd = [ "ccls" ];
+              filetypes = [
+                "c"
+                "cpp"
+                "h"
+                "hpp"
+              ];
+            };
             "nil-ls" = {
               cmd = [ "nil" ];
               filetypes = [
