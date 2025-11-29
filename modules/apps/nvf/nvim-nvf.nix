@@ -33,6 +33,13 @@
             action = ":%!nixfmt<CR>";
           }
         ];
+        clipboard = {
+          providers = {
+            wl-copy.enable = true;
+            xclip.enable = false;
+            xsel.enable = false;
+          };
+        };
         treesitter = {
           indent.enable = false;
         };
