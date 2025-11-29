@@ -65,5 +65,6 @@
     fuse3
     exfat
     nixfmt-rfc-style
+    wl-clipboard
   ];
 }
