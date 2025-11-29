@@ -111,12 +111,12 @@
       struct $3 : public $1 
       { 
           // Consider constexpr static auto for data. $0
-          void $2() { // Implementation } 
+          void $2() { /* Implementation */ } 
       };
 
       struct $4 : public $1 
       { 
-          void $2() { // Implementation } 
+          void $2() { /* Implementation */ } 
       };
     '';
   }
