@@ -98,6 +98,12 @@
                 "zig.zon"
               ];
             };
+            "rust-analyzer" = {
+              cmd = [ "rust-analyzer" ];
+              filetypes = [
+                "rust"
+              ];
+            };
           };
         };
         filetree.neo-tree = {
