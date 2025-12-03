@@ -383,7 +383,7 @@ binds {
     Super+Ctrl+W hotkey-overlay-title="Open Firefox" { spawn "firefox"; }
     Super+Ctrl+S hotkey-overlay-title="Open Spotify" { spawn "spotify"; }
     Super+Ctrl+F hotkey-overlay-title="Open Files" { spawn "nautilus"; }
-    Super+Ctrl+G hotkey-overlay-title="Open Files" { spawn "steam"; }
+    Super+Ctrl+G hotkey-overlay-title="Open Steam" { spawn "steam"; }
 
     // Use spawn-sh to run a shell command. Do this if you need pipes, multiple commands, etc.
     // Note: the entire command goes as a single argument. It's passed verbatim to `sh -c`.
