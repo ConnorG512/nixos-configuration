@@ -379,9 +379,10 @@ binds {
     Super+D hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel"; }
     Super+Alt+L hotkey-overlay-title="Lock the Screen: hyprlock" { spawn "hyprlock"; }
     
-    Super+Alt+S hotkey-overlay-title="System sleep:" { spawn "systemctl suspend"; }
-    Super+Alt+H hotkey-overlay-title="System hibernate:" { spawn "systemctl hibernate"; }
-    Super+Alt+P hotkey-overlay-title="System shutdown:" { spawn "shutdown now"; }
+    // System power options:
+    Super+Alt+S hotkey-overlay-title="System sleep:" { spawn "systemctl" "suspend"; }
+    Super+Alt+H hotkey-overlay-title="System hibernate:" { spawn "systemctl" "hibernate"; }
+    Super+Alt+P hotkey-overlay-title="System shutdown:" { spawn "shutdown" "now"; }
 
     // Application shortcuts:
     Super+Ctrl+W hotkey-overlay-title="Open Firefox" { spawn "firefox"; }
@@ -392,7 +393,7 @@ binds {
     // Use spawn-sh to run a shell command. Do this if you need pipes, multiple commands, etc.
     // Note: the entire command goes as a single argument. It's passed verbatim to `sh -c`.
     // For example, this is a standard bind to toggle the screen reader (orca).
-    Super+Alt+S allow-when-locked=true hotkey-overlay-title=null { spawn-sh "pkill orca || exec orca"; }
+    // Super+Alt+S allow-when-locked=true hotkey-overlay-title=null { spawn-sh "pkill orca || exec orca"; }
 
     // Example volume keys mappings for PipeWire & WirePlumber.
     // The allow-when-locked=true property makes them work even when the session is locked.
