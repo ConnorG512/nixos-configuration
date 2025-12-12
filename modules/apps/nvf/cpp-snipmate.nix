@@ -141,5 +141,24 @@
       }
     '';
   }
+  
+  {
+    trigger = "compileTimeDucktyping";
+    body = ''
+      #include <concepts>
+      template<typename $1>
+      concept executable = requires($1 $2) 
+      {
+          /* Ensures that only structs with the method "action" can be used with the template. */ $0
+          $2.action();
+      };
+
+      template <executable $1>
+      auto action($1 executable) noexcept -> void 
+      {
+          executable.action();
+      }
+    '';
+  }
 ]
 
