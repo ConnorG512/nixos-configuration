@@ -58,6 +58,7 @@
     luanti
     protonup-ng
     steam
+    prismlauncher
 
     # Web browsing:
     firefox-bin
