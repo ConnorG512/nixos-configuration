@@ -39,6 +39,7 @@
     radeontop
     fzf
     fastfetch
+    w3m-nox
 
     # Development:
     git
@@ -76,7 +77,9 @@
 
     # Entertainment:
     spotify
+    spotify-player
     termusic
+    youtube-tui
     mpv
     feh
 
