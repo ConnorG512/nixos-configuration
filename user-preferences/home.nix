@@ -35,7 +35,10 @@ in
       ".config/waybar/style.css".source = ../dotfiles/.config/waybar/style.css;
 
       ".config/niri/config.kdl".source = ../dotfiles/.config/niri/config.kdl;
+
       ".config/tmux/tmux.conf".source = ../dotfiles/.config/tmux/tmux.conf;
+      
+      ".config/mako/config".source = ../dotfiles/.config/mako/config;
 
       # ".config/nvim/lua/snippets/cpp.lua".source = ../dotfiles/.config/nvim/lua/snippets/cpp.lua;
     };

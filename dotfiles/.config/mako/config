@@ -1,0 +1,25 @@
+# https://github.com/emersion/mako/blob/master/doc/mako.5.scd
+
+# GLOBAL CONFIG
+
+max-history= 15 
+max-visible= 3
+sort= -time
+
+default-timeout= 300
+ignore-timeout=1
+
+# STYLE 
+background-color= #505050FF
+text-color= #7FC8FFFF
+
+border-color= #7FC8FFFF
+border-size= 2
+border-radius= 10
+
+width= 300
+height= 100
+
+padding= 5
+
+anchor= top-right
