@@ -15,6 +15,7 @@
     hyprpaper
     mako
     nautilus
+    gsettings-desktop-schemas
     waybar
     alacritty
     grim
@@ -22,8 +23,16 @@
     fuzzel
   ];
 
-  services.gnome = {
-    gnome-keyring.enable = true;
-    sushi.enable = true;
+  programs.nautilus-open-any-terminal = {
+    enable = true; 
+    terminal = "alacritty";
+  };
+  
+  services = {
+    gvfs.enable = true;
+    gnome = {
+      gnome-keyring.enable = true;
+      sushi.enable = true;
+    };
   };
 }
