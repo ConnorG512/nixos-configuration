@@ -37,7 +37,7 @@ in
       ".config/niri/config.kdl".source = ../dotfiles/.config/niri/config.kdl;
 
       ".config/tmux/tmux.conf".source = ../dotfiles/.config/tmux/tmux.conf;
-      
+
       ".config/mako/config".source = ../dotfiles/.config/mako/config;
 
       ".config/fuzzel/fuzzel.ini".source = ../dotfiles/.config/fuzzel/fuzzel.ini;
