@@ -9,6 +9,7 @@ in
     exfat
     nixfmt-rfc-style
     wl-clipboard
+    gamescope
   ]
   ++ codecs.gstreamerCodecs
   ++ codecs.ffmpegCodecs; 
