@@ -40,6 +40,9 @@ in
       
       ".config/mako/config".source = ../dotfiles/.config/mako/config;
 
+      ".config/fuzzel/fuzzel.ini".source = ../dotfiles/.config/fuzzel/fuzzel.ini;
+      ".config/fuzzel/blue.ini".source = ../dotfiles/.config/fuzzel/blue.ini;
+
       # ".config/nvim/lua/snippets/cpp.lua".source = ../dotfiles/.config/nvim/lua/snippets/cpp.lua;
     };
   };
