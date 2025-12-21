@@ -376,7 +376,7 @@ binds {
 
     // Suggested binds for running programs: terminal, app launcher, screen locker.
     Super+Q hotkey-overlay-title="Open a Terminal: alacritty" { spawn "alacritty"; }
-    Super+D hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel"; }
+    Super hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel"; }
     Super+Alt+L hotkey-overlay-title="Lock the Screen: hyprlock" { spawn "hyprlock"; }
     
     // System power options:
