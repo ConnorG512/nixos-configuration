@@ -7,6 +7,7 @@
     "wheel"
     "gamemode"
     "libvirtd"
+    "podman"
   ];
 
   homeDirNames = {
