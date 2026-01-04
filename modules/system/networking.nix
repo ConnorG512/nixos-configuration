@@ -38,8 +38,8 @@
       ++ prefNetwork.firewall.networkPorts.UDP;
     };
 
-    wireless = {
-      enable = true;
-    };
+    #wireless = {
+    #  enable = true;
+    #};
   };
 }
