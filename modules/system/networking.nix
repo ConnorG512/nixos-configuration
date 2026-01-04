@@ -39,7 +39,7 @@
     };
 
     wireless = {
-      enable = false;
+      enable = true;
     };
   };
 }
