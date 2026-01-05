@@ -2,8 +2,6 @@
 
 {
   home.packages = with pkgs; [
-    # Core:
-
     # Utility:
     yt-dlp
     mangohud
