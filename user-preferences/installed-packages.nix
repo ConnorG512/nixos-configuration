@@ -87,6 +87,7 @@
     podman
     distrobox
     boxbuddy
+    podman-tui
 
     # Communication:
     discord-canary
