@@ -8,5 +8,6 @@
 
     # Boot parameters.
     kernelParams = [ "split_lock_detect=off" ];
+    kernelModules = [ "ntsync" ];
   };
 }
