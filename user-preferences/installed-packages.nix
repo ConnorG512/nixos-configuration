@@ -58,6 +58,8 @@
     protonup-ng
     steam
     prismlauncher
+    alvr
+    steamtinkerlaunch
 
     # Web browsing:
     firefox-bin
