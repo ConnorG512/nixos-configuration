@@ -36,4 +36,8 @@
       sushi.enable = true;
     };
   };
+
+  xdg.portal = {
+    enable = true;
+  };
 }
