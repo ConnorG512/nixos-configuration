@@ -1,27 +1,27 @@
 { prefNetwork, ... }:
 
 {
-    firewall = {
-      enable = prefNetwork.firewall.enable;
-      allowPing = prefNetwork.firewall.ping.enable;
-      pingLimit = prefNetwork.firewall.ping.limit;
-      rejectPackets = false;
+  networking.firewall = {
+    enable = prefNetwork.firewall.enable;
+    allowPing = prefNetwork.firewall.ping.enable;
+    pingLimit = prefNetwork.firewall.ping.limit;
+    rejectPackets = false;
 
-      extraCommands = "";
-      extraStopCommands = "";
+    extraCommands = "";
+    extraStopCommands = "";
 
-      extraInputRules = "";
-      extraForwardRules = "";
-      extraReversePathFilterRules = "";
+    extraInputRules = "";
+    extraForwardRules = "";
+    extraReversePathFilterRules = "";
 
-      allowedTCPPorts = [
-        80 # HTTP
-        443 # HTTPS
-      ]
-      ++ prefNetwork.firewall.networkPorts.TCP;
+    allowedTCPPorts = [
+      80 # HTTP
+      443 # HTTPS
+    ]
+    ++ prefNetwork.firewall.networkPorts.TCP;
 
-      allowedUDPPorts = [
-      ]
-      ++ prefNetwork.firewall.networkPorts.UDP;
-    };
+    allowedUDPPorts = [
+    ]
+    ++ prefNetwork.firewall.networkPorts.UDP;
+  };
 }
