@@ -16,15 +16,16 @@
     ./system/system-packages.nix
     ./system/dyn-libraries.nix
     ./system/kernel.nix
-    ./system/networking/networking.nix
-    ./system/networking/dns.nix
-    ./system/networking/firewall.nix
     ./system/systemd-resolve.nix
     ./system/audio/pipewire.nix
     ./system/locale/keymap.nix
     ./system/locale/locale.nix
     ./system/shell/zsh.nix
     ./system/bootloader.nix
+    
+    ./system/networking/networking.nix
+    ./system/networking/dns.nix
+    ./system/networking/firewall.nix
 
     # requires --impure
     /etc/nixos/hardware-configuration.nix
