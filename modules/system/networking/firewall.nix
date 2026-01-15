@@ -1,19 +1,6 @@
 { prefNetwork, ... }:
 
 {
-  networking = {
-    hostName = "${prefNetwork.hostName}";
-
-    networkmanager = {
-      enable = true;
-      dhcp = "internal";
-      unmanaged = [ ];
-      settings = { };
-      plugins = [ ];
-
-      ethernet.macAddress = "preserve";
-    };
-
     firewall = {
       enable = prefNetwork.firewall.enable;
       allowPing = prefNetwork.firewall.ping.enable;
@@ -37,9 +24,4 @@
       ]
       ++ prefNetwork.firewall.networkPorts.UDP;
     };
-
-    #wireless = {
-    #  enable = true;
-    #};
-  };
 }

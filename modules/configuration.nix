@@ -16,7 +16,9 @@
     ./system/system-packages.nix
     ./system/dyn-libraries.nix
     ./system/kernel.nix
-    ./system/networking.nix
+    ./system/networking/networking.nix
+    ./system/networking/dns.nix
+    ./system/networking/firewall.nix
     ./system/systemd-resolve.nix
     ./system/audio/pipewire.nix
     ./system/locale/keymap.nix
