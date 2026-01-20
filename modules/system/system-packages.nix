@@ -11,6 +11,7 @@ in
     wl-clipboard
     wlr-randr
     gamescope
+    su
   ]
   ++ codecs.gstreamerCodecs
   ++ codecs.ffmpegCodecs; 
