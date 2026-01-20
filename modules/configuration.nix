@@ -51,6 +51,8 @@
     ./apps/podman.nix
     ./apps/machine-vm.nix
     ./apps/nvf/nvim-nvf.nix
+
+    ./apps/searxng/container-systemd-service.nix
   ];
 
   # This value determines the NixOS release from which the default
