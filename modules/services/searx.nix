@@ -3,6 +3,7 @@
 {
   services.searx = {
       enable = true;
+      environmentFile = "/home/connor/.searxng.env";
       redisCreateLocally = true;
 
       settings.server = {
