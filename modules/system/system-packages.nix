@@ -12,6 +12,7 @@ in
     wlr-randr
     gamescope
     su
+    shadow
   ]
   ++ codecs.gstreamerCodecs
   ++ codecs.ffmpegCodecs; 
