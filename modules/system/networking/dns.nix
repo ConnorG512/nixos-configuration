@@ -12,6 +12,7 @@ in
     networkmanager.dns = "none";
 
     # DNS Servers available to the system:
+    # nameservers are written to  /etc/resolv.conf
     nameservers = dnsProviders.quadNine.malwareDNSSEC ++ dnsProviders.cloudFlare.malware;
   };
 }
