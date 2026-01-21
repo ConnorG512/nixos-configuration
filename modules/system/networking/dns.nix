@@ -14,4 +14,4 @@ in
     # DNS Servers available to the system:
     nameservers = dnsProviders.quadNine.malwareDNSSEC ++ dnsProviders.cloudFlare.malware;
   };
-  }
+}
