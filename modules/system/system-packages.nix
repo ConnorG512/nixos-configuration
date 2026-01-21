@@ -13,6 +13,7 @@ in
     gamescope
     su
     shadow
+    nil
   ]
   ++ codecs.gstreamerCodecs
   ++ codecs.ffmpegCodecs; 
