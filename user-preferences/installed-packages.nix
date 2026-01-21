@@ -36,7 +36,6 @@
     man-pages-posix
     radeontop
     fzf
-    fastfetch
     w3m-nox
 
     # Development:
