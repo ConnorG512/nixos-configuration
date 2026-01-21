@@ -16,7 +16,6 @@
     ./system/system-packages.nix
     ./system/dyn-libraries.nix
     ./system/kernel.nix
-    ./system/systemd-resolve.nix
     ./system/audio/pipewire.nix
     ./system/locale/keymap.nix
     ./system/locale/locale.nix
