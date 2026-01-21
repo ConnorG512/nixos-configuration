@@ -8,6 +8,7 @@
     nvf.url = "github:notashelf/nvf";
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    fastfetch.url = "github:ConnorG512/nff";
   };
 
   outputs =
@@ -16,6 +17,7 @@
       lsfg-vk-flake,
       nvf,
       home-manager,
+      fastfetch,
       ...
     }:
     let
@@ -32,6 +34,7 @@
           pkgs = pkgsUnfree;
           modules = [
             ./modules/configuration.nix
+            fastfetch.nixosModules.fastfetch
             lsfg-vk-flake.nixosModules.default
             nvf.nixosModules.default
             home-manager.nixosModules.home-manager

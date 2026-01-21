@@ -63,5 +63,5 @@
   system.stateVersion = "24.11"; # Did you read the comment?
 
   services.lsfg-vk.enable = true;
-
+  programs.fastfetch.enable = true;
 }
