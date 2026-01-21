@@ -15,7 +15,7 @@
     nameservers = [
       "1.1.1.1" # Cloudflare Primary
       "1.0.0.1" # Cloudflare Secondary
-      "8.8.8.8" # Google
+      #"8.8.8.8" # Google
     ];
   };
   }
