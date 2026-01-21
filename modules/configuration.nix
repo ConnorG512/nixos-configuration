@@ -50,6 +50,7 @@
     ./apps/podman.nix
     ./apps/machine-vm.nix
     ./apps/nvf/nvim-nvf.nix
+    ./apps/nff.nix
     
     ./services/searx.nix
   ];
@@ -63,5 +64,4 @@
   system.stateVersion = "24.11"; # Did you read the comment?
 
   services.lsfg-vk.enable = true;
-  programs.fastfetch.enable = true;
 }
