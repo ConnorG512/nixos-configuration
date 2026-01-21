@@ -1,5 +1,8 @@
 {config, pkgs, lib, ...}:
 
+let
+  dnsProviders = import ./dns-provider-list.nix;
+in 
 {
   # Currently auto detecting DNS from router however sometimes failing and cutting internet.
   # Force use of public DNS addresses and disable auto resolving.
@@ -12,10 +15,6 @@
     networkmanager.dns = "none";
 
     # DNS Servers available to the system:
-    nameservers = [
-      "1.1.1.1" # Cloudflare Primary
-      "1.0.0.1" # Cloudflare Secondary
-      #"8.8.8.8" # Google
-    ];
+    nameservers = dnsProviders.quadNine.malwareDNSSEC ++ dnsProviders.cloudFlare.malware;
   };
   }
