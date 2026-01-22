@@ -17,7 +17,7 @@
       lsfg-vk-flake,
       nvf,
       home-manager,
-      fastfetch,
+      nff,
       ...
     }:
     let
@@ -34,7 +34,7 @@
           pkgs = pkgsUnfree;
           modules = [
             ./modules/configuration.nix
-            fastfetch.nixosModules.fastfetch
+            nff.nixosModules.fastfetch
             lsfg-vk-flake.nixosModules.default
             nvf.nixosModules.default
             home-manager.nixosModules.home-manager
