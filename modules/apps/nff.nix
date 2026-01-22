@@ -1,10 +1,25 @@
-{ config, pkgs, fastfetch, ... }:
+{ config, pkgs, nff, ... }:
 
 {
-  programs.fastfetch = {
-    enable = true;
-    logoSource = "auto";
-    logoWidth = 65;
-    logoHeight = 35;
+  programs.nff = {
+    enable = true; 
+
+    settings = {
+      logo = {
+        padding = {
+          top = 4;
+          left = 4;
+          right = 4;
+        };
+      };
+      modules = [
+        "title"
+        "separator"
+        "title"
+        "separator"
+        "os"
+        "separator"
+      ];
+    };
   };
 }
