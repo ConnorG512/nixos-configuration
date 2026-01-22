@@ -1,23 +1,5 @@
 {
   "nodes": {
-    "fastfetch": {
-      "inputs": {
-        "nixpkgs": "nixpkgs"
-      },
-      "locked": {
-        "lastModified": 1769123059,
-        "narHash": "sha256-iJ/zy9qGo1ooNBW9KF+uWHY1gmJuHw1R4R45Hupzcwg=",
-        "owner": "ConnorG512",
-        "repo": "nff",
-        "rev": "56250598b6195e0375acdcabd5739a7026c1be88",
-        "type": "github"
-      },
-      "original": {
-        "owner": "ConnorG512",
-        "repo": "nff",
-        "type": "github"
-      }
-    },
     "flake-compat": {
       "flake": false,
       "locked": {
@@ -133,6 +115,24 @@
         "type": "github"
       }
     },
+    "nff": {
+      "inputs": {
+        "nixpkgs": "nixpkgs"
+      },
+      "locked": {
+        "lastModified": 1769123059,
+        "narHash": "sha256-iJ/zy9qGo1ooNBW9KF+uWHY1gmJuHw1R4R45Hupzcwg=",
+        "owner": "ConnorG512",
+        "repo": "nff",
+        "rev": "56250598b6195e0375acdcabd5739a7026c1be88",
+        "type": "github"
+      },
+      "original": {
+        "owner": "ConnorG512",
+        "repo": "nff",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1768886240,
@@ -206,9 +206,9 @@
     },
     "root": {
       "inputs": {
-        "fastfetch": "fastfetch",
         "home-manager": "home-manager",
         "lsfg-vk-flake": "lsfg-vk-flake",
+        "nff": "nff",
         "nixpkgs": "nixpkgs_2",
         "nvf": "nvf"
       }
