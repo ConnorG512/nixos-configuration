@@ -8,7 +8,7 @@
     nvf.url = "github:notashelf/nvf";
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
-    nff.url = "github:ConnorG512/nff/dev";
+    nff.url = "git+file:///home/connor/programming/nix/nff";
   };
 
   outputs =
