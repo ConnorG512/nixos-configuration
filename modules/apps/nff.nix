@@ -50,8 +50,10 @@
         "separator"
         "disk"
         "separator"
-        "network"
-        "localip"
+        {
+          type = "localip";
+          showSpeed = true;
+        }
       ];
     };
   };
