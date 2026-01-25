@@ -74,6 +74,21 @@
       std::unique_ptr<$1, decltype(&$2)> $0 {nullptr, &$2}; 
     '';
   }
+  
+  {
+    trigger = "uniqPtrFactoryFuncDeleter";
+    body = ''
+      auto $1($2) noexcept 
+        -> std::unique_ptr<$3, decltype(&$4)>
+      {
+        $3 *$5 {nullptr};
+        // Implementation.
+        
+        assert($5 != nullptr);
+        return std::unique_ptr<$3, decltype(&$4)> {};
+      }
+    '';
+  }
 
   {
     trigger = "runtimeStraregy";
