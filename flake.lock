@@ -120,11 +120,11 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1769261981,
-        "narHash": "sha256-MJUKM7KGv46VzE6tZBVMiThNgeGYsiERrmu8Fr0ru+w=",
-        "ref": "refs/heads/modules-brace-addition",
-        "rev": "063d1e1a24a37cfab6b72cbe264f3caf4f0ead3c",
-        "revCount": 91,
+        "lastModified": 1769288493,
+        "narHash": "sha256-LS3xMcKArOqQac3c0BcmFmSeH4XMVem8+7EFq2xABOw=",
+        "ref": "refs/heads/main",
+        "rev": "5047a7a9ae6f40b9a209f28e52f7417b810b2256",
+        "revCount": 101,
         "type": "git",
         "url": "file:///home/connor/programming/nix/nff"
       },
