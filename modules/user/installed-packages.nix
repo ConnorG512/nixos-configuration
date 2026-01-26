@@ -17,7 +17,6 @@
     curl
     patchelfUnstable
     goverlay
-    cloc
     tree
     inetutils
     btop
@@ -46,6 +45,7 @@
     kdbg
     strace
     scanmem
+    cloc
 
     # Gaming:
     lutris
