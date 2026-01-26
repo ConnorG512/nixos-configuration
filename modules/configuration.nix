@@ -11,6 +11,9 @@
   ];
 
   imports = [
+    # requires --impure
+    /etc/nixos/hardware-configuration.nix
+    
     # System
     ./system/amd-gpu.nix
     ./system/system-packages.nix
@@ -24,10 +27,8 @@
     
     ./system/networking/networking.nix
 
-    # requires --impure
-    /etc/nixos/hardware-configuration.nix
+    ./user/user.nix
 
-    ./user/users.nix
     ./appimage.nix
 
     ./theming/dark-theme.nix
@@ -51,6 +52,11 @@
     ./apps/nff.nix
     
     ./services/searx.nix
+  ];
+
+  nix.settings.trusted-users = [
+    "root"
+    "@wheel"
   ];
 
   # This value determines the NixOS release from which the default
