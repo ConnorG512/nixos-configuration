@@ -1,16 +1,12 @@
-{ config, pkgs, ... }:
+{ config, ... }: 
 
 let
-  currentUser = "connor";
-in
+  userName = config.systemConfiguration.userDetails.name;
+in 
 {
-  imports = [
-    ./installed-packages.nix
-  ];
-
   home = {
-    username = currentUser;
-    homeDirectory = "/home/${currentUser}";
+    username = userName;
+    homeDirectory = "/home/${userName}";
     stateVersion = "24.11";
 
     # Import the config files directly to the home user.
@@ -42,9 +38,6 @@ in
 
       ".config/fuzzel/fuzzel.ini".source = ../dotfiles/.config/fuzzel/fuzzel.ini;
       ".config/fuzzel/blue.ini".source = ../dotfiles/.config/fuzzel/blue.ini;
-
-      # ".config/nvim/lua/snippets/cpp.lua".source = ../dotfiles/.config/nvim/lua/snippets/cpp.lua;
     };
   };
-  programs.home-manager.enable = true;
 }

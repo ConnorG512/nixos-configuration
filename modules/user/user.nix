@@ -4,6 +4,8 @@
   imports = [
     ./details.nix
     ./directories.nix
+    ./configuration-files.nix
+    ./installed-packages.nix
   ];
   
   systemConfiguration = 
@@ -29,5 +31,7 @@
       createUserDirs = true;
       useUpperCaseNames = false;
     };
+
+    programs.home-manager.enable = true;
   }; 
 }
