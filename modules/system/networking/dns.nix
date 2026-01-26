@@ -1,18 +1,28 @@
-{config, pkgs, lib, ...}:
+{config, lib, ...}:
 
 let
-  dnsProviders = import ./dns-provider-list.nix;
+  cfg = config.systemConfiguration.dns;
 in 
 {
-  # Currently auto detecting DNS from router however sometimes failing and cutting internet.
-  # Force use of public DNS addresses and disable auto resolving.
-  
-  networking = {
-    # Turn off the router automatic DNS:
-    networkmanager.dns = "none";
+  options.systemConfiguration.dns = {
+    enableAutomaticDns = lib.mkOption {
+      type = lib.types.bool;
+      default = false;
+      description = "Enable the use of automatic DNS.";
+      example = true;
+    };
 
-    # DNS Servers available to the system:
-    # nameservers are written to  /etc/resolv.conf
-    nameservers = dnsProviders.quadNine.malwareDNSSEC ++ dnsProviders.cloudFlare.malware;
+    providers = lib.mkOption {
+      type = lib.types.listOf lib.types.str;
+      default = (import ./dns-provider-list.nix).google.standard;
+      description = "List of providers to enable in the DNS";
+      example = [ "8.8.8.8" "1.1.1.1" ];
+    };
+  };
+  
+  config = lib.mkIf (cfg.enableAutomaticDns == false) {
+    # Turn off the router automatic DNS:
+    networking.networkmanager.dns = "none";
+    networking.nameservers = cfg.providers;
   };
 }
