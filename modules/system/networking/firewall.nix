@@ -1,27 +1,34 @@
-{ prefNetwork, ... }:
+{ config, lib, ... }:
 
+let
+  cfg = config.systemConfiguration.firewall;
+in 
 {
-  networking.firewall = {
-    enable = prefNetwork.firewall.enable;
-    allowPing = prefNetwork.firewall.ping.enable;
-    pingLimit = prefNetwork.firewall.ping.limit;
-    rejectPackets = false;
+  options.systemConfiguration.firewall = {
+    enable = lib.mkOption {
+      type = lib.types.bool;
+      default = true;
+      description = "Enable firewall";
+      example = false;
+    };
 
-    extraCommands = "";
-    extraStopCommands = "";
+    openedPorts = lib.mkOption {
+      type = lib.types.listOf lib.types.int;
+      default = [ 80 443 ];
+      description = "Ports to open on UDP and TCP";
+      example = [ 80 443 ];
+    };
+  };
 
-    extraInputRules = "";
-    extraForwardRules = "";
-    extraReversePathFilterRules = "";
-
-    allowedTCPPorts = [
-      80 # HTTP
-      443 # HTTPS
-    ]
-    ++ prefNetwork.firewall.networkPorts.TCP;
-
-    allowedUDPPorts = [
-    ]
-    ++ prefNetwork.firewall.networkPorts.UDP;
+  config = lib.mkIf cfg.enable {
+    networking.firewall = {
+      allowedTCPPorts = cfg.openedPorts;
+      allowedUDPPorts = cfg.openedPorts;
+      enable = true;
+      allowPing = true;
+      pingLimit = null;
+      rejectPackets = false;
+    };
   };
 }
+

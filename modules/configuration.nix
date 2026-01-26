@@ -23,8 +23,6 @@
     ./system/bootloader.nix
     
     ./system/networking/networking.nix
-    ./system/networking/dns.nix
-    ./system/networking/firewall.nix
 
     # requires --impure
     /etc/nixos/hardware-configuration.nix
