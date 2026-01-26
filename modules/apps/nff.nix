@@ -5,11 +5,13 @@
     enable = true; 
 
     settings = {
+
       logo = {
         type = "builtin";
         source = "auto";
 
         padding = {
+
           top = 2;
           left = 0;
           right = 2;
@@ -26,6 +28,11 @@
             red = "light_red";
           };
         };
+
+        key = {
+          type = "string";
+          width = 32;
+        };
         
         bar = {
           width = 12;
@@ -35,7 +42,10 @@
       modules = [
         "title"
         "separator"
-        "os"
+        {
+          type = "os";
+          key = "OS";
+        }
         "host"
         "uptime"
         "separator"
