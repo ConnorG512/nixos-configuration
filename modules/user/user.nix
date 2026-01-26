@@ -1,5 +1,8 @@
 { ... }:
 
+let
+  userName = "connor";
+in 
 {
   imports = [
     ./details.nix
@@ -9,9 +12,6 @@
   ];
   
   systemConfiguration = 
-  let
-    userName = "connor";
-  in 
   {
     userDetails = {
       name = userName;
@@ -31,7 +31,15 @@
       createUserDirs = true;
       useUpperCaseNames = false;
     };
-
-    programs.home-manager.enable = true;
   }; 
+
+  programs.home-manager.enable = true;
+  home-manager.users.${userName} = {
+    home = {
+      username = userName;
+      homeDirectory = "/home/${userName}";
+      stateVersion = "24.11";
+      file = (import ./configuration-files.nix).file;
+    };
+  };
 }
