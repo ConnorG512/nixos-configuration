@@ -27,7 +27,7 @@
 
     userDirectories = {
       createUserDirs = true;
-      userUpperCaseNames = false;
+      useUpperCaseNames = false;
     };
   }; 
 }
