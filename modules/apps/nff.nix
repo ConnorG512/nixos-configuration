@@ -12,9 +12,9 @@
 
         padding = {
 
-          top = 2;
+          top = 0;
           left = 0;
-          right = 2;
+          right = 0;
         };
       };
 
@@ -35,7 +35,7 @@
         };
         
         bar = {
-          width = 12;
+          width = 0;
         };
       };
 
