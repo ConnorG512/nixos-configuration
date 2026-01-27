@@ -23,7 +23,7 @@ in
   config = lib.mkIf cfg.enable {
     hardware.graphics = {
       enable = true;
-      enable32bit = cfg.enable32bit;
+      enable32Bit = cfg.enable32bit;
     };
 
     # Force RADV
