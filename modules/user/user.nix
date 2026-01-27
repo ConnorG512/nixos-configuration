@@ -7,8 +7,6 @@ in
   imports = [
     ./details.nix
     ./directories.nix
-    ./configuration-files.nix
-    ./installed-packages.nix
   ];
   
   systemConfiguration = 
@@ -32,14 +30,19 @@ in
       useUpperCaseNames = false;
     };
   }; 
-
+  
+  # Home manager.
   programs.home-manager.enable = true;
   home-manager.users.${userName} = {
+    imports = [
+      ./configuration-files.nix
+      ./installed-packages.nix
+    ];
+
     home = {
       username = userName;
       homeDirectory = "/home/${userName}";
       stateVersion = "24.11";
-      file = (import ./configuration-files.nix).file;
     };
   };
 }
