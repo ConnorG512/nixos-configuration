@@ -1,5 +1,7 @@
+{ ... }:
+
 {
-  file = {
+  home.file = {
     ".zshrc".source = ../dotfiles/.zshrc;
     ".config/alacritty/alacritty.toml".source = ../dotfiles/.config/alacritty/alacritty.toml;
     ".config/fastfetch/config.jsonc".source = ../dotfiles/.config/fastfetch/config.jsonc;
