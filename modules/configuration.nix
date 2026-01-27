@@ -15,7 +15,7 @@
     /etc/nixos/hardware-configuration.nix
     
     # System
-    ./system/amd-gpu.nix
+    ./system/gpu/gpu.nix
     ./system/system-packages.nix
     ./system/dyn-libraries.nix
     ./system/kernel.nix
