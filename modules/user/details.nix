@@ -42,6 +42,11 @@ in
         home = "/home/${cfg.name}";
         description = "${cfg.name}";
         extraGroups = cfg.groupList;
+
+        shell = if cfg.shellType == "bash" then 
+            pkgs.bash
+          else 
+            pkgs.zsh;
       };
     };
     
@@ -50,9 +55,5 @@ in
     else 
       [ ];
 
-    users.users.${cfg.name}.shell = if cfg.shellType == "bash" then 
-        pkgs.bash
-      else 
-        pkgs.zsh;
   };
 }
