@@ -33,16 +33,15 @@
         nixos = nixpkgs.lib.nixosSystem {
           pkgs = pkgsUnfree;
           modules = [
-            ./modules/configuration.nix
-            nff.nixosModules.fastfetch
-            lsfg-vk-flake.nixosModules.default
-            nvf.nixosModules.default
             home-manager.nixosModules.home-manager
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
-              home-manager.users.connor = import ./user-preferences/home.nix;
             }
+            nff.nixosModules.fastfetch
+            lsfg-vk-flake.nixosModules.default
+            nvf.nixosModules.default
+            ./modules/configuration.nix
           ];
           specialArgs = {
             prefUser = import ./user-preferences/user.nix {
