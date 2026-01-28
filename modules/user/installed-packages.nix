@@ -36,6 +36,8 @@
     radeontop
     fzf
     w3m-nox
+    xxd
+    hexedit
 
     # Development:
     git
