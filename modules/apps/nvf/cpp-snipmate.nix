@@ -85,7 +85,10 @@
         // Implementation.
         
         assert($5 != nullptr);
-        return std::unique_ptr<$3, decltype(&$4)> {};
+        return std::unique_ptr<$3, decltype(&$4)> {
+          $5,
+          &$4
+        };
       }
     '';
   }
