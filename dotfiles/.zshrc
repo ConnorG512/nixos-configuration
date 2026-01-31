@@ -47,3 +47,8 @@ function tmuxdev() {
   tmux select-window -t $SESSION_NAME:1
   tmux attach-session -t $SESSION_NAME
 }
+
+function cdf() {
+  local dir="${1:-.}"
+  cd "$(fd --type d . $dir | fzf)"
+}
