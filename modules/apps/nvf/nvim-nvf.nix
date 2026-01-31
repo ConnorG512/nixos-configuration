@@ -169,19 +169,7 @@
             # $n = The order in which the template will move your cursor to fill it in.
 
             all = [ ];
-            nix = [
-              {
-                trigger = "mkOption";
-                body = ''
-                  mkOption {
-                    type = $1;
-                    default = $2;
-                    description = $3;
-                    example = $4;
-                  }
-                '';
-              }
-            ];
+            nix = import ./nix-snipmate.nix;
             cpp = import ./cpp-snipmate.nix;
           };
         };
