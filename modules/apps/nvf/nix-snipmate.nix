@@ -69,22 +69,22 @@
   {
     trigger = "buildPhase";
     body = ''
-      buildPhase = ""
+      buildPhase = '''
         runHook preBuild
         $0
         runHook postBuild
-      "";
+      ''';
     '';
   }
   
   {
     trigger = "installPhase";
     body = ''
-      installPhase = ""
+      installPhase = '''
         runHook preInstall
         $0
         runHook postInstall
-      "";
+      ''';
     '';
   }
   
@@ -104,9 +104,9 @@
       devShells.$1.default = $2.mkShell {
         packages = [ ];
 
-        shellHook = ""
+        shellHook = '''
           echo "Entering shell!"
-        "";
+        ''';
       }
     '';
   }
