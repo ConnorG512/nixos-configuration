@@ -16,7 +16,6 @@ in
     imports = [
       ./configuration-files.nix
       ./installed-packages.nix
-      ./environment-vars.nix
     ];
 
     home = {
