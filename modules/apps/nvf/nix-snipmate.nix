@@ -2,14 +2,14 @@
   {
     trigger = "linuxPkgsX86_64";
     body = ''
-      $1 = nixpkgs.legacyPackages.x86_64-linux
+      $1 = nixpkgs.legacyPackages.x86_64-linux;
     '';
   }
 
   {
     trigger = "linuxMingwW64Pkgs";
     body = ''
-      $1 = nixpkgs.legacyPackages.x86_64-linux.pkgsCross.mingwW64
+      $1 = nixpkgs.legacyPackages.x86_64-linux.pkgsCross.mingwW64;
     '';
   }
 
