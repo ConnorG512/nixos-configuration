@@ -35,4 +35,30 @@
       }
     '';
   }
+
+  {
+    trigger = "mkDerivation";
+    body = ''
+      stdenv.mkDerivation (finalAttrs: {
+        pname = "$1";
+        version = "$2"
+        src = $3;
+      });
+    '';
+  }
+
+  {
+    trigger = "mkShell";
+    body = ''
+      devShells.$1.default = $2.mkShell {
+        packages = with $2; [
+          
+        ];
+
+        shellHook = ''
+          echo "Entering shell!"
+        '';
+      }
+    '';
+  }
 ]
