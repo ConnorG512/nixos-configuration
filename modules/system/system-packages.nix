@@ -10,6 +10,7 @@ in
     nixfmt-rfc-style
     wl-clipboard
     wlr-randr
+    fd
     gamescope
     su
     shadow
