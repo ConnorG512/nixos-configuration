@@ -24,6 +24,7 @@
     ./system/locale/locale.nix
     ./system/shell/zsh.nix
     ./system/bootloader.nix
+    ./system/environment-vars.nix
     
     ./system/networking/networking.nix
 
