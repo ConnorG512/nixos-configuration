@@ -94,6 +94,17 @@
   }
 
   {
+    trigger = "returnDerefPointer";
+    body = ''
+      auto $1() -> noexcept $2&
+      {
+        assert($3 != nullptr);
+        return *$3;
+      }
+    '';
+  }
+
+  {
     trigger = "runtimeStraregy";
     body = ''
       class $1 
