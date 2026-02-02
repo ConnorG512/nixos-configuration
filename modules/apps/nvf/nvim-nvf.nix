@@ -170,7 +170,7 @@
 
             all = [ ];
             nix = import ./nix-snipmate.nix;
-            cpp = import ./cpp-snipmate.nix;
+            cpp = import ./cpp-snipmate/cpp-snipmate.nix;
             cmake = import ./cmake-snipmate.nix;
           };
         };
