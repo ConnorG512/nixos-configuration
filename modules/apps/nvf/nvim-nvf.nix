@@ -172,6 +172,7 @@
             nix = import ./nix-snipmate.nix;
             cpp = import ./cpp-snipmate/cpp-snipmate.nix;
             cmake = import ./cmake-snipmate.nix;
+            lua = import ./lua-snipmate.nix;
           };
         };
       };
