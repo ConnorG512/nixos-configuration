@@ -15,7 +15,7 @@ in
   {
     trigger = "operator";
     body = ''
-      auto operator()($1) $2 {$3;}
+      auto operator()($1) $2 -> $3 {$4;}
     '';
   }
 
