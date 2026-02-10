@@ -32,6 +32,16 @@ in
       concept $1 = $2;
     '';
   }
+  
+  {
+  trigger = "concept requires";
+  body = ''
+    concept $1 = requires($2)
+    {
+      
+    };
+  '';
+  }
 
   {
     trigger = "lambda expression";
