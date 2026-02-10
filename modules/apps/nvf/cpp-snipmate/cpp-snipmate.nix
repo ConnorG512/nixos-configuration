@@ -25,5 +25,12 @@ in
       template <$1>
     '';
   }
+
+  {
+    trigger = "concept";
+    body = ''
+      concept $1 = $2;
+    '';
+  }
 ] ++ loopsArrays ++ classes ++ patterns ++ pointers
 
