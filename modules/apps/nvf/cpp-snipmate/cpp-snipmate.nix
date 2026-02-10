@@ -18,5 +18,12 @@ in
       auto operator()($1) $2 {$3;}
     '';
   }
+
+  {
+    trigger = "template";
+    body = ''
+      template <$1>
+    '';
+  }
 ] ++ loopsArrays ++ classes ++ patterns ++ pointers
 
