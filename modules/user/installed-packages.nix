@@ -3,6 +3,8 @@
 {
   home.packages = with pkgs; [
     # Utility:
+    sshfs
+    sftp
     yt-dlp
     mangohud
     lsof
