@@ -11,5 +11,12 @@ in
       $1 ? $2 : $3$0;
     '';
   }
+
+  {
+    trigger = "operator";
+    body = ''
+      auto operator()($1) $2 {$3;}
+    '';
+  }
 ] ++ loopsArrays ++ classes ++ patterns ++ pointers
 
