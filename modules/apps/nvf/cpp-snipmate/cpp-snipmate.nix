@@ -32,5 +32,12 @@ in
       concept $1 = $2;
     '';
   }
+
+  {
+    trigger = "lambda expression";
+    body = ''
+      [$1]($2){$3}
+    '';
+  }
 ] ++ loopsArrays ++ classes ++ patterns ++ pointers
 
