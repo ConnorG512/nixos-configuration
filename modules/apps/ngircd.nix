@@ -3,5 +3,6 @@
 {
   services.ngircd = {
     enable = true;
+    config = "Name = local\nInfo = local IRC server\n";
   };
 }
