@@ -51,6 +51,7 @@
     ./apps/machine-vm.nix
     ./apps/nvf/nvim-nvf.nix
     ./apps/nff.nix
+    ./apps/ngircd.nix
     
     ./services/searx.nix
   ];
