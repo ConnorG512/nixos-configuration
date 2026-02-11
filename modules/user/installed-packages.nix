@@ -94,5 +94,6 @@
     # Communication:
     discord-canary
     discordo
+    irssi
   ];
 }
