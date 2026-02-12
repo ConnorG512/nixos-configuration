@@ -15,6 +15,7 @@ in
     su
     shadow
     nil
+    nix-index
   ]
   ++ codecs.gstreamerCodecs
   ++ codecs.ffmpegCodecs; 
