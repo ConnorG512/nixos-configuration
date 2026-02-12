@@ -3,7 +3,21 @@
 {
   services.ngircd = {
     enable = true;
-    config = "Name = local\nInfo = local IRC server\n";
+    config = ''
+      [Global]
+        Name = nix-irc.lan
+        Info = Home IRC Server
+        AdminInfo1 = Connor
+        ServerUID = ngircd
+
+      [Options]
+        PAM = no
+        DNS = no
+    '';
   };
-  networking.firewall.allowedTCPPorts = [ 6667 ];
+  
+  networking.firewall = {
+    allowedTCPPorts = [ 6667 ];
+    allowedUDPPorts = [ 6667 ];
+  }; 
 }
