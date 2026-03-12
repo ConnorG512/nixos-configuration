@@ -54,7 +54,8 @@
     lutris
     dxvk
     vkd3d-proton
-    wineWowPackages.wayland
+    wineWow64Packages.waylandFull
+    #wineWowPackages.wayland
     winetricks
     luanti
     protonup-ng
