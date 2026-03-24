@@ -54,6 +54,7 @@
     ./apps/ngircd.nix
     
     ./services/searx.nix
+    ./services/sunshine.nix
   ];
 
   nix.settings.trusted-users = [
