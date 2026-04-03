@@ -3,6 +3,7 @@ let
   classes = import ./classes.nix;
   patterns = import ./patterns.nix;
   pointers = import ./pointers.nix;
+  builder = import ./builder.nix;
 in 
 [
   {
@@ -49,5 +50,5 @@ in
       [$1]($2){$3}
     '';
   }
-] ++ loopsArrays ++ classes ++ patterns ++ pointers
+] ++ loopsArrays ++ classes ++ patterns ++ pointers ++ builder
 
