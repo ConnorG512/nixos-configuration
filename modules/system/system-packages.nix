@@ -16,6 +16,7 @@ in
     shadow
     nil
     nix-index
+    exiftool
   ]
   ++ codecs.gstreamerCodecs
   ++ codecs.ffmpegCodecs; 
