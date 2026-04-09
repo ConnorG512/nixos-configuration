@@ -25,6 +25,7 @@
     ./system/shell/zsh.nix
     ./system/bootloader.nix
     ./system/environment-vars.nix
+    ./system/controllers.nix
     
     ./system/networking/networking.nix
 
