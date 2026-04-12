@@ -16,6 +16,7 @@ in
     shadow
     nil
     nix-index
+    bash-language-server
     exiftool
   ]
   ++ codecs.gstreamerCodecs
