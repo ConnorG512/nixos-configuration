@@ -104,6 +104,13 @@
                 "rust"
               ];
             };
+            "bash-language-server" = {
+              cmd = [ "bash-language-server" ];
+              filetypes = [
+                "zsh"
+                "sh"
+              ];
+            };
           };
         };
         filetree.neo-tree = {
