@@ -53,6 +53,7 @@
     ./apps/nvf/nvim-nvf.nix
     ./apps/nff.nix
     ./apps/ngircd.nix
+    ./apps/gpu-screen-recorder.nix
     
     ./services/searx.nix
     ./services/sunshine.nix
