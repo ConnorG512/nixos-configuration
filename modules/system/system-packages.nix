@@ -28,6 +28,12 @@ in
       default = false;
       description = "Whether to install mangohud / goverlay.";
     };
+    
+    installTuiUitls = lib.mkOption {
+      type = lib.types.bool;
+      default = false;
+      description = "Whether to install terminal utilities.";
+    };
 
     extraPackages = lib.mkOption {
       type = lib.types.listOf lib.types.package;
@@ -77,31 +83,26 @@ in
         goverlay
       ];
     })
+    
+    (lib.mkIf cfg.installTuiUitls{
+      environment.systemPackages = with pkgs; [
+        file
+        fileinfo
+        fzf
+        tree
+        lsof
+      ];
+    })
 
     # Common: 
     {
       environment.systemPackages = with pkgs; [
         fuse3
         exfat
-        fd
         su
         shadow
         nix-index
-        exiftool
         sshfs
-        tmux
-        lsof
-        file
-        fileinfo
-        openssl
-        curl
-        btop
-        tree
-        inetutils
-        lf
-        fzf
-        ripgrep
-        keepassxc
       ] ++ cfg.extraPackages;
     }
   ];
