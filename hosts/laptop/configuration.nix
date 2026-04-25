@@ -25,6 +25,7 @@
     "${self}/modules/system/audio/pipewire.nix"
     "${self}/modules/system/system-packages.nix"
     "${self}/modules/system/shell/zsh.nix"
+    "${self}/modules/system/controllers.nix"
 
     "${self}/modules/system/networking/firewall.nix"
     
