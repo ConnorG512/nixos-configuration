@@ -57,6 +57,7 @@
       groupList = [ "wheel" ];
       useZsh = true;
       userPackageList = (import ./user-packages.nix);
+      configFileList = (import ./config-files.nix);
     };
     networking = {
       firewall = {
