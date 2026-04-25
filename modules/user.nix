@@ -39,6 +39,15 @@ in
       description = "Packages to install on a user level.";
       example = with pkgs; [ firefox mpv ];
     };
+
+    configFileList = lib.mkOption {
+      type = lib.types lib.types.attrsOf lib.types.path;
+      default = {};
+      description = "Map of destination paths to source dotfile paths.";
+      example = {
+        ".zshrc" = ./dotfiles/zshrc;
+      };
+    };
   };
 
   config = lib.mkMerge [

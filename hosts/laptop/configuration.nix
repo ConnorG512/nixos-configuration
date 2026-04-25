@@ -28,7 +28,7 @@
 
     ../../modules/system/networking/firewall.nix
     
-    .../../modules/user/user.nix
+    .../../modules/user.nix
 
     ../../modules/desktop/de/lxqt.nix
 
