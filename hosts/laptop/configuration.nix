@@ -35,7 +35,7 @@
     "${self}/modules/system/locale/keymap.nix"
     "${self}/modules/system/locale/locale.nix"
 
-    "${self}/modules/desktop/de/lxqt.nix"
+    "${self}/modules/desktop/de/kde.nix"
 
     "${self}/modules/appimage.nix"
     "${self}/modules/apps/nff.nix"
@@ -80,6 +80,10 @@
         enableAutomaticDns = false;
         providers = (import ../../modules/system/networking/dns-provider-list.nix).cloudFlare.malware;
       };
+    };
+    desktop.kde = {
+      enable = true;
+      useQt5 = true;
     };
   }; 
 
