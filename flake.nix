@@ -38,7 +38,7 @@
             }
             nff.nixosModules.fastfetch
             nvf.nixosModules.default
-            ./modules/configuration.nix
+            "${self}/hosts/desktop/configuration.nix"
           ];
           specialArgs = {
             inherit self;
@@ -54,6 +54,8 @@
           pkgs = pkgsUnfree; 
           modules = [
             nvf.nixosModules.default
+            nff.nixosModules.fastfetch
+            "${self}/hosts/laptop/configuration.nix"
           ];
           specialArgs = {
             inherit self;
