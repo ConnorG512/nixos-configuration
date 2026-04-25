@@ -1,10 +1,10 @@
 { config, lib, ... }:
 
 let
-  cfg = config.systemConfiguration.firewall;
+  cfg = config.systemConfiguration.networking.firewall;
 in 
 {
-  options.systemConfiguration.firewall = {
+  options.systemConfiguration.networking.firewall = {
     enable = lib.mkOption {
       type = lib.types.bool;
       default = true;
@@ -22,9 +22,9 @@ in
 
   config = lib.mkIf cfg.enable {
     networking.firewall = {
+      enable = cfg.enable;
       allowedTCPPorts = cfg.openedPorts;
       allowedUDPPorts = cfg.openedPorts;
-      enable = true;
       allowPing = true;
       pingLimit = null;
       rejectPackets = false;
