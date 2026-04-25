@@ -16,7 +16,6 @@ with pkgs; [
   luanti
   prismlauncher
 
-  firefox-bin
   tor-browser
 
   libreoffice-qt6-fresh
