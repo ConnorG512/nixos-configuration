@@ -43,6 +43,7 @@
     "${self}/modules/apps/openssh.nix"
     "${self}/modules/apps/mullvad-vpn.nix"
     "${self}/modules/apps/pcmanfm.nix"
+    "${self}/modules/apps/firefox.nix"
   ];
 
   networking.networkmanager = {
