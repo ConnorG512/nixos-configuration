@@ -32,6 +32,9 @@
     
     "${self}/modules/user.nix"
 
+    "${self}/modules/locale/keymap.nix"
+    "${self}/modules/locale/locale.nix"
+
     "${self}/modules/desktop/de/lxqt.nix"
 
     "${self}/modules/appimage.nix"
