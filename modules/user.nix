@@ -56,7 +56,7 @@ in
       programs.zsh.enable = cfg.useZsh;
       home = {
         packages = cfg.userPackageList;
-        file = cfg.configFileList;
+        file = lib.mapAttrs (name: path: { source = path; }) cfg.configFileList;
       };
     };
   };
