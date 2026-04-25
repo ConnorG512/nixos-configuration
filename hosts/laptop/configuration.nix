@@ -37,6 +37,7 @@
     ../../modules/apps/nvf/nvim-nvf.nix
     ../../modules/apps/openssh.nix
     ../../modules/apps/mullvad-vpn.nix
+    ../../modules/apps/pcmanfm.nix
   ];
 
   systemConfiguration = {
