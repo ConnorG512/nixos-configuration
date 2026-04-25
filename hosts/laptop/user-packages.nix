@@ -17,6 +17,7 @@ with pkgs; [
   prismlauncher
 
   tor-browser
+  kdePackages.dolphin
 
   libreoffice-qt6-fresh
 
