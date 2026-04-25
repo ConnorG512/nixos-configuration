@@ -34,6 +34,12 @@ in
       default = false;
       description = "Whether to install terminal utilities.";
     };
+    
+    installMesa = lib.mkOption {
+      type = lib.types.bool;
+      default = true;
+      description = "Whether to install Mesa graphics.";
+    };
 
     extraPackages = lib.mkOption {
       type = lib.types.listOf lib.types.package;
@@ -91,6 +97,12 @@ in
         fzf
         tree
         lsof
+      ];
+    })
+    
+    (lib.mkIf cfg.installMesa{
+      environment.systemPackages = with pkgs; [
+        mesa
       ];
     })
 
