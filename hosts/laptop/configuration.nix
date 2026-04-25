@@ -56,7 +56,7 @@
     };
     user = {
       name = "connor";
-      groupList = [ "wheel" ];
+      groupList = [ "wheel" "networkmanager" ];
       useZsh = true;
       userPackageList = (import ./user-packages.nix) { inherit pkgs; };
       configFileList = (import ./config-files.nix) { inherit self; };
