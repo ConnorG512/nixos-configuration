@@ -25,14 +25,31 @@ in
       description = "Use KDE X11 session.";
       example = true;
     };
+    
+    loginManager = lib.mkOption {
+      type = lib.types.enum [ "plasma" "sddm" ];
+      default = "plasma";
+      description = "Use KDE X11 session.";
+      example = "plasma";
+    };
   };
   
-  config = {
-    services.desktopManager.plasma6 = {
-      enable = cfg.enable;
-      enableQt5Integration = cfg.useQt5;
-    };
+  config = lib.mkMerge [
+    {
+      services.desktopManager.plasma6 = {
+        enable = cfg.enable;
+        enableQt5Integration = cfg.useQt5;
+      };
 
-    services.xserver.enable = cfg.useX11;
-  };
+      xdg-portal.enable = cfg.enable;
+      services.xserver.enable = cfg.useX11;
+    }
+    
+    (lib.mkIf (cfg.loginManager == "plasma"){
+      services.displayManager.plasma-login-manager.enable = true;
+    })
+    (lib.mkIf (cfg.loginManager == "sddm"){
+      services.displayManager.sddm.enable = true;
+    })
+  ];
 }
