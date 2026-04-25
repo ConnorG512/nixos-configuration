@@ -57,6 +57,7 @@
     
     "${self}/modules/services/searx.nix"
     "${self}/modules/services/sunshine.nix"
+    "${self}/modules/user.nix"
   ];
 
   systemConfiguration = {
