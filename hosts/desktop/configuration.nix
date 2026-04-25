@@ -71,7 +71,7 @@
     };
     user = {
       name = "connor";
-      groupList = [ "wheel" "libvirtd" "networkmanager" ];
+      groupList = [ "wheel" "libvirtd" "networkmanager" "podman" ];
       useZsh = true;
       userPackageList = (import ./user-packages.nix);
       configFileList = (import ./config-files.nix);
