@@ -84,6 +84,7 @@
     desktop.kde = {
       enable = true;
       useQt5 = true;
+      useX11 = false;
     };
   }; 
 

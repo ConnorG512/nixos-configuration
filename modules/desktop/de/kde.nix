@@ -19,13 +19,6 @@ in
       example = true;
     };
 
-    useWayland = lib.mkOption {
-      type = lib.types.bool;
-      default = true;
-      description = "Use KDE Wayland session.";
-      example = false;
-    };
-    
     useX11 = lib.mkOption {
       type = lib.types.bool;
       default = false;
@@ -40,7 +33,6 @@ in
       enableQt5Integration = cfg.useQt5;
     };
 
-    wayland.enable = cfg.useWayland;
     services.xserver.enable = cfg.useX11;
   };
 }
