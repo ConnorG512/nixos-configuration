@@ -61,7 +61,7 @@
     networking = {
       firewall = {
         enable = true;
-        openedPorts = [ 80 443 53317 ];
+        openedPorts = [ 80 443 53317 42069 ];
       };
       dns = {
         enable = false;
