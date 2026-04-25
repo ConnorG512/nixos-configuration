@@ -39,7 +39,6 @@ with pkgs; [
   steamtinkerlaunch
 
   # Web browsing:
-  firefox-bin
   tor-browser
 
   # productivity:
