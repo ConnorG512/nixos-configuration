@@ -24,6 +24,10 @@ in
     hardware.graphics = {
       enable = true;
       enable32Bit = cfg.enable32bit;
+
+      environment.systemPackages = with pkgs; [
+        radeontop
+      ];
     };
 
     # Force RADV
