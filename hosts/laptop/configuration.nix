@@ -42,6 +42,10 @@
     "${self}/modules/apps/pcmanfm.nix"
   ];
 
+  networking.networkmanager = {
+    enable = true;
+  };
+
   systemConfiguration = {
     sysPackages = {
       displayType = "x11";
