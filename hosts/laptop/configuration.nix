@@ -47,8 +47,6 @@
       installTuiUitls = true;
       extraPackages = with pkgs; [
         tmux
-        openssl
-        curl
         btop
         ripgrep
       ];
