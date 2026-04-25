@@ -25,10 +25,11 @@ in
       enable = true;
       enable32Bit = cfg.enable32bit;
 
-      environment.systemPackages = with pkgs; [
-        radeontop
-      ];
     };
+
+    environment.systemPackages = with pkgs; [
+      radeontop
+    ];
 
     # Force RADV
     environment.variables.AMD_VULKAN_ICD = "RADV";
