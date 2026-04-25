@@ -58,8 +58,8 @@
       name = "connor";
       groupList = [ "wheel" ];
       useZsh = true;
-      userPackageList = (import ./user-packages.nix);
-      configFileList = (import ./config-files.nix);
+      userPackageList = (import ./user-packages.nix) { inherit pkgs; };
+      configFileList = (import ./config-files.nix) { inherit self; };
     };
     networking = {
       firewall = {
