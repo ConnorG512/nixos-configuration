@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ ... }:
+{ pkgs, ... }:
 {
   # Enable NixOS experimental features.
   nix.settings.experimental-features = [
@@ -18,10 +18,20 @@
   imports = [
     # requires --impure
     /etc/nixos/hardware-configuration.nix
-
-
+    
+    ../../modules/system/kernel.nix
+    ../../modules/system/bootloader.nix
+    ../../modules/system/audio/pipewire.nix
+    ../../modules/system/system-packages.nix
+    
+    ../../modules/desktop/de/lxqt.nix
+    ../../modules/appimage.nix
+    ../../modules/apps/nff.nix
+    ../../modules/apps/nvf/nvim-nvf.nix
+    ../../modules/apps/openssh.nix
   ];
 
+  systemConfiguration.sysPackages.displayType = "x11";
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
