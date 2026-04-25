@@ -1,7 +1,6 @@
 { self, ... }:
 
 {
-  home.file = {
     ".zshrc".source = "${self}/dotfiles/.zshrc";
     ".config/alacritty/alacritty.toml".source = "${self}/dotfiles/.config/alacritty/alacritty.toml";
     ".config/fastfetch/config.jsonc".source = "${self}/dotfiles/.config/fastfetch/config.jsonc";
@@ -27,5 +26,4 @@
 
     ".config/fuzzel/fuzzel.ini".source = "${self}/dotfiles/.config/fuzzel/fuzzel.ini";
     ".config/fuzzel/blue.ini".source = "${self}/dotfiles/.config/fuzzel/blue.ini";
-  };
 }
