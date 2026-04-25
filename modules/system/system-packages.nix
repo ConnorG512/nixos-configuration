@@ -28,6 +28,13 @@ in
       default = false;
       description = "Whether to install mangohud / goverlay.";
     };
+
+    extraPackages = lib.mkOption {
+      type = lib.types.listOf lib.types.package;
+      default = [];
+      description = "Extra system packages to provide.";
+      example = with pkgs; [ mpv feh ];
+    };
   };
 
   config = lib.mkMerge [
@@ -95,7 +102,7 @@ in
         fzf
         ripgrep
         keepassxc
-      ];
+      ] ++ cfg.extraPackages;
     }
   ];
 }
