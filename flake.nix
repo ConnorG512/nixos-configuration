@@ -13,7 +13,6 @@
     inputs@{
       self,
       nixpkgs,
-      lsfg-vk-flake,
       nvf,
       home-manager,
       nff,
@@ -38,7 +37,6 @@
               home-manager.useUserPackages = true;
             }
             nff.nixosModules.fastfetch
-            lsfg-vk-flake.nixosModules.default
             nvf.nixosModules.default
             ./modules/configuration.nix
           ];
