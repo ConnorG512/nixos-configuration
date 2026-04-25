@@ -89,7 +89,7 @@
         providerList = (import "${self}/modules/system/networking/dns-provider-list.nix");
       in 
       {
-        enable = false;
+        enableAutomaticDns = false;
         providers = providerList.quadNine.malwareDNSSEC ++ providerList.cloudFlare.malware;
       };
     };
