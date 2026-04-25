@@ -1,10 +1,10 @@
 {config, pkgs, lib, ... }:
 
 let
-  cfg = config.systemConfiguration.newUser;
+  cfg = config.systemConfiguration.user;
 in 
 {
-  options.systemConfiguration.newUser = {
+  options.systemConfiguration.user = {
     name = lib.mkOption {
       type = lib.types.string;
       default = "user";

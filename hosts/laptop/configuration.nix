@@ -52,7 +52,7 @@
         ripgrep
       ];
     };
-    newUser = {
+    user = {
       name = "connor";
       groupList = [ "wheel" ];
       useZsh = true;
