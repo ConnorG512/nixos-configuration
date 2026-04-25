@@ -31,7 +31,11 @@
     ../../modules/apps/openssh.nix
   ];
 
-  systemConfiguration.sysPackages.displayType = "x11";
+  systemConfiguration.sysPackages = {
+    displayType = "x11";
+    installManPages = true;
+    installWinePackages = true;
+  };
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
