@@ -53,6 +53,11 @@
         laptop = nixpkgs.lib.nixosSystem {
           pkgs = pkgsUnfree; 
           modules = [
+            home-manager.nixosModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+            }
             nvf.nixosModules.default
             nff.nixosModules.fastfetch
             "${self}/hosts/laptop/configuration.nix"
