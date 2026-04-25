@@ -43,7 +43,6 @@ in
 
   config = lib.mkMerge [
     {
-
       users.users.${cfg.name} = {
         isNormalUser = true;
         extraGroups = cfg.groupList;
