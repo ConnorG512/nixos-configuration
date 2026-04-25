@@ -3,39 +3,22 @@
 {
   home.packages = with pkgs; [
     # Utility:
-    sshfs
     yt-dlp
-    mangohud
-    lsof
     unzip
     hdparm
     vulkan-tools
     pwvucontrol
-    file
-    fileinfo
-    tmux
-    openssl
-    curl
     patchelfUnstable
-    goverlay
-    tree
-    inetutils
-    btop
     mpvpaper
     keepassxc
     gearlever
     gparted
     cava
     localsend
-    lf
     kdePackages.ark
     kdePackages.okular
     qbittorrent
-    man
-    man-pages
-    man-pages-posix
     radeontop
-    fzf
     w3m-nox
     xxd
     hexedit
@@ -52,11 +35,7 @@
 
     # Gaming:
     lutris
-    dxvk
-    vkd3d-proton
-    wineWow64Packages.waylandFull
     #wineWowPackages.wayland
-    winetricks
     luanti
     protonup-ng
     steam
