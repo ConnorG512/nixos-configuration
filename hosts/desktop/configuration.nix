@@ -9,6 +9,11 @@
     "nix-command"
     "flakes"
   ];
+  
+  nix.settings.trusted-users = [
+    "root"
+    "@wheel"
+  ];
 
   imports = [
     # requires --impure
@@ -25,10 +30,6 @@
     ./system/bootloader.nix
     ./system/environment-vars.nix
     ./system/controllers.nix
-    
-    ./system/networking/networking.nix
-
-    ./user/user.nix
 
     ./appimage.nix
 
@@ -56,11 +57,6 @@
     
     ./services/searx.nix
     ./services/sunshine.nix
-  ];
-
-  nix.settings.trusted-users = [
-    "root"
-    "@wheel"
   ];
 
   # This value determines the NixOS release from which the default
