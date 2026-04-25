@@ -20,42 +20,42 @@
     /etc/nixos/hardware-configuration.nix
     
     # System
-    ./system/gpu/gpu.nix
-    ./system/system-packages.nix
-    ./system/kernel.nix
-    ./system/audio/pipewire.nix
-    ./system/locale/keymap.nix
-    ./system/locale/locale.nix
-    ./system/shell/zsh.nix
-    ./system/bootloader.nix
-    ./system/environment-vars.nix
-    ./system/controllers.nix
+    "${self}/modules/system/gpu/gpu.nix"
+    "${self}/modules/system/system-packages.nix"
+    "${self}/modules/system/kernel.nix"
+    "${self}/modules/system/audio/pipewire.nix"
+    "${self}/modules/system/locale/keymap.nix"
+    "${self}/modules/system/locale/locale.nix"
+    "${self}/modules/system/shell/zsh.nix"
+    "${self}/modules/system/bootloader.nix"
+    "${self}/modules/system/environment-vars.nix"
+    "${self}/modules/system/controllers.nix"
 
-    ./appimage.nix
+    "${self}/modules/appimage.nix"
 
-    ./theming/dark-theme.nix
-    ./theming/fonts.nix
+    "${self}/modules/theming/dark-theme.nix"
+    "${self}/modules/theming/fonts.nix"
 
-    ./desktop/wm/hyprland.nix
-    ./desktop/wm/niri.nix
+    "${self}/modules/desktop/wm/hyprland.nix"
+    "${self}/modules/desktop/wm/niri.nix"
 
-    ./apps/xdg-mime.nix
-    ./apps/openssh.nix
-    ./apps/gamemode.nix
-    ./apps/steam.nix
-    ./apps/syncthing.nix
-    ./apps/mullvad-vpn.nix
-    ./apps/gnupg.nix
-    ./apps/gamescope.nix
-    ./apps/podman.nix
-    ./apps/machine-vm.nix
-    ./apps/nvf/nvim-nvf.nix
-    ./apps/nff.nix
-    ./apps/ngircd.nix
-    ./apps/gpu-screen-recorder.nix
+    "${self}/modules/apps/xdg-mime.nix"
+    "${self}/modules/apps/openssh.nix"
+    "${self}/modules/apps/gamemode.nix"
+    "${self}/modules/apps/steam.nix"
+    "${self}/modules/apps/syncthing.nix"
+    "${self}/modules/apps/mullvad-vpn.nix"
+    "${self}/modules/apps/gnupg.nix"
+    "${self}/modules/apps/gamescope.nix"
+    "${self}/modules/apps/podman.nix"
+    "${self}/modules/apps/machine-vm.nix"
+    "${self}/modules/apps/nvf/nvim-nvf.nix"
+    "${self}/modules/apps/nff.nix"
+    "${self}/modules/apps/ngircd.nix"
+    "${self}/modules/apps/gpu-screen-recorder.nix"
     
-    ./services/searx.nix
-    ./services/sunshine.nix
+    "${self}/modules/services/searx.nix"
+    "${self}/modules/services/sunshine.nix"
   ];
 
   systemConfiguration = {
@@ -72,7 +72,7 @@
     };
     user = {
       name = "connor";
-      groupList = [ "wheel" "libvirtd" ];
+      groupList = [ "wheel" "libvirtd" "networkmanager" ];
       useZsh = true;
       userPackageList = (import ./user-packages.nix);
       configFileList = (import ./config-files.nix);
