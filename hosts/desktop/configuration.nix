@@ -36,7 +36,6 @@
     "${self}/modules/theming/dark-theme.nix"
     "${self}/modules/theming/fonts.nix"
 
-    "${self}/modules/desktop/wm/hyprland.nix"
     "${self}/modules/desktop/wm/niri.nix"
 
     "${self}/modules/apps/xdg-mime.nix"
