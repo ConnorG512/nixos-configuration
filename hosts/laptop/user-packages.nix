@@ -24,4 +24,6 @@ with pkgs; [
   mpv
   
   discord
+
+  moonlight-qt
 ]
