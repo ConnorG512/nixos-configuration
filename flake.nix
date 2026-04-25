@@ -3,8 +3,6 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
-    lsfg-vk-flake.url = "github:pabloaul/lsfg-vk-flake/main";
-    lsfg-vk-flake.inputs.nixpkgs.follows = "nixpkgs";
     nvf.url = "github:notashelf/nvf";
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
@@ -13,8 +11,8 @@
 
   outputs =
     inputs@{
+      self,
       nixpkgs,
-      lsfg-vk-flake,
       nvf,
       home-manager,
       nff,
@@ -39,16 +37,33 @@
               home-manager.useUserPackages = true;
             }
             nff.nixosModules.fastfetch
-            lsfg-vk-flake.nixosModules.default
             nvf.nixosModules.default
-            ./modules/configuration.nix
+            "${self}/hosts/desktop/configuration.nix"
           ];
           specialArgs = {
+            inherit self;
             prefUser = import ./user-preferences/user.nix {
               inherit pkgsUnfree;
             };
             prefSystem = import ./user-preferences/system.nix;
             prefNetwork = import ./user-preferences/networking.nix;
+          };
+        };
+
+        laptop = nixpkgs.lib.nixosSystem {
+          pkgs = pkgsUnfree; 
+          modules = [
+            home-manager.nixosModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+            }
+            nvf.nixosModules.default
+            nff.nixosModules.fastfetch
+            "${self}/hosts/laptop/configuration.nix"
+          ];
+          specialArgs = {
+            inherit self;
           };
         };
       };
