@@ -1,49 +1,32 @@
-{ ... }:
+{config, pkgs, lib, ... }:
 
 let
-  userName = "connor";
+  cfg = config.systemConfiguration.newUser;
 in 
 {
-  imports = [
-    ./details.nix
-    ./directories.nix
-  ];
-  
-  # Home manager.
-  home-manager.users.${userName} = {
-    programs.home-manager.enable = true;
-    
-    imports = [
-      ./configuration-files.nix
-      ./installed-packages.nix
-    ];
+  options.systemConfiguration.newUser = {
+    name = lib.mkOption {
+      type = lib.types.string;
+      default = "user";
+      description = "Name to provide the user.";
+      example = "john";
+    };
 
-    home = {
-      username = userName;
-      homeDirectory = "/home/${userName}";
-      stateVersion = "24.11";
+    groupList = lib.mkOption {
+      type = lib.types.listOf lib.types.str;
+      default = [];
+      description = "List of groups to provide to the user.";
+      example = [ "wheel" "video" ];
     };
   };
-  
-  systemConfiguration = 
-  {
-    userDetails = {
-      name = userName;
-      groupList = [
-        "${userName}"   
-        "networkmanager"
-        "wheel"
-        "gamemode"
-        "libvirtd"
-        "podman"
-      ];
-      isTrustedUser = true;
-      shellType = "zsh";
-    };
 
-    userDirectories = {
-      createUserDirs = true;
-      useUpperCaseNames = false;
+  config = {
+    users.users.${cfg.name} = {
+      isNormalUser = true;
+      extraGroups = cfg.groupList;
+      initialPassword = "changeme";
+      shell = pkgs.zsh;
     };
-  }; 
+  };
 }
+
