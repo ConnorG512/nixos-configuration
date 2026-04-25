@@ -54,6 +54,7 @@
     "${self}/modules/apps/nff.nix"
     "${self}/modules/apps/ngircd.nix"
     "${self}/modules/apps/gpu-screen-recorder.nix"
+    "${self}/modules/apps/firefox.nix"
     
     "${self}/modules/services/searx.nix"
     "${self}/modules/services/sunshine.nix"
