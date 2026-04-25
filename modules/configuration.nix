@@ -17,7 +17,6 @@
     # System
     ./system/gpu/gpu.nix
     ./system/system-packages.nix
-    ./system/dyn-libraries.nix
     ./system/kernel.nix
     ./system/audio/pipewire.nix
     ./system/locale/keymap.nix
