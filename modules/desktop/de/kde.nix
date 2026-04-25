@@ -41,7 +41,7 @@ in
         enableQt5Integration = cfg.useQt5;
       };
 
-      xdg-portal.enable = cfg.enable;
+      xdg.portal.enable = cfg.enable;
       services.xserver.enable = cfg.useX11;
     }
     
