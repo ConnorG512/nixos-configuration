@@ -25,6 +25,8 @@
     ../../modules/system/audio/pipewire.nix
     ../../modules/system/system-packages.nix
     ../../modules/system/shell/zsh.nix
+
+    ../../modules/system/networking/firewall.nix
     
     .../../modules/user/user.nix
 
@@ -42,12 +44,26 @@
       displayType = "x11";
       installManPages = true;
       installWinePackages = true;
+      installTuiUitls = true;
+      extraPackages = with pkgs; [
+        tmux
+        openssl
+        curl
+        btop
+        ripgrep
+      ];
     };
     newUser = {
       name = "connor";
       groupList = [ "wheel" ];
       useZsh = true;
       userPackageList = (import ./user-packages.nix);
+    };
+    networking = {
+      firewall = {
+        enable = true;
+        openedPorts = [ 80 443 ];
+      };
     };
   }; 
 
