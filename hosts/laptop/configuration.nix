@@ -64,6 +64,10 @@
         enable = true;
         openedPorts = [ 80 443 ];
       };
+      dns = {
+        enable = false;
+        providers = (import ../../modules/system/networking/dns-provider-list.nix).cloudFlare.malware;
+      };
     };
   }; 
 
