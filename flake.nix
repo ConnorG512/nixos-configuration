@@ -13,6 +13,7 @@
 
   outputs =
     inputs@{
+      self,
       nixpkgs,
       lsfg-vk-flake,
       nvf,
@@ -44,11 +45,22 @@
             ./modules/configuration.nix
           ];
           specialArgs = {
+            inherit self;
             prefUser = import ./user-preferences/user.nix {
               inherit pkgsUnfree;
             };
             prefSystem = import ./user-preferences/system.nix;
             prefNetwork = import ./user-preferences/networking.nix;
+          };
+        };
+
+        laptop = nixpkgs.lib.nixosSystem {
+          pkgs = pkgsUnfree; 
+          modules = [
+            nvf.nixosModules.default
+          ];
+          specialArgs = {
+            inherit self;
           };
         };
       };
