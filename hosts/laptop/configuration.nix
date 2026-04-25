@@ -20,11 +20,14 @@
     /etc/nixos/hardware-configuration.nix
     
     ../../modules/system/kernel.nix
+    ../../modules/system/gpu/intel.nix
     ../../modules/system/bootloader.nix
     ../../modules/system/audio/pipewire.nix
     ../../modules/system/system-packages.nix
+    ../../modules/system/shell/zsh.nix
     
     ../../modules/desktop/de/lxqt.nix
+
     ../../modules/appimage.nix
     ../../modules/apps/nff.nix
     ../../modules/apps/nvf/nvim-nvf.nix
