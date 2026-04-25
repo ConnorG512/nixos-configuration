@@ -6,7 +6,7 @@ in
 {
   options.systemConfiguration.user = {
     name = lib.mkOption {
-      type = lib.types.string;
+      type = lib.types.str;
       default = "user";
       description = "Name to provide the user.";
       example = "john";
@@ -34,7 +34,7 @@ in
     };
 
     configFileList = lib.mkOption {
-      type = lib.types lib.types.attrsOf lib.types.path;
+      type = lib.types.attrsOf lib.types.path;
       default = {};
       description = "Map of destination paths to source dotfile paths.";
       example = {
