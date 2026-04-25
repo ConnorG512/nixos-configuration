@@ -15,15 +15,15 @@
     extraPackages32 = with pkgs.pkgsi686Linux; [ intel-vaapi-driver ];
   };
 
-  environment.sessionVariables = {
-    LIBVA_DRIVER_NAME = "iHD";
-  };
-
   hardware.enableRedistributableFirmware = true;
   boot.kernelParams = [ "i915.enable_guc=3" ];
 
   environment.systemPackages = with pkgs; [
     intel-gpu-tools
   ];
+  
+  environment.sessionVariables = {
+    LIBVA_DRIVER_NAME = "iHD";
+  };
 }
 
