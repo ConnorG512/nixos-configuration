@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ ... }:
+{ self, pkgs, ... }:
 {
   # Enable NixOS experimental features.
   nix.settings.experimental-features = [
@@ -45,7 +45,6 @@
     ./apps/steam.nix
     ./apps/syncthing.nix
     ./apps/mullvad-vpn.nix
-    ./apps/pcmanfm.nix
     ./apps/gnupg.nix
     ./apps/gamescope.nix
     ./apps/podman.nix
@@ -58,6 +57,55 @@
     ./services/searx.nix
     ./services/sunshine.nix
   ];
+
+  systemConfiguration = {
+    sysPackages = {
+      displayType = "wl";
+      installManPages = true;
+      installWinePackages = true;
+      installTuiUitls = true;
+      extraPackages = with pkgs; [
+        tmux
+        btop
+        ripgrep
+      ];
+    };
+    user = {
+      name = "connor";
+      groupList = [ "wheel" "libvirtd" ];
+      useZsh = true;
+      userPackageList = (import ./user-packages.nix);
+      configFileList = (import ./config-files.nix);
+    };
+    networking = {
+      firewall = {
+        enable = true;
+        openedPorts = [ 80 443 5069 8080 30000 40050 42069 53317 ];
+      };
+      dns = 
+      let
+        providerList = (import "${self}/modules/system/networking/dns-provider-list.nix");
+      in 
+      {
+        enable = false;
+        providers = providerList.quadNine.malwareDNSSEC ++ providerList.cloudFlare.malware;
+      };
+    };
+  }; 
+  
+  networking = {
+    hostName = "nixos";
+    
+    networkmanager = {
+      enable = true;
+      dhcp = "internal";
+      unmanaged = [ ];
+      settings = { };
+      plugins = [ ];
+
+      ethernet.macAddress = "preserve";
+    };
+  }; 
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
