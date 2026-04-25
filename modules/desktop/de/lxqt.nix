@@ -6,4 +6,6 @@
   services.xserver.displayManager.lightdm.enable = true;
   # Enable the lxqt DE
   services.xserver.desktopManager.lxqt.enable = true;
+
+  programs.nm-applet.enable = true;
 }
