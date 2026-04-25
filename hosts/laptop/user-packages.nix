@@ -1,4 +1,4 @@
-{ consfig, pkgs, lib, ... }:
+{ config, pkgs, lib, ... }:
 
 with pkgs; [
   cava
