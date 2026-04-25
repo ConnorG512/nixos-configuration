@@ -2,11 +2,20 @@
 
 let
   cfg = config.systemConfiguration.sysPackages;
+  
+  wlPackages = with pkgs; [
+    wlrandr
+    wl-clipboard
+  ];
+  x11Packages = with pkgs; [
+    xrandr
+    xeyes
+  ];
 in 
 {
   options.systemConfiguration.sysPackages = {
     displayType = lib.mkOption {
-      type = lib.types.enum [ "x11" "wl" ];
+      type = lib.types.enum [ "x11" "wl" "both" ];
       default = "wl";
       description = "Whether to install system packages for x11 or wayland protocols";
     };
@@ -52,18 +61,16 @@ in
   config = lib.mkMerge [
     # Wayland defaults:
     (lib.mkIf (cfg.displayType == "wl"){
-      environment.systemPackages = with pkgs; [
-        wlrandr
-        wl-clipboard
-      ];
+      environment.systemPackages = wlPackages;
     })
     
     # X11 Defaults:
     (lib.mkIf (cfg.displayType == "x11"){
-      environment.systemPackages = with pkgs; [
-        xrandr
-        xeyes
-      ];
+      environment.systemPackages = x11Packages;
+    })
+    
+    (lib.mkIf (cfg.displayType == "both"){
+      environment.systemPackages = x11Packages ++ wlPackages;
     })
     
     (lib.mkIf cfg.installManPages{
