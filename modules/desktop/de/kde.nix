@@ -18,6 +18,20 @@ in
       description = "Enable Qt5 intergration.";
       example = true;
     };
+
+    useWayland = lib.mkOption {
+      type = lib.types.bool;
+      default = true;
+      description = "Use KDE Wayland session.";
+      example = false;
+    };
+    
+    useX11 = lib.mkOption {
+      type = lib.types.bool;
+      default = false;
+      description = "Use KDE X11 session.";
+      example = true;
+    };
   };
   
   config = {
@@ -25,5 +39,8 @@ in
       enable = cfg.enable;
       enableQt5Integration = cfg.useQt5;
     };
+
+    wayland.enable = cfg.useWayland;
+    services.xserver.enable = cfg.useX11;
   };
 }
