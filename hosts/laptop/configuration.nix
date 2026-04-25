@@ -49,6 +49,8 @@
     enable = true;
   };
 
+  xdg.portal.enable = true;
+
   systemConfiguration = {
     sysPackages = {
       displayType = "x11";
