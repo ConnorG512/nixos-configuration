@@ -28,6 +28,7 @@
     "${self}/modules/system/controllers.nix"
 
     "${self}/modules/system/networking/firewall.nix"
+    "${self}/modules/system/networking/dns.nix"
     
     "${self}/modules/user.nix"
 
