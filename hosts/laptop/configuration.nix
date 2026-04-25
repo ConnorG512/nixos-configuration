@@ -26,19 +26,30 @@
     ../../modules/system/system-packages.nix
     ../../modules/system/shell/zsh.nix
     
+    .../../modules/user/user.nix
+
     ../../modules/desktop/de/lxqt.nix
 
     ../../modules/appimage.nix
     ../../modules/apps/nff.nix
     ../../modules/apps/nvf/nvim-nvf.nix
     ../../modules/apps/openssh.nix
+    ../../modules/apps/mullvad-vpn.nix
   ];
 
-  systemConfiguration.sysPackages = {
-    displayType = "x11";
-    installManPages = true;
-    installWinePackages = true;
-  };
+  systemConfiguration = {
+    sysPackages = {
+      displayType = "x11";
+      installManPages = true;
+      installWinePackages = true;
+    };
+    newUser = {
+      name = "connor";
+      groupList = [ "wheel" ];
+      useZsh = true;
+      userPackageList = (import ./user-packages.nix);
+    };
+  }; 
 
   programs.localsend = {
     enable = true;
