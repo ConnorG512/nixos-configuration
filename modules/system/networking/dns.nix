@@ -1,10 +1,10 @@
 {config, lib, ...}:
 
 let
-  cfg = config.systemConfiguration.dns;
+  cfg = config.systemConfiguration.networking.dns;
 in 
 {
-  options.systemConfiguration.dns = {
+  options.systemConfiguration.networking.dns = {
     enableAutomaticDns = lib.mkOption {
       type = lib.types.bool;
       default = false;
