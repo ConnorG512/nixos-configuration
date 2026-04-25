@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ pkgs, ... }:
+{ self, pkgs, ... }:
 {
   # Enable NixOS experimental features.
   nix.settings.experimental-features = [
@@ -19,25 +19,25 @@
     # requires --impure
     /etc/nixos/hardware-configuration.nix
     
-    ../../modules/system/kernel.nix
-    ../../modules/system/gpu/intel.nix
-    ../../modules/system/bootloader.nix
-    ../../modules/system/audio/pipewire.nix
-    ../../modules/system/system-packages.nix
-    ../../modules/system/shell/zsh.nix
+    "${self}/modules/system/kernel.nix"
+    "${self}/modules/system/gpu/intel.nix"
+    "${self}/modules/system/bootloader.nix"
+    "${self}/modules/system/audio/pipewire.nix"
+    "${self}/modules/system/system-packages.nix"
+    "${self}/modules/system/shell/zsh.nix"
 
-    ../../modules/system/networking/firewall.nix
+    "${self}/modules/system/networking/firewall.nix"
     
-    .../../modules/user.nix
+    "${self}/modules/user.nix"
 
-    ../../modules/desktop/de/lxqt.nix
+    "${self}/modules/desktop/de/lxqt.nix"
 
-    ../../modules/appimage.nix
-    ../../modules/apps/nff.nix
-    ../../modules/apps/nvf/nvim-nvf.nix
-    ../../modules/apps/openssh.nix
-    ../../modules/apps/mullvad-vpn.nix
-    ../../modules/apps/pcmanfm.nix
+    "${self}/modules/appimage.nix"
+    "${self}/modules/apps/nff.nix"
+    "${self}/modules/apps/nvf/nvim-nvf.nix"
+    "${self}/modules/apps/openssh.nix"
+    "${self}/modules/apps/mullvad-vpn.nix"
+    "${self}/modules/apps/pcmanfm.nix"
   ];
 
   systemConfiguration = {
