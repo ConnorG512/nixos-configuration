@@ -47,8 +47,6 @@
     "${self}/modules/apps/localsend.nix"
   ];
 
-  xdg.portal.enable = true;
-
   systemConfiguration = {
     sysPackages = {
       displayType = "x11";
