@@ -26,6 +26,7 @@
     "${self}/modules/system/system-packages.nix"
     "${self}/modules/system/shell/zsh.nix"
     "${self}/modules/system/controllers.nix"
+    "${self}/modules/system/networking/networking.nix"
 
     "${self}/modules/user.nix"
 

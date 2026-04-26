@@ -30,6 +30,7 @@
     "${self}/modules/system/bootloader.nix"
     "${self}/modules/system/environment-vars.nix"
     "${self}/modules/system/controllers.nix"
+    "${self}/modules/system/networking/networking.nix"
 
     "${self}/modules/appimage.nix"
 
