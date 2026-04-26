@@ -17,4 +17,9 @@
 
     ".config/fuzzel/fuzzel.ini" = "${self}/dotfiles/.config/fuzzel/fuzzel.ini";
     ".config/fuzzel/blue.ini" = "${self}/dotfiles/.config/fuzzel/blue.ini";
+
+    ".config/hypr/hyprlock.conf" = "${self}/dotfiles/.config/hypr/hyprlock.conf";
+    ".config/hypr/hyprpaper.conf" = "${self}/dotfiles/.config/hypr/hyprpaper.conf";
+
+    "Pictures/wallpaper/pexels-riccardo-bertolo-4245826.jpg" = "${self}/wallpaper/pexels-riccardo-bertolo-4245826.jpg";
 }
