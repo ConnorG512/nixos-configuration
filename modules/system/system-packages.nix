@@ -4,7 +4,7 @@ let
   cfg = config.systemConfiguration.sysPackages;
   
   wlPackages = with pkgs; [
-    wlrandr
+    wlr-randr
     wl-clipboard
   ];
   x11Packages = with pkgs; [
