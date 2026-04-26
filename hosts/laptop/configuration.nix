@@ -70,6 +70,7 @@
       hostName = "nixos-laptop";
       enable = true;
       additionalPorts = [ 53317 42069 ];
+      enableOpenssh = true;
     };
     desktop.kde = {
       enable = true;
