@@ -29,7 +29,6 @@ with pkgs; [
   cloc
 
   # Gaming:
-  lutris
   luanti
   protonup-ng
   steam
