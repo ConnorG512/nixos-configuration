@@ -44,6 +44,7 @@
     "${self}/modules/apps/mullvad-vpn.nix"
     "${self}/modules/apps/pcmanfm.nix"
     "${self}/modules/apps/firefox.nix"
+    "${self}/modules/apps/localsend.nix"
   ];
 
   networking.networkmanager = {
@@ -83,11 +84,6 @@
       loginManager = "plasma";
     };
   }; 
-
-  programs.localsend = {
-    enable = true;
-    openFirewall = true;
-  };
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
