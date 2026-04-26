@@ -49,7 +49,7 @@
 
   systemConfiguration = {
     sysPackages = {
-      displayType = "x11";
+      displayType = "wl";
       installManPages = true;
       installWinePackages = true;
       installTuiUitls = true;
