@@ -19,13 +19,6 @@ in
       example = [ "wheel" "video" ];
     };
 
-    useZsh = lib.mkOption {
-      type = lib.types.bool;
-      default = false;
-      description = "Use ZShell";
-      example = false;
-    };
-
     userPackageList = lib.mkOption {
       type = lib.types.listOf lib.types.package;
       default = [];
@@ -44,6 +37,8 @@ in
   };
 
   config = {
+    programs.zsh.enable = true;
+
       users.users.${cfg.name} = {
         isNormalUser = true;
         extraGroups = cfg.groupList;
@@ -53,7 +48,7 @@ in
 
     home-manager.users.${cfg.name} = {
       home.stateVersion = "24.11";
-      programs.zsh.enable = cfg.useZsh;
+      programs.zsh.enable = true;
       home = {
         packages = cfg.userPackageList;
         file = lib.mapAttrs (name: path: { source = path; }) cfg.configFileList;

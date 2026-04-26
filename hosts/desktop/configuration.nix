@@ -74,7 +74,6 @@
     user = {
       name = "connor";
       groupList = [ "users" "wheel" "networkmanager" "libvirtd" "podman" "gamemode" ];
-      useZsh = true;
       userPackageList = (import ./user-packages.nix) { inherit pkgs; };
       configFileList = (import ./config-files.nix) { inherit self; };
     };
