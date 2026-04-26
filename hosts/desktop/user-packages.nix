@@ -10,7 +10,6 @@ with pkgs; [
   patchelfUnstable
   mpvpaper
   keepassxc
-  gearlever
   gparted
   cava
   kdePackages.ark
@@ -35,7 +34,6 @@ with pkgs; [
   protonup-ng
   steam
   prismlauncher
-  alvr
   steamtinkerlaunch
 
   # Web browsing:
