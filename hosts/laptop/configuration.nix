@@ -69,7 +69,7 @@
     network = {
       hostName = "nixos-laptop";
       enable = true;
-      openedPorts = [ 80 443 53317 42069 ];
+      additionalPorts = [ 80 443 53317 42069 ];
     };
     desktop.kde = {
       enable = true;

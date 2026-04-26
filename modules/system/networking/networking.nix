@@ -19,16 +19,15 @@ in
       example = "nixos";
     };
 
-    openedPorts = lib.mkOption {
+    additionalPorts = lib.mkOption {
       type = lib.types.listOf lib.types.int;
-      default = [ 80 443 ];
-      description = "Ports to open on UDP and TCP";
+      default = [ ];
+      description = "Additional ports to open on UDP and TCP";
       example = [ 80 443 ];
     };
   }; 
 
   config = lib.mkMerge [
-
     {
       networking = {
         hostName = cfg.hostName;
@@ -46,8 +45,8 @@ in
 
       networking.firewall = {
         enable = true;
-        allowedTCPPorts = cfg.openedPorts;
-        allowedUDPPorts = cfg.openedPorts;
+        allowedTCPPorts = cfg.additionalPorts;
+        allowedUDPPorts = cfg.additionalPorts;
         allowPing = true;
         pingLimit = null;
         rejectPackets = false;
