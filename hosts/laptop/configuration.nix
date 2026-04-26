@@ -27,9 +27,6 @@
     "${self}/modules/system/shell/zsh.nix"
     "${self}/modules/system/controllers.nix"
 
-    "${self}/modules/system/networking/firewall.nix"
-    "${self}/modules/system/networking/dns.nix"
-    
     "${self}/modules/user.nix"
 
     "${self}/modules/system/locale/keymap.nix"
@@ -40,7 +37,6 @@
     "${self}/modules/appimage.nix"
     "${self}/modules/apps/nff.nix"
     "${self}/modules/apps/nvf/nvim-nvf.nix"
-    "${self}/modules/apps/openssh.nix"
     "${self}/modules/apps/mullvad-vpn.nix"
     "${self}/modules/apps/pcmanfm.nix"
     "${self}/modules/apps/firefox.nix"
