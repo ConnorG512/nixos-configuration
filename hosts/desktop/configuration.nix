@@ -53,6 +53,7 @@
     "${self}/modules/apps/ngircd.nix"
     "${self}/modules/apps/gpu-screen-recorder.nix"
     "${self}/modules/apps/firefox.nix"
+    "${self}/modules/apps/localsend.nix"
     
     "${self}/modules/services/searx.nix"
     "${self}/modules/services/sunshine.nix"
