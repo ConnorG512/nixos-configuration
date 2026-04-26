@@ -47,10 +47,6 @@
     "${self}/modules/apps/localsend.nix"
   ];
 
-  networking.networkmanager = {
-    enable = true;
-  };
-
   xdg.portal.enable = true;
 
   systemConfiguration = {
