@@ -71,6 +71,7 @@
       enable = true;
       additionalPorts = [ 53317 42069 ];
       enableOpenssh = true;
+      enableAvahi = true;
     };
     desktop.kde = {
       enable = true;
