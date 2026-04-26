@@ -75,38 +75,17 @@
     };
     user = {
       name = "connor";
-      groupList = [ "wheel" "libvirtd" "networkmanager" "podman" ];
+      groupList = [ "users" "wheel" "networkmanager" "libvirtd" "podman" "gamemode" ];
       useZsh = true;
       userPackageList = (import ./user-packages.nix) { inherit pkgs; };
       configFileList = (import ./config-files.nix) { inherit self; };
     };
-    networking = {
-      firewall = {
-        enable = true;
-        openedPorts = [ 80 443 5069 8080 30000 40050 42069 53317 ];
-      };
-      dns = 
-      let
-        providerList = (import "${self}/modules/system/networking/dns-provider-list.nix");
-      in 
-      {
-        enableAutomaticDns = false;
-        providers = providerList.quadNine.malwareDNSSEC ++ providerList.cloudFlare.malware;
-      };
-    };
-  }; 
-  
-  networking = {
-    hostName = "nixos";
-    
-    networkmanager = {
+    network = {
+      hostName = "nixos-desktop";
       enable = true;
-      dhcp = "internal";
-      unmanaged = [ ];
-      settings = { };
-      plugins = [ ];
-
-      ethernet.macAddress = "preserve";
+      additionalPorts = [ 53317 42069 8080 47989 ];
+      enableOpenssh = true;
+      enableAvahi = true;
     };
   }; 
 
