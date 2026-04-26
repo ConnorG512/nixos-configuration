@@ -23,7 +23,7 @@ in
       type = lib.types.listOf lib.types.int;
       default = [ ];
       description = "Additional ports to open on UDP and TCP";
-      example = [ 80 443 ];
+      example = [ 22 80 443 ];
     };
   }; 
 
