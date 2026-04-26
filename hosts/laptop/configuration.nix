@@ -71,15 +71,10 @@
       userPackageList = (import ./user-packages.nix) { inherit pkgs; };
       configFileList = (import ./config-files.nix) { inherit self; };
     };
-    networking = {
-      firewall = {
-        enable = true;
-        openedPorts = [ 80 443 53317 42069 ];
-      };
-      dns = {
-        enableAutomaticDns = false;
-        providers = (import ../../modules/system/networking/dns-provider-list.nix).cloudFlare.malware;
-      };
+    network = {
+      hostName = "nixos-laptop";
+      enable = true;
+      openedPorts = [ 80 443 53317 42069 ];
     };
     desktop.kde = {
       enable = true;
