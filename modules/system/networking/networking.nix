@@ -32,6 +32,13 @@ in
       description = "Enable openssh.";
       example = true;
     };
+
+    enableAvahi = lib.mkOption {
+      type = lib.types.bool;
+      default = false;
+      description = "Enable Avahi service.";
+      example = true;
+    };
   }; 
 
   config = lib.mkMerge [
@@ -53,7 +60,7 @@ in
       networking.firewall = {
         enable = true;
         allowedTCPPorts = cfg.additionalPorts ++ (if cfg.enableOpenssh then [ 22 ] else [ ]);
-        allowedUDPPorts = cfg.additionalPorts;
+        allowedUDPPorts = cfg.additionalPorts ++ (if cfg.enableAvahi then [ 5353 ] else [ ]);
         allowPing = true;
         pingLimit = null;
         rejectPackets = false;
@@ -73,6 +80,18 @@ in
           PermitRootLogin = "prohibit-password";
         };
       }; 
+    })
+    
+    (lib.mkIf cfg.enableAvahi {
+      services.avahi = {
+        enable = true;
+        nssmdns4 = true;
+        nssmdns6 = true;
+        publish = {
+          addresses = true;
+          workstation = true;
+        };
+      };
     })
   ];
 }
