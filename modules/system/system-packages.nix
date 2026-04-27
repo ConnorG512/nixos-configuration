@@ -122,6 +122,7 @@ in
         shadow
         nix-index
         sshfs
+        rsync
       ] ++ cfg.extraPackages;
     }
   ];
