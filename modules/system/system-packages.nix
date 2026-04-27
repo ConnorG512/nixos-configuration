@@ -83,7 +83,7 @@ in
     
     (lib.mkIf cfg.installWinePackages{
       environment.systemPackages = with pkgs; [
-        dxvk
+        dxvk.out
         vkd3d-proton
         wineWow64Packages.waylandFull
         winetricks
