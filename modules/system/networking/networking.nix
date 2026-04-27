@@ -84,13 +84,15 @@ in
     
     (lib.mkIf cfg.enableAvahi {
       services.avahi = {
+      enable = true;
+      nssmdns = true;
+      publish = {
         enable = true;
-        nssmdns4 = true;
-        nssmdns6 = true;
-        publish = {
-          addresses = true;
-          workstation = true;
-        };
+        addresses = true;
+        domain = true;
+        hinfo = true;
+        userServices = true;
+        workstation = true;
       };
     })
   ];
