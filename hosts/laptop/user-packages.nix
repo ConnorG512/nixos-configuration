@@ -15,6 +15,7 @@ with pkgs; [
 
   luanti
   prismlauncher
+  chocolate-doom
 
   tor-browser
   kdePackages.dolphin
