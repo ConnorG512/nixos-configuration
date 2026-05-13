@@ -146,4 +146,12 @@
       add_subdirectory($1 $2)
     '';
   }
+
+  {
+    trigger = "build_install_interface";
+    body = ''
+      $<BUILD_INTERFACE:$1>
+      $<INSTALL_INTERFACE:$2>
+    '';
+  }
 ]
