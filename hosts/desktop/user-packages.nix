@@ -17,6 +17,7 @@ with pkgs; [
   qbittorrent
   xxd
   hexedit
+  wyvern
 
   # Development:
   git
