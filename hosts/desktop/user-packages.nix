@@ -17,7 +17,6 @@ with pkgs; [
   qbittorrent
   xxd
   hexedit
-  wyvern
 
   # Development:
   git
@@ -35,6 +34,7 @@ with pkgs; [
   steam
   prismlauncher
   steamtinkerlaunch
+  heroic
 
   # Web browsing:
   tor-browser
