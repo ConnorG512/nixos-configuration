@@ -31,6 +31,7 @@
     "${self}/modules/system/environment-vars.nix"
     "${self}/modules/system/controllers.nix"
     "${self}/modules/system/networking/networking.nix"
+    "${self}/modules/system/codec.nix"
 
     "${self}/modules/appimage.nix"
 
@@ -84,6 +85,10 @@
       additionalPorts = [ 53317 42069 8080 47989 ];
       enableOpenssh = true;
       enableAvahi = true;
+    };
+    codec.video = {
+      enable = true;
+      enableUgly = true;
     };
   }; 
 
