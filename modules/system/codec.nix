@@ -34,6 +34,10 @@ in
         pkgs.gst_all_1.gst-plugins-base
         pkgs.gst_all_1.gst-plugins-good
       ];
+
+      environment.variables = {
+        GST_PLUGIN_SYSTEM_PATH_1_0 = "/run/current-system/sw/lib/gstreamer-1.0";
+      };
     })
 
     (lib.mkIf cfg.video.enableUgly {
