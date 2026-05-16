@@ -38,12 +38,6 @@ in
       description = "Whether to install mangohud / goverlay.";
     };
     
-    installMesa = lib.mkOption {
-      type = lib.types.bool;
-      default = true;
-      description = "Whether to install Mesa graphics.";
-    };
-
     extraPackages = lib.mkOption {
       type = lib.types.listOf lib.types.package;
       default = [];
@@ -91,12 +85,6 @@ in
       ];
     })
     
-    (lib.mkIf cfg.installMesa{
-      environment.systemPackages = with pkgs; [
-        mesa
-      ];
-    })
-
     # Common: 
     {
       environment.systemPackages = with pkgs; [
