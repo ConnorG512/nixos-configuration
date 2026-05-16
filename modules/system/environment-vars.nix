@@ -6,6 +6,5 @@
     SHARE = "$HOME/.local/share";
     STATE = "$HOME/.local/state";
     BIN = "$HOME/.local/bin";
-    EDITOR = "nvim";
   };  
 }
