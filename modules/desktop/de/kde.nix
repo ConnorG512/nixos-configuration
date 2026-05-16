@@ -35,16 +35,16 @@ in
   };
   
   config = lib.mkMerge [
-    {
+    (lib.mkIf cfg.enable {
       services.desktopManager.plasma6 = {
-        enable = cfg.enable;
+        enable = true;
         enableQt5Integration = cfg.useQt5;
       };
 
       xdg.portal.enable = cfg.enable;
       services.xserver.enable = cfg.useX11;
-    }
-    
+    })
+
     (lib.mkIf (cfg.loginManager == "plasma"){
       services.displayManager.plasma-login-manager.enable = true;
     })
