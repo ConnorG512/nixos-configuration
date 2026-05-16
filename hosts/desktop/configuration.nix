@@ -23,7 +23,6 @@
     "${self}/modules/system/gpu/gpu.nix"
     "${self}/modules/system/system-packages.nix"
     "${self}/modules/system/kernel.nix"
-    "${self}/modules/system/audio/pipewire.nix"
     "${self}/modules/system/locale/keymap.nix"
     "${self}/modules/system/locale/locale.nix"
     "${self}/modules/system/shell/zsh.nix"
@@ -31,7 +30,7 @@
     "${self}/modules/system/environment-vars.nix"
     "${self}/modules/system/controllers.nix"
     "${self}/modules/system/networking/networking.nix"
-    "${self}/modules/system/codec.nix"
+    "${self}/modules/system/multimedia/multimedia.nix"
 
     "${self}/modules/appimage.nix"
 
@@ -85,13 +84,19 @@
       enableOpenssh = true;
       enableAvahi = true;
     };
+    multimedia = {
+      audio = {
+        plugins = [ "audio" "jack" "pulse" "alsa" ];
+        clockRate = 44100;
+      };
+      gstreamer = {
+        enable = true;
+        enableUgly = true;
+      };
+    };
     desktop.niri = {
       enable = true;
       enableSatellite = true;
-    };
-    codec.video = {
-      enable = true;
-      enableUgly = true;
     };
   }; 
 
