@@ -33,7 +33,7 @@
     "${self}/modules/system/locale/keymap.nix"
     "${self}/modules/system/locale/locale.nix"
 
-    "${self}/modules/desktop/de/kde.nix"
+    "${self}/modules/desktop/desktop.nix"
 
     "${self}/modules/appimage.nix"
     "${self}/modules/apps/nff.nix"
