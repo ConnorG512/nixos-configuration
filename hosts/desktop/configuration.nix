@@ -93,7 +93,7 @@
         enableUgly = true;
       };
     };
-    desktop.niri = {
+    desktop = {
       niri = {
         enable = false;
         enableSatellite = false;
