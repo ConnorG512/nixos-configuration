@@ -30,7 +30,7 @@
     in
     {
       nixosConfigurations = {
-        nixos = nixpkgs.lib.nixosSystem {
+        desktop = nixpkgs.lib.nixosSystem {
           pkgs = pkgsUnfree;
           modules = [
             home-manager.nixosModules.home-manager
