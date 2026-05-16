@@ -29,7 +29,7 @@ in
     loginManager = lib.mkOption {
       type = lib.types.enum [ "plasma" "sddm" ];
       default = "plasma";
-      description = "Use KDE X11 session.";
+      description = "Choice of login manager.";
       example = "plasma";
     };
   };
