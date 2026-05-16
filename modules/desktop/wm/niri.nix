@@ -20,7 +20,8 @@ in
     };
   };
 
-  config = {
+  config = lib.mkMerge [
+  {
     programs.niri = {
       enable = cfg.niri.enable;
       useNautilus = cfg.niri.enable;
@@ -37,16 +38,8 @@ in
       gsettings-desktop-schemas
       waybar
       alacritty
-      grim
-      slurp
       fuzzel
     ];
-
-    (lib.mkIf cfg.niri.enableSatellite {
-      environment.systemPackages = with pkgs; [
-        xwayland-satellite
-      ];
-    })
 
     programs.nautilus-open-any-terminal = {
       enable = cfg.niri.enable; 
@@ -64,5 +57,12 @@ in
     xdg.portal = {
       enable = cfg.niri.enable;
     };
-  };
+  }
+
+  (lib.mkIf cfg.niri.enableSatellite {
+    environment.systemPackages = with pkgs; [
+      xwayland-satellite
+    ];
+  })
+  ];
 }
