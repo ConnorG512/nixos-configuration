@@ -102,6 +102,8 @@ in
         ripgrep
         tree
         lsof
+
+        alacritty
       ] ++ cfg.extraPackages;
     }
   ];
