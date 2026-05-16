@@ -10,7 +10,7 @@ in
   ];
 
   options.systemConfiguration.multimedia = {
-    enable = mkOption {
+    enable = lib.mkOption {
       type = lib.types.bool;
       default = true;
       description = "Enable the use of pipewire.";
@@ -20,7 +20,7 @@ in
 
   config = lib.mkMerge [
     (lib.mkIf cfg.enable {
-      services.pipewire = true;
+      services.pipewire.enable = true;
     })
   ];
 }

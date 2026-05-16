@@ -6,7 +6,7 @@ in
 {
   options.systemConfiguration.multimedia.audio = {
     plugins = lib.mkOption {
-      type = lib.types.listOf lib.types.enum [ "audio" "jack" "pulse" "alsa" ];
+      type = lib.types.listOf (lib.types.enum [ "audio" "jack" "pulse" "alsa" ]);
       default = [];
       description = "Pipewire plugins to enable.";
       example = false;
@@ -18,20 +18,23 @@ in
       description = "Pipewire audio clock rate.";
       example = 48000;
     };
-  }
+  };
 
-  config = lib.mkMerge [
-    (lib.mkIf (cfg.plugins != []){
+    config = lib.mkIf (cfg.plugins != []) (lib.mkMerge [
+    {
       services.pipewire = lib.genAttrs cfg.plugins (name: {
         enable = true;
       });
+    }
 
-      services.pipewire.extraConfig.pipewire = {
+    {
+      services.pipewire = {
+        extraConfig.pipewire = {
           "context.properties" = {
             "default.clock.rate" = cfg.clockRate;
           };
         };
       };
-    })
-  ];
+    }
+  ]);
 }
