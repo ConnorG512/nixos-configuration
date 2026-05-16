@@ -70,7 +70,6 @@
       extraPackages = with pkgs; [
         tmux
         btop
-        ripgrep
       ];
     };
     user = {
