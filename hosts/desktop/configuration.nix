@@ -38,7 +38,7 @@
     "${self}/modules/theming/dark-theme.nix"
     "${self}/modules/theming/fonts.nix"
 
-    "${self}/modules/desktop/wm/niri.nix"
+    "${self}/modules/desktop/desktop.nix"
 
     "${self}/modules/apps/xdg-mime.nix"
     "${self}/modules/apps/gamemode.nix"
@@ -85,6 +85,10 @@
       additionalPorts = [ 53317 42069 8080 47989 ];
       enableOpenssh = true;
       enableAvahi = true;
+    };
+    desktop.niri = {
+      enable = true;
+      enableSatellite = true;
     };
     codec.video = {
       enable = true;

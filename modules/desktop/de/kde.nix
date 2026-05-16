@@ -29,22 +29,22 @@ in
     loginManager = lib.mkOption {
       type = lib.types.enum [ "plasma" "sddm" ];
       default = "plasma";
-      description = "Use KDE X11 session.";
+      description = "Choice of login manager.";
       example = "plasma";
     };
   };
   
   config = lib.mkMerge [
-    {
+    (lib.mkIf cfg.enable {
       services.desktopManager.plasma6 = {
-        enable = cfg.enable;
+        enable = true;
         enableQt5Integration = cfg.useQt5;
       };
 
       xdg.portal.enable = cfg.enable;
       services.xserver.enable = cfg.useX11;
-    }
-    
+    })
+
     (lib.mkIf (cfg.loginManager == "plasma"){
       services.displayManager.plasma-login-manager.enable = true;
     })
