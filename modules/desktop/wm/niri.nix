@@ -21,48 +21,48 @@ in
   };
 
   config = lib.mkMerge [
-  {
-    programs.niri = {
-      enable = cfg.niri.enable;
-      useNautilus = cfg.niri.enable;
-    };
-    
-    environment.systemPackages = with pkgs; [
-      xdg-desktop-portal-gtk
-      xdg-desktop-portal-gnome
-      
-      hyprlock
-      hyprpaper
-      mako
-      nautilus
-      gsettings-desktop-schemas
-      waybar
-      alacritty
-      fuzzel
-    ];
-
-    programs.nautilus-open-any-terminal = {
-      enable = cfg.niri.enable; 
-      terminal = "alacritty";
-    };
-    
-    services = {
-      gvfs.enable = cfg.niri.enable;
-      gnome = {
-        gnome-keyring.enable = cfg.niri.enable;
-        sushi.enable = cfg.niri.enable;
+    (lib.mkIf cfg.niri.enable {
+      programs.niri = {
+        enable = true;
+        useNautilus = true;
       };
-    };
 
-    xdg.portal = {
-      enable = cfg.niri.enable;
-    };
-  }
+      environment.systemPackages = with pkgs; [
+        xdg-desktop-portal-gtk
+        xdg-desktop-portal-gnome
+        
+        hyprlock
+        hyprpaper
+        mako
+        nautilus
+        gsettings-desktop-schemas
+        waybar
+        alacritty
+        fuzzel
+      ];
+      
+      programs.nautilus-open-any-terminal = {
+        enable = true; 
+        terminal = "alacritty";
+      };
+      
+      services = {
+        gvfs.enable = true;
+        gnome = {
+          gnome-keyring.enable = true;
+          sushi.enable = true;
+        };
+      };
 
-  (lib.mkIf cfg.niri.enableSatellite {
-    environment.systemPackages = with pkgs; [
-      xwayland-satellite
-    ];
-  })
+      xdg.portal = {
+        enable = true;
+      };
+    })
+
+    (lib.mkIf cfg.niri.enableSatellite {
+      environment.systemPackages = with pkgs; [
+        xwayland-satellite
+      ];
+    })
   ];
 }
