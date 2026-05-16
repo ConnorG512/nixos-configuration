@@ -1,10 +1,10 @@
 { config, lib, pkgs, ... }: 
 
 let
-  cfg = config.systemConfiguration.codec;
+  cfg = config.systemConfiguration.multimedia.gstreamer;
 in 
 {
-  options.systemConfiguration.codec.video = {
+  options.systemConfiguration.multimedia.gstreamer = {
     enable = lib.mkOption {
       type = lib.types.bool;
       default = false;
@@ -40,13 +40,13 @@ in
       };
     })
 
-    (lib.mkIf cfg.video.enableUgly {
+    (lib.mkIf cfg.enableUgly {
       environment.systemPackages = [
         pkgs.gst_all_1.gst-plugins-ugly
       ];
     })
     
-    (lib.mkIf cfg.video.enableBad {
+    (lib.mkIf cfg.enableBad {
       environment.systemPackages = [
         pkgs.gst_all_1.gst-plugins-bad
       ];
