@@ -38,12 +38,6 @@ in
       description = "Whether to install mangohud / goverlay.";
     };
     
-    installTuiUitls = lib.mkOption {
-      type = lib.types.bool;
-      default = false;
-      description = "Whether to install terminal utilities.";
-    };
-    
     installMesa = lib.mkOption {
       type = lib.types.bool;
       default = true;
@@ -97,16 +91,6 @@ in
       ];
     })
     
-    (lib.mkIf cfg.installTuiUitls{
-      environment.systemPackages = with pkgs; [
-        file
-        fileinfo
-        fzf
-        tree
-        lsof
-      ];
-    })
-    
     (lib.mkIf cfg.installMesa{
       environment.systemPackages = with pkgs; [
         mesa
@@ -123,6 +107,13 @@ in
         nix-index
         sshfs
         rsync
+        file
+        fileinfo
+        fzf
+        fd
+        ripgrep
+        tree
+        lsof
       ] ++ cfg.extraPackages;
     }
   ];
