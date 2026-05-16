@@ -18,6 +18,8 @@ with pkgs; [
   xxd
   hexedit
 
+  qwpgraph
+
   # Development:
   git
   lazygit
