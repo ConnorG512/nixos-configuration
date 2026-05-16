@@ -42,11 +42,6 @@
           ];
           specialArgs = {
             inherit self;
-            prefUser = import ./user-preferences/user.nix {
-              inherit pkgsUnfree;
-            };
-            prefSystem = import ./user-preferences/system.nix;
-            prefNetwork = import ./user-preferences/networking.nix;
           };
         };
 
