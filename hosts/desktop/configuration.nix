@@ -94,8 +94,13 @@
       };
     };
     desktop.niri = {
-      enable = true;
-      enableSatellite = true;
+      niri = {
+        enable = false;
+        enableSatellite = false;
+      };
+      kde = {
+        enable = true;
+      };
     };
   }; 
 
