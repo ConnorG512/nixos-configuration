@@ -49,7 +49,6 @@
       displayType = "wl";
       installManPages = true;
       installWinePackages = true;
-      installTuiUitls = true;
       extraPackages = with pkgs; [
         tmux
         btop
