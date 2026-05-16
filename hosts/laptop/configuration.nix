@@ -22,11 +22,11 @@
     "${self}/modules/system/kernel.nix"
     "${self}/modules/system/gpu/intel.nix"
     "${self}/modules/system/bootloader.nix"
-    "${self}/modules/system/audio/pipewire.nix"
     "${self}/modules/system/system-packages.nix"
     "${self}/modules/system/shell/zsh.nix"
     "${self}/modules/system/controllers.nix"
     "${self}/modules/system/networking/networking.nix"
+    "${self}/modules/system/multimedia/multimedia.nix"
 
     "${self}/modules/user.nix"
 
@@ -68,6 +68,16 @@
       additionalPorts = [ 53317 42069 ];
       enableOpenssh = true;
       enableAvahi = true;
+    };
+    multimedia = {
+      audio = {
+        plugins = [ "audio" "jack" "pulse" "alsa" ];
+        clockRate = 44100;
+      };
+      gstreamer = {
+        enable = true;
+        enableUgly = true;
+      };
     };
     desktop.kde = {
       enable = true;
