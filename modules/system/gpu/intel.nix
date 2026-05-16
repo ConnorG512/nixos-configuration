@@ -20,6 +20,7 @@
 
   environment.systemPackages = with pkgs; [
     intel-gpu-tools
+    mesa
   ];
   
   environment.sessionVariables = {
