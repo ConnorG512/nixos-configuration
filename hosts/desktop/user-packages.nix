@@ -6,7 +6,6 @@ with pkgs; [
   unzip
   hdparm
   vulkan-tools
-  pwvucontrol
   patchelfUnstable
   mpvpaper
   keepassxc
