@@ -21,21 +21,17 @@ in
   }
 
   config = lib.mkMerge [
-  {
-    services.pipewire = {
-      extraConfig.pipewire = {
-        "context.properties" = {
-          "default.clock.rate" = cfg.clockRate;
-        };
-      };
-    };
-  }
-    
     (lib.mkIf (cfg.plugins != []){
-      services.pipewire.enable = true;
       services.pipewire = lib.genAttrs cfg.plugins (name: {
         enable = true;
       });
+
+      services.pipewire.extraConfig.pipewire = {
+          "context.properties" = {
+            "default.clock.rate" = cfg.clockRate;
+          };
+        };
+      };
     })
   ];
 }
