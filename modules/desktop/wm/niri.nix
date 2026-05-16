@@ -1,7 +1,7 @@
 { pkgs, config, lib, ... }:
 
 let
-  cfg = config.systemConfiguration.desktop;
+  cfg = config.systemConfiguration.desktop.niri;
 in 
 {
   options.systemConfiguration.desktop.niri = {
@@ -21,7 +21,7 @@ in
   };
 
   config = lib.mkMerge [
-    (lib.mkIf cfg.niri.enable {
+    (lib.mkIf cfg.enable {
       programs.niri = {
         enable = true;
         useNautilus = true;
@@ -59,7 +59,7 @@ in
       };
     })
 
-    (lib.mkIf cfg.niri.enableSatellite {
+    (lib.mkIf cfg.enableSatellite {
       environment.systemPackages = with pkgs; [
         xwayland-satellite
       ];
