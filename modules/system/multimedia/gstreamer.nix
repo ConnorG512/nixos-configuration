@@ -26,7 +26,7 @@ in
   };
 
   config = lib.mkMerge [
-    (lib.mkIf cfg.video.enable {
+    (lib.mkIf cfg.enable {
       environment.systemPackages = [
         pkgs.gst_all_1.gstreamer
         pkgs.gst_all_1.gst-libav
