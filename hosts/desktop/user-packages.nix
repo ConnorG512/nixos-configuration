@@ -17,8 +17,7 @@ with pkgs; [
   qbittorrent
   xxd
   hexedit
-
-  qwpgraph
+  qpwgraph
 
   # Development:
   git
