@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 
 with pkgs; [
   # Utility:
@@ -66,4 +66,6 @@ with pkgs; [
   # Communication:
   discord-canary
   irssi
+  
+  inputs.msc.packages.x86_64-linux.release
 ]

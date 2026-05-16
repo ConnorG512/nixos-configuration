@@ -7,6 +7,7 @@
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     nff.url = "github:ConnorG512/nff";
+    msc.url = "github:ConnorG512/msc";
   };
 
   outputs =
@@ -16,6 +17,7 @@
       nvf,
       home-manager,
       nff,
+      msc,
       ...
     }:
     let
@@ -42,6 +44,7 @@
           ];
           specialArgs = {
             inherit self;
+            inherit inputs;
           };
         };
 

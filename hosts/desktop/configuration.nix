@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ self, pkgs, ... }:
+{ self, pkgs, inputs, ... }:
 {
   # Enable NixOS experimental features.
   nix.settings.experimental-features = [
@@ -73,7 +73,7 @@
     user = {
       name = "connor";
       groupList = [ "users" "wheel" "networkmanager" "libvirtd" "podman" "gamemode" ];
-      userPackageList = (import ./user-packages.nix) { inherit pkgs; };
+      userPackageList = (import ./user-packages.nix) { inherit pkgs inputs; };
       configFileList = (import ./config-files.nix) { inherit self; };
     };
     network = {
