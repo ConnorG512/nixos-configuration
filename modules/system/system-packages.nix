@@ -102,8 +102,9 @@ in
         ripgrep
         tree
         lsof
-
-        alacritty
+        
+        yazi
+        ghostty
       ] ++ cfg.extraPackages;
     }
   ];
