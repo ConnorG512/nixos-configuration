@@ -1,8 +1,6 @@
 { pkgs, ... }:
 
 with pkgs; [
-  alacritty
-
   cava
   qbittorrent
   xxd
