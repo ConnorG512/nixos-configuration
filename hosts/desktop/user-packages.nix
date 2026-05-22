@@ -48,6 +48,7 @@ with pkgs; [
   obs-studio
   libreoffice-qt6-fresh
   blender
+  obsidian
 
   # Entertainment:
   spotify
