@@ -34,6 +34,7 @@
     "${self}/modules/system/locale/locale.nix"
 
     "${self}/modules/desktop/desktop.nix"
+    "${self}/modules/theming/fonts.nix"
 
     "${self}/modules/appimage.nix"
     "${self}/modules/apps/nff.nix"
