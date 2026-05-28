@@ -98,6 +98,30 @@ in
               }
             ];
           };
+
+          # Combine Stream: https://docs.pipewire.org/page_module_combine_stream.html
+          "93-tv-headphones-sink" = {
+            "context.modules" = [
+              {
+                name = "libpipewire-module-combine-stream";
+                args = {
+                  "combine.mode" = "sink";
+                  "node.name" = "tv-headphones-combine-sink";
+                  "node.description" = "Connect audio to headphones and TV";
+                  "combine.props" = {
+                    "audio.position" = [ "FL" "FR" ];
+                  };
+                  "stream.props" = {
+                    "stream.dont-remix" = true;
+                  };
+                  "targets" = [
+                    { "target.object" = "alsa_output.pci-0000_08_00.1.pro-output-10"; }
+                    { "target.object" = "alsa_output.pci-0000_08_00.1.pro-output-3"; }
+                  ];
+                };
+              }
+            ];
+          };
         };
       };
     }
