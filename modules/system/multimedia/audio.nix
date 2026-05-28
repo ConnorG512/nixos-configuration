@@ -35,6 +35,9 @@ in
           };
 
           # Custom modules: 
+          
+          # Finding ID number can be done with pwctl
+          # Finding the correct string for target.object can be found with pw-cli info 
           "90-discord-splitter" = {
             "context.modules" = [
               {
@@ -49,6 +52,47 @@ in
                   "playback.props" = {
                     "node.name" = "discord_splitter.output";
                     "node.passive" = true;
+                    "target.object" = "alsa_output.pci-0000_08_00.1.pro-output-10";
+                  };
+                };
+              }
+            ];
+          };
+          "91-headphones-sink" = {
+            "context.modules" = [
+              {
+                name = "libpipewire-module-loopback";
+                args = {
+                  "audio.position" = [ "FL" "FR" ];
+                  "capture.props" = {
+                    "media.class" = "Audio/Sink";
+                    "node.name" = "headphones_sink";
+                    "node.description" = "Sink for passing audio to headphones";
+                  };
+                  "playback.props" = {
+                    "node.name" = "headphones_sink.output";
+                    "node.passive" = true;
+                    "target.object" = "alsa_output.pci-0000_08_00.1.pro-output-10";
+                  };
+                };
+              }
+            ];
+          };
+          "92-tv-sink" = {
+            "context.modules" = [
+              {
+                name = "libpipewire-module-loopback";
+                args = {
+                  "audio.position" = [ "FL" "FR" ];
+                  "capture.props" = {
+                    "media.class" = "Audio/Sink";
+                    "node.name" = "tv_sink";
+                    "node.description" = "Sink for passing audio to TV";
+                  };
+                  "playback.props" = {
+                    "node.name" = "tv_sink.output";
+                    "node.passive" = true;
+                    "target.object" = "alsa_output.pci-0000_08_00.1.pro-output-3";
                   };
                 };
               }
