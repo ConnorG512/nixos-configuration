@@ -21,14 +21,17 @@
       ...
     }:
     let
+      system = "x86_64-linux";
       pkgsUnfree = import nixpkgs {
-        system = "x86_64-linux";
+        inherit system;
         config = {
           allowUnfree = true;
         };
       };
     in
     {
+      formatter.${system} = pkgsUnfree.nixfmt;
+      
       nixosConfigurations = {
         desktop = nixpkgs.lib.nixosSystem {
           pkgs = pkgsUnfree;
