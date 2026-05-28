@@ -87,6 +87,18 @@
       audio = {
         plugins = [ "audio" "jack" "pulse" "alsa" ];
         clockRate = 44100;
+        hiddenPorts = [
+          "alsa_output.pci-0000_08_00.1.pro-output-0"
+          "alsa_output.pci-0000_08_00.1.pro-output-1"
+          "alsa_output.pci-0000_08_00.1.pro-output-2"
+          "alsa_output.pci-0000_08_00.1.pro-output-4"
+          "alsa_output.pci-0000_08_00.1.pro-output-5"
+          "alsa_output.pci-0000_08_00.1.pro-output-6"
+          "alsa_output.pci-0000_08_00.1.pro-output-7"
+          "alsa_output.pci-0000_08_00.1.pro-output-8"
+          "alsa_output.pci-0000_08_00.1.pro-output-9"
+          "alsa_output.pci-0000_08_00.1.pro-output-11"
+        ];
       };
       gstreamer = {
         enable = true;
