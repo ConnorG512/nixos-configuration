@@ -33,6 +33,27 @@ in
           "context.properties" = {
             "default.clock.rate" = cfg.clockRate;
           };
+
+          # Custom modules: 
+          "90-discord-splitter" = {
+            "context.modules" = [
+              {
+                name = "libpipewire-module-loopback";
+                args = {
+                  "audio.position" = [ "FL" "FR" ];
+                  "capture.props" = {
+                    "media.class" = "Audio/Sink";
+                    "node.name" = "discord_splitter";
+                    "node.description" = "Sink for splitting Discord capture audio";
+                  };
+                  "playback.props" = {
+                    "node.name" = "discord_splitter.output";
+                    "node.passive" = true;
+                  };
+                };
+              }
+            ];
+          };
         };
       };
     }
