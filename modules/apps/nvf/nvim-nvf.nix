@@ -49,8 +49,9 @@
         };
         theme = {
           enable = true;
-          name = "tokyonight";
-          style = "night";
+          name = "gruvbox";
+          style = "warm";
+          transparent = true;
         };
         lsp = {
           servers = {
