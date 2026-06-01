@@ -30,7 +30,7 @@
       };
     in
     {
-      formatter.${system} = pkgsUnfree.nixfmt;
+      formatter.${system} = pkgsUnfree.nixpkgs-fmt;
       
       nixosConfigurations = {
         desktop = nixpkgs.lib.nixosSystem {
