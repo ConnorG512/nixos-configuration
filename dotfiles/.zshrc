@@ -52,3 +52,20 @@ function cdf() {
   local dir="${1:-.}"
   cd "$(fd --type d . $dir | fzf)"
 }
+
+# Prints ANSI colour blocks.
+function ansitest() {
+  print -P "\n %BTerminal Palette%b"
+  
+  # Standard colors 0-7 (Centered numbers)
+  for i in {0..7}; do 
+    printf "\x1b[48;5;${i}m  %1d   \x1b[0m" $i
+  done
+  print "" # Newline
+  
+  # Bright colors 8-15 (Centered numbers)
+  for i in {8..15}; do 
+    printf "\x1b[48;5;${i}m  %2d  \x1b[0m" $i
+  done
+  print "\n"
+}
