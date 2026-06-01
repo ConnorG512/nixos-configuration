@@ -111,94 +111,115 @@ in
             createLoopbacks =
               loopbackList:
               lib.mergeAttrsList
-                (builtins.map (
-                  { fileName
-                  , nodeName
-                  , nodeDescription
-                  , targetOutput
-                  ,
-                  }:
-                  {
-                    "${fileName}" = {
-                      name = "libpipewire-module-loopback";
-                      args = {
-                        "audio.position" = [
-                          "FL"
-                          "FR"
+                (builtins.map
+                  (
+                    { fileName
+                    , nodeName
+                    , nodeDescription
+                    , targetOutput
+                    ,
+                    }:
+                    {
+                      "${fileName}" = {
+                        "context.modules" = [
+                          {
+                            name = "libpipewire-module-loopback";
+                            args = {
+                              "audio.position" = [
+                                "FL"
+                                "FR"
+                              ];
+                              "capture-props" = {
+                                "media.class" = "Audio/Sink";
+                                "node.name" = nodeName;
+                                "node.description" = nodeDescription;
+                              };
+                              "playback-props" = {
+                                "node.name" = "${nodeName}.output";
+                                "node.passive" = true;
+                                "target.object" = targetOutput;
+                              };
+                            };
+                          }
                         ];
-                        "capture-props" = {
-                          "media.class" = "Audio/Sink";
-                          "node.name" = nodeName;
-                          "node.description" = nodeDescription;
-                        };
-                        "playback-props" = {
-                          "node.name" = "${nodeName}.output";
-                          "node.passive" = true;
-                          "target.object" = targetOutput;
-                        };
                       };
-                    };
-                  }
-                )loopbackList);
+                    }
+                  )
+                  loopbackList);
 
             createSinks =
               sinkList:
               lib.mergeAttrsList
-                (builtins.map (
-                  { fileName
-                  , nodeName
-                  , nodeDescription
-                  , targets
-                  ,
-                  }:
-                  {
-                    "${fileName}" = {
-                      name = "libpipewire-module-combine-stream";
-                      args = {
-                        "combine.mode" = "sink";
-                        "node.name" = nodeName;
-                        "node.description" = nodeDescription;
-                        "combine.props" = {
-                          "audio.position" = [
-                            "FL"
-                            "FR"
-                          ];
-                        };
-                        "stream.props" = {
-                          "stream.dont.remix" = true;
-                        };
-                        "targets" = builtins.map
-                          (target: {
-                            "target.object" = target;
-                          })
-                          targets;
+                (builtins.map
+                  (
+                    { fileName
+                    , nodeName
+                    , nodeDescription
+                    , targets
+                    ,
+                    }:
+                    {
+                      "${fileName}" = {
+                        "context.modules" = [
+                          {
+                            name = "libpipewire-module-combine-stream";
+                            args = {
+                              "combine.mode" = "sink";
+                              "node.name" = nodeName;
+                              "node.description" = nodeDescription;
+                              "combine.props" = {
+                                "audio.position" = [
+                                  "FL"
+                                  "FR"
+                                ];
+                                "media.class" = "Audio/Sink";
+                              };
+                              "stream.props" = {
+                                "stream.dont.remix" = true;
+                              };
+                              "targets" = builtins.map
+                                (target: {
+                                  "target.object" = target;
+                                })
+                                targets;
+                            };
+                          }
+                        ];
                       };
-                    };
-                  }
-                )sinkList);
+                    }
+                  )
+                  sinkList);
           in
-            (if cfg.loopbackModules == [] then {} else createLoopbacks cfg.loopbackModules)
-            // (if cfg.sinkModules == [] then {} else createSinks cfg.sinkModules);
+          (if cfg.loopbackModules == [ ] then { } else createLoopbacks cfg.loopbackModules)
+          // (if cfg.sinkModules == [ ] then { } else createSinks cfg.sinkModules);
       }
 
       # Wireplumber modules:
       {
         services.pipewire.wireplumber.extraConfig =
           let
-          hidePorts = portList: builtins.map (port: {
-            matches = [{ "node.name" = "${port}"; }];
-            actions = { update-props = { "node.disabled" = true; }; }; 
-          }) portList; 
-          
-          renamePorts = portList: builtins.map (port: {
-            matches = [{ "node.name" = "${port.target}"; }];
-            actions = { update-props = { "node.description" = port.newName; }; }; 
-          }) portList; 
+            hidePorts = portList: builtins.map
+              (port: {
+                matches = [{ "node.name" = "${port}"; }];
+                actions = { update-props = { "node.disabled" = true; }; };
+              })
+              portList;
+
+            renamePorts = portList: builtins.map
+              (port: {
+                matches = [{ "node.name" = "${port.target}"; }];
+                actions = { update-props = { "node.description" = port.newName; }; };
+              })
+              portList;
 
           in
           {
-            "20-rename-port"."monitor-alsa-rules" = renamePorts cfg.renamedPorts;
-            "30-hidden-ports"."monitor-alsa-rules" = hidePorts cfg.hiddenPorts;
+            "20-renamed-ports" = {
+              "monitor.alsa.rules" = renamePorts cfg.renamedPorts;
+            };
+            "30-hidden-ports" = {
+              "monitor.alsa.rules" = hidePorts cfg.hiddenPorts;
+            };
           };
       }
     ]

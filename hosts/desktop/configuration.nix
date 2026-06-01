@@ -125,7 +125,7 @@
         sinkModules = [
           {
             fileName = "93-tv-headphones-sink";
-            nodeName = "discord_splitter";
+            nodeName = "tv_headphones_sink";
             nodeDescription = "TV/Headphone Combine Stream";
             targets = [
               audioDevices.headphones
