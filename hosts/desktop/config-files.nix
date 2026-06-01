@@ -5,6 +5,7 @@
     ".config/alacritty/alacritty.toml" = "${self}/dotfiles/.config/alacritty/alacritty.toml";
     ".config/ghostty/config.ghostty" = "${self}/dotfiles/.config/ghostty/config.ghostty";
     ".config/fastfetch/config.jsonc" = "${self}/dotfiles/.config/fastfetch/config.jsonc";
+    ".config/btop/btop.conf" = "${self}/dotfiles/.config/btop/btop.conf";
 
     ".config/tofi/config" = "${self}/dotfiles/.config/tofi/config";
     ".config/waybar/config.jsonc" = "${self}/dotfiles/.config/waybar/config.jsonc";
