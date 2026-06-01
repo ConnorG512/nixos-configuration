@@ -133,11 +133,13 @@ in
                                 "media.class" = "Audio/Sink";
                                 "node.name" = nodeName;
                                 "node.description" = nodeDescription;
+                                "stream.dont-remix" = true;
                               };
                               "playback-props" = {
                                 "node.name" = "${nodeName}.output";
                                 "node.passive" = true;
                                 "target.object" = targetOutput;
+                                "stream.dont-remix" = true;
                               };
                             };
                           }
