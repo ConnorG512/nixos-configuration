@@ -1,0 +1,29 @@
+# Colour:
+background = 451d0e
+foreground = e6caa7
+
+background-opacity = 0.8
+background-blur = true
+
+# Normal:
+palette = 0=#B2B3C7
+palette = 1=#F49FA6
+palette = 2=#72C95E
+palette = 3=#BBBD32
+palette = 4=#89B9EB
+palette = 5=#DEA0DB
+palette = 6=#38CCA9
+palette = 7=#C6B653
+
+# Bright:
+palette = 8=#E7E9E9
+palette = 9=#FCE5E4
+palette = 10=#E5EDDE
+palette = 11=#EBECB6
+palette = 12=#CDF1F9
+palette = 13=#FBE4F5
+palette = 14=#BBF7DD
+palette = 15=#F5EBB2
+
+# Keybinds:
+keybind = ctrl+shift+comma=reload_config
