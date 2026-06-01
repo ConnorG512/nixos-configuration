@@ -115,23 +115,23 @@
           }
         ];
         loopbackModules = [
-          {
-            fileName = "90-discord-splitter";
-            nodeName = "discord_splitter";
-            nodeDescription = "Sink for splitting Discord capture audio";
-            targetOutput = audioDevices.headphones;
-          }
+          #{
+          #  fileName = "90-discord-splitter";
+          #  nodeName = "discord_splitter";
+          #  nodeDescription = "Sink for splitting Discord capture audio";
+          #  targetOutput = audioDevices.headphones;
+          #}
         ];
         sinkModules = [
-          {
-            fileName = "93-tv-headphones-sink";
-            nodeName = "tv_headphones_sink";
-            nodeDescription = "TV/Headphone Combine Stream";
-            targets = [
-              audioDevices.headphones
-              audioDevices.tv
-            ];
-          }
+          #{
+          #  fileName = "93-tv-headphones-sink";
+          #  nodeName = "tv_headphones_sink";
+          #  nodeDescription = "TV/Headphone Combine Stream";
+          #  targets = [
+          #    audioDevices.headphones
+          #    audioDevices.tv
+          #  ];
+          #}
         ];
       };
       gstreamer = {
