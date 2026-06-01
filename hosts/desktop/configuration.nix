@@ -83,7 +83,12 @@
       enableOpenssh = true;
       enableAvahi = true;
     };
-    multimedia = {
+    multimedia = let
+      audioDevices = {
+        headphones = "alsa_output.pci-0000_08_00.1.pro-output-10";
+        tv = "alsa_output.pci-0000_08_00.1.pro-output-3";
+      };
+    in {
       audio = {
         plugins = [ "audio" "jack" "pulse" "alsa" ];
         clockRate = 44100;
@@ -98,6 +103,35 @@
           "alsa_output.pci-0000_08_00.1.pro-output-8"
           "alsa_output.pci-0000_08_00.1.pro-output-9"
           "alsa_output.pci-0000_08_00.1.pro-output-11"
+        ];
+        renamedPorts = [
+          {
+            target = audioDevices.headphones;
+            newName = "Headphones";
+          }
+          {
+            target = audioDevices.tv;
+            newName = "TV";
+          }
+        ];
+        loopbackModules = [
+          {
+            fileName = "90-discord-splitter";
+            nodeName = "discord_splitter";
+            nodeDescription = "Sink for splitting Discord capture audio";
+            targetOutput = audioDevices.headphones;
+          }
+        ];
+        sinkModules = [
+          {
+            fileName = "93-tv-headphones-sink";
+            nodeName = "discord_splitter";
+            nodeDescription = "TV/Headphone Combine Stream";
+            targets = [
+              audioDevices.headphones
+              audioDevices.tv
+            ];
+          }
         ];
       };
       gstreamer = {
