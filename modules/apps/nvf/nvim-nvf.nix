@@ -49,8 +49,8 @@
         };
         theme = {
           enable = true;
-          name = "gruvbox";
-          style = "warm";
+          name = "rose-pine";
+          style = "main";
           transparent = true;
         };
         lsp = {
