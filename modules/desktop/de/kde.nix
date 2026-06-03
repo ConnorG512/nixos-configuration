@@ -51,5 +51,17 @@ in
     (lib.mkIf (cfg.loginManager == "sddm"){
       services.displayManager.sddm.enable = true;
     })
+    
+    {
+      environment.systemPackages = with pkgs; [
+        kdePackages.plasma-vault
+        kdePackages.kcalc
+        kdePackages.partitionmanager
+        kdePackages.elisa
+        kdePackages.filelight
+        kdePackages.kgpg
+        kdePackages.kleopatra
+      ];
+    }
   ];
 }
