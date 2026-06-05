@@ -102,6 +102,7 @@ in
         ripgrep
         tree
         lsof
+        stow
         
         yazi
         ghostty
