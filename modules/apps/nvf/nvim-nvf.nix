@@ -73,6 +73,7 @@
                 "cpp"
                 "h"
                 "hpp"
+                "ipp"
               ];
             };
             "ccls" = {
@@ -82,6 +83,7 @@
                 "cpp"
                 "h"
                 "hpp"
+                "ipp"
               ];
             };
             "nil-ls" = {
