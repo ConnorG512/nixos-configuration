@@ -38,10 +38,10 @@
     "${self}/modules/theming/fonts.nix"
 
     "${self}/modules/desktop/desktop.nix"
+    "${self}/modules/gaming.nix"
 
     "${self}/modules/apps/xdg-mime.nix"
     "${self}/modules/apps/gamemode.nix"
-    "${self}/modules/apps/steam.nix"
     "${self}/modules/apps/syncthing.nix"
     "${self}/modules/apps/mullvad-vpn.nix"
     "${self}/modules/apps/gnupg.nix"
@@ -82,6 +82,13 @@
       additionalPorts = [ 53317 42069 8080 47989 ];
       enableOpenssh = true;
       enableAvahi = true;
+    };
+    gaming = {
+      enableSteam = true;
+      enableHeroic = true;
+      enableLsfg = true;
+      enableGamemode = true;
+      enableMangohud = true;
     };
     multimedia = let
       audioDevices = {
