@@ -14,6 +14,20 @@
   }
 
   {
+    trigger = "formatter";
+    body = ''
+      formatter.$1 = $2.nixpkgs-fmt;
+    '';
+  }
+  
+  {
+    trigger = "callPackage";
+    body = ''
+      $1 = $2.callPackage $3 {};
+    '';
+  }
+
+  {
     trigger = "configOptionPreset";
     body = ''
       { config, lib, ... }:
@@ -90,16 +104,6 @@
     '';
   }
   
-  {
-    trigger = "cmakeFlags"; 
-    body = ''
-      cmakeFlags = [
-        "-DCMAKE_BUILD_TYPE=$1"
-        $0
-      ];
-    '';
-  }
-
   {
     trigger = "mkShell";
     body = ''
