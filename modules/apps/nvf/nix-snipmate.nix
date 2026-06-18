@@ -54,10 +54,10 @@
     trigger = "mkDerivation";
     body = ''
       stdenv.mkDerivation (finalAttrs: {
-        name = ${pname}-${version}-${system}
+        name = "''${finalAttrs.pname}-''${finalAttrs.version}-''${finalAttrs.system}";
         pname = "$1";
         version = "$2";
-        system = $3
+        system = "$3";
         src = $4;
 
         dontStrip = $5;
