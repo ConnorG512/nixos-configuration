@@ -54,11 +54,13 @@
     trigger = "mkDerivation";
     body = ''
       stdenv.mkDerivation (finalAttrs: {
+        name = ${pname}-${version}-${system}
         pname = "$1";
         version = "$2";
-        src = $3;
+        system = $3
+        src = $4;
 
-        dontStrip = $4;
+        dontStrip = $5;
 
         nativeBuildInputs = [ ];
         buildInputs = [ ];
@@ -103,6 +105,7 @@
     body = ''
       devShells.$1.default = $2.mkShell {
         packages = [ ];
+        inputsFrom = [ ];
 
         shellHook = '''
           echo "Entering shell!"
