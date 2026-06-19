@@ -23,7 +23,7 @@
     "${self}/modules/system/gpu/intel.nix"
     "${self}/modules/system/bootloader.nix"
     "${self}/modules/system/system-packages.nix"
-    "${self}/modules/system/shell/zsh.nix"
+    "${self}/modules/environment.nix"
     "${self}/modules/system/controllers.nix"
     "${self}/modules/system/networking/networking.nix"
     "${self}/modules/system/multimedia/multimedia.nix"
@@ -69,6 +69,7 @@
       enableOpenssh = true;
       enableAvahi = true;
     };
+    environment.shell = "zsh";
     multimedia = {
       audio = {
         plugins = [ "audio" "jack" "pulse" "alsa" ];

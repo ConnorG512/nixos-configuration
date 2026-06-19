@@ -25,9 +25,7 @@
     "${self}/modules/system/kernel.nix"
     "${self}/modules/system/locale/keymap.nix"
     "${self}/modules/system/locale/locale.nix"
-    "${self}/modules/system/shell/zsh.nix"
     "${self}/modules/system/bootloader.nix"
-    "${self}/modules/system/environment-vars.nix"
     "${self}/modules/system/controllers.nix"
     "${self}/modules/system/networking/networking.nix"
     "${self}/modules/system/multimedia/multimedia.nix"
@@ -39,6 +37,7 @@
 
     "${self}/modules/desktop/desktop.nix"
     "${self}/modules/gaming.nix"
+    "${self}/modules/environment.nix"
 
     "${self}/modules/apps/xdg-mime.nix"
     "${self}/modules/apps/gamemode.nix"
@@ -82,6 +81,13 @@
       additionalPorts = [ 53317 42069 8080 47989 ];
       enableOpenssh = true;
       enableAvahi = true;
+    };
+    environment = {
+      varList = [
+        { name = "PROGRAMMING"; value = "$HOME/programming"; }
+        { name = "GOG"; value = "$HOME/ssd1/gog"; }
+      ];
+      shell = "zsh";
     };
     gaming = {
       enableSteam = true;
