@@ -3,6 +3,6 @@
 {
   programs.gamescope = {
     enable = true;
-    capSysNice = false;
+    capSysNice = true;
   };
 }
