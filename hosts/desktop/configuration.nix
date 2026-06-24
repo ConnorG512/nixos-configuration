@@ -27,7 +27,7 @@
     "${self}/modules/system/locale/locale.nix"
     "${self}/modules/system/bootloader.nix"
     "${self}/modules/system/controllers.nix"
-    "${self}/modules/system/networking/networking.nix"
+    "${self}/modules/system/networking.nix"
     "${self}/modules/system/multimedia/multimedia.nix"
 
     "${self}/modules/appimage.nix"
@@ -78,9 +78,10 @@
     network = {
       hostName = "nixos-desktop";
       enable = true;
-      additionalPorts = [ 53317 42069 8080 47989 ];
+      additionalPorts = [ 53317 8080 47989 ];
       enableOpenssh = true;
       enableAvahi = true;
+      dns = "hardened";
     };
     environment = {
       varList = [
