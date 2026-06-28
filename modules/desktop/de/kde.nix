@@ -32,6 +32,13 @@ in
       description = "Choice of login manager.";
       example = "plasma";
     };
+
+    oxygenTheme = lib.mkOption {
+      type = lib.types.bool;
+      default = false;
+      description = "Install Oxygen theme, icons, and sounds.";
+      example = true;
+    };
   };
   
   config = lib.mkMerge [
@@ -61,7 +68,7 @@ in
         kdePackages.filelight
         kdePackages.kgpg
         kdePackages.kleopatra
-      ];
+      ] ++ lib.optionals cfg.oxygenTheme with pkgs; [ kdePackages.oxygen kdePackages.oxygen-icons kdePackages.oxygen-sounds ];
     }
   ];
 }

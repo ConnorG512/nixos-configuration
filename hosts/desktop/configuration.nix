@@ -160,6 +160,7 @@
       };
       kde = {
         enable = true;
+        oxygenTheme = true;
       };
     };
   }; 
