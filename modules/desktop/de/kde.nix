@@ -68,7 +68,7 @@ in
         kdePackages.filelight
         kdePackages.kgpg
         kdePackages.kleopatra
-      ] ++ lib.optionals cfg.oxygenTheme with pkgs; [ kdePackages.oxygen kdePackages.oxygen-icons kdePackages.oxygen-sounds ];
+      ] ++ lib.optionals cfg.oxygenTheme [ pkgs.kdePackages.oxygen pkgs.kdePackages.oxygen-icons pkgs.kdePackages.oxygen-sounds ];
     }
   ];
 }
