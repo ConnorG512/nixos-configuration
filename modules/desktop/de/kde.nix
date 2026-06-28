@@ -64,7 +64,6 @@ in
         kdePackages.plasma-vault
         kdePackages.kcalc
         kdePackages.partitionmanager
-        kdePackages.elisa
         kdePackages.filelight
         kdePackages.kgpg
         kdePackages.kleopatra
