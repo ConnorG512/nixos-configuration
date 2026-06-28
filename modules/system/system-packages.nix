@@ -103,6 +103,7 @@ in
         tree
         lsof
         stow
+        audacious
         
         yazi
         ghostty
