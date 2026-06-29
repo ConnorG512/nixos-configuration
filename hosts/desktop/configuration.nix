@@ -93,6 +93,7 @@
     gaming = {
       enableSteam = true;
       enableHeroic = true;
+      enableUmu = true;
       enableLsfg = true;
       enableGamemode = true;
       enableMangohud = true;

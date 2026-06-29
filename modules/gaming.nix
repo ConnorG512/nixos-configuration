@@ -39,6 +39,13 @@ in
       description = "Enable Mangohud";
       example = true;
     };
+    
+    enableUmu = lib.mkOption {
+      type = lib.types.bool;
+      default = false;
+      description = "Enable Umu launcher.";
+      example = true;
+    };
 
     extraPackages = lib.mkOption {
       type = lib.types.listOf lib.types.package;
@@ -74,6 +81,7 @@ in
       environment.systemPackages = cfg.extraPackages
         ++ lib.optionals cfg.enableLsfg [ pkgs.lsfg-vk pkgs.lsfg-vk-ui ] 
         ++ lib.optional cfg.enableHeroic pkgs.heroic
+        ++ lib.optional cfg.enableUmu pkgs.umu-launcher
         ++ lib.optional cfg.enableMangohud pkgs.mangohud;
     }
   ];
