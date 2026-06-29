@@ -92,7 +92,7 @@
     };
     gaming = {
       enableSteam = true;
-      enableHeroic = true;
+      enableHeroic = false;
       enableUmu = true;
       enableLsfg = true;
       enableGamemode = true;
