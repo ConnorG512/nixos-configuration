@@ -97,6 +97,7 @@
       enableLsfg = true;
       enableGamemode = true;
       enableMangohud = true;
+      enablelGogDownloader = true;
     };
     multimedia = let
       audioDevices = {

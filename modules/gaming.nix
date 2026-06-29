@@ -46,6 +46,13 @@ in
       description = "Enable Umu launcher.";
       example = true;
     };
+    
+    enablelGogDownloader = lib.mkOption {
+      type = lib.types.bool;
+      default = false;
+      description = "Enable lgogdownloader.";
+      example = true;
+    };
 
     extraPackages = lib.mkOption {
       type = lib.types.listOf lib.types.package;
@@ -82,6 +89,7 @@ in
         ++ lib.optionals cfg.enableLsfg [ pkgs.lsfg-vk pkgs.lsfg-vk-ui ] 
         ++ lib.optional cfg.enableHeroic pkgs.heroic
         ++ lib.optional cfg.enableUmu pkgs.umu-launcher
+        ++ lib.optional cfg.enablelGogDownloader pkgs.lgogdownloader
         ++ lib.optional cfg.enableMangohud pkgs.mangohud;
     }
   ];
