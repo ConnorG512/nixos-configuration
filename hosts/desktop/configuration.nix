@@ -38,6 +38,7 @@
     "${self}/modules/desktop/desktop.nix"
     "${self}/modules/gaming.nix"
     "${self}/modules/environment.nix"
+    "${self}/modules/wine.nix"
 
     "${self}/modules/apps/xdg-mime.nix"
     "${self}/modules/apps/gamemode.nix"
@@ -164,6 +165,11 @@
         enable = true;
         oxygenTheme = true;
       };
+    };
+    wine = {
+      package = "waylandFull";
+      enableWineAsio = true;
+      enableWineFonts = true;
     };
   }; 
 
