@@ -32,7 +32,7 @@ in
       pkgs.wine64Packages.${cfg.package}
       pkgs.winetricks
     ]
-    ++ lib.optional cfg.enableWineAsio [ pkgs.wineasio ]
-    ++ lib.optional cfg.enableWineFonts [ pkgs.wine64Packages.fonts ];
+    ++ lib.optional cfg.enableWineAsio pkgs.wineasio
+    ++ lib.optional cfg.enableWineFonts pkgs.wine64Packages.fonts;
   };
 }
