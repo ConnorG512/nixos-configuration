@@ -9,7 +9,6 @@ let
   ];
   x11Packages = with pkgs; [
     xrandr
-    xeyes
   ];
 in
 {
@@ -89,6 +88,8 @@ in
         lsof
         stow
         audacious
+        b3sum
+        xeyes
 
         yazi
         ghostty
