@@ -31,6 +31,8 @@ in
     environment.systemPackages = [
       pkgs.wine64Packages.${cfg.package}
       pkgs.winetricks
+      pkgs.dxvk.out
+      pkgs.vkd3d-proton
     ]
     ++ lib.optional cfg.enableWineAsio pkgs.wineasio
     ++ lib.optional cfg.enableWineFonts pkgs.wine64Packages.fonts;

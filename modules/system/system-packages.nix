@@ -26,12 +26,6 @@ in
       description = "Whether to include the man pages in system configuration.";
     };
 
-    installWinePackages = lib.mkOption {
-      type = lib.types.bool;
-      default = false;
-      description = "Install wine / dxvk / vkd3d packages and utils.";
-    };
-
     installMangohudPackages = lib.mkOption {
       type = lib.types.bool;
       default = false;
@@ -66,15 +60,6 @@ in
         man
         man-pages
         man-pages-posix
-      ];
-    })
-
-    (lib.mkIf cfg.installWinePackages {
-      environment.systemPackages = with pkgs; [
-        dxvk.out
-        vkd3d-proton
-        wineWow64Packages.waylandFull
-        winetricks
       ];
     })
 

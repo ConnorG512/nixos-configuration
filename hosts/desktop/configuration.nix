@@ -64,7 +64,6 @@
     sysPackages = {
       displayType = "wl";
       installManPages = true;
-      installWinePackages = true;
       extraPackages = with pkgs; [
         tmux
         btop
