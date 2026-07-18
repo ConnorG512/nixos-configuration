@@ -1,8 +1,7 @@
-{
-  config,
-  pkgs,
-  nvf,
-  ...
+{ config
+, pkgs
+, nvf
+, ...
 }:
 
 {

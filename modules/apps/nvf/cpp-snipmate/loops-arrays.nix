@@ -8,7 +8,7 @@
       }
     '';
   }
-  
+
   {
     trigger = "forEachIndexedWInc";
     body = ''

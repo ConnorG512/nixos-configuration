@@ -9,7 +9,7 @@
         "okular.desktop"
         "firefox.desktop"
       ];
-      
+
       "inode/directory" = "org.gnome.Nautilus.desktop";
 
       "application/x-krita" = "krita.desktop";

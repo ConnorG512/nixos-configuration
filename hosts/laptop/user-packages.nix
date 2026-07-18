@@ -23,7 +23,7 @@ with pkgs; [
   spotify
   termusic
   mpv
-  
+
   discord
 
   moonlight-qt

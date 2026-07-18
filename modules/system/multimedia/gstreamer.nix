@@ -1,8 +1,8 @@
-{ config, lib, pkgs, ... }: 
+{ config, lib, pkgs, ... }:
 
 let
   cfg = config.systemConfiguration.multimedia.gstreamer;
-in 
+in
 {
   options.systemConfiguration.multimedia.gstreamer = {
     enable = lib.mkOption {
@@ -45,7 +45,7 @@ in
         pkgs.gst_all_1.gst-plugins-ugly
       ];
     })
-    
+
     (lib.mkIf cfg.enableBad {
       environment.systemPackages = [
         pkgs.gst_all_1.gst-plugins-bad

@@ -9,7 +9,7 @@
     "nix-command"
     "flakes"
   ];
-  
+
   nix.settings.trusted-users = [
     "root"
     "@wheel"
@@ -18,7 +18,7 @@
   imports = [
     # requires --impure
     /etc/nixos/hardware-configuration.nix
-    
+
     "${self}/modules/system/kernel.nix"
     "${self}/modules/system/gpu/intel.nix"
     "${self}/modules/system/bootloader.nix"
@@ -87,7 +87,7 @@
       useX11 = false;
       loginManager = "plasma";
     };
-  }; 
+  };
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

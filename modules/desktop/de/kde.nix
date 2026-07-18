@@ -2,7 +2,7 @@
 
 let
   cfg = config.systemConfiguration.desktop.kde;
-in 
+in
 {
   options.systemConfiguration.desktop.kde = {
     enable = lib.mkOption {
@@ -25,7 +25,7 @@ in
       description = "Use KDE X11 session.";
       example = true;
     };
-    
+
     loginManager = lib.mkOption {
       type = lib.types.enum [ "plasma" "sddm" ];
       default = "plasma";
@@ -40,7 +40,7 @@ in
       example = true;
     };
   };
-  
+
   config = lib.mkMerge [
     (lib.mkIf cfg.enable {
       services.desktopManager.plasma6 = {
@@ -52,13 +52,13 @@ in
       services.xserver.enable = cfg.useX11;
     })
 
-    (lib.mkIf (cfg.loginManager == "plasma"){
+    (lib.mkIf (cfg.loginManager == "plasma") {
       services.displayManager.plasma-login-manager.enable = true;
     })
-    (lib.mkIf (cfg.loginManager == "sddm"){
+    (lib.mkIf (cfg.loginManager == "sddm") {
       services.displayManager.sddm.enable = true;
     })
-    
+
     {
       environment.systemPackages = with pkgs; [
         kdePackages.plasma-vault

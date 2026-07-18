@@ -2,7 +2,7 @@
 
 let
   cfg = config.systemConfiguration.environment;
-in 
+in
 {
   options.systemConfiguration.environment = {
     varList = lib.mkOption {
@@ -35,12 +35,12 @@ in
         { name = "MUSIC"; value = "$HOME/Music"; }
         { name = "VIDEOS"; value = "$HOME/Videos"; }
         { name = "PUBLIC"; value = "$HOME/Public"; }
-      ] ++ lib.optionals (cfg.varList != []) cfg.varList);
+      ] ++ lib.optionals (cfg.varList != [ ]) cfg.varList);
     }
 
     (lib.mkIf (cfg.shell == "zsh") {
       programs.zsh = {
-        enable = true; 
+        enable = true;
         histSize = 2500;
         enableCompletion = true;
 
@@ -71,7 +71,7 @@ in
         };
       };
     })
-    
+
     (lib.mkIf (cfg.shell == "bash") {
       programs.bash = {
         enable = true;

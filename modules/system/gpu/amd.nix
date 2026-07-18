@@ -2,7 +2,7 @@
 
 let
   cfg = config.systemConfiguration.amdGpu;
-in 
+in
 {
   options.systemConfiguration.amdGpu = {
     enable = lib.mkOption {

@@ -1,8 +1,8 @@
-{ config, lib, pkgs, ... }: 
+{ config, lib, pkgs, ... }:
 
 let
   cfg = config.systemConfiguration.multimedia;
-in 
+in
 {
   imports = [
     ./audio.nix

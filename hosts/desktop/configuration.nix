@@ -9,7 +9,7 @@
     "nix-command"
     "flakes"
   ];
-  
+
   nix.settings.trusted-users = [
     "root"
     "@wheel"
@@ -18,7 +18,7 @@
   imports = [
     # requires --impure
     /etc/nixos/hardware-configuration.nix
-    
+
     # System
     "${self}/modules/system/gpu/gpu.nix"
     "${self}/modules/system/system-packages.nix"
@@ -54,7 +54,7 @@
     "${self}/modules/apps/gpu-screen-recorder.nix"
     "${self}/modules/apps/firefox.nix"
     "${self}/modules/apps/localsend.nix"
-    
+
     "${self}/modules/services/searx.nix"
     "${self}/modules/services/sunshine.nix"
     "${self}/modules/user.nix"
@@ -100,62 +100,64 @@
       enableMangohud = true;
       enablelGogDownloader = true;
     };
-    multimedia = let
-      audioDevices = {
-        headphones = "alsa_output.pci-0000_08_00.1.pro-output-10";
-        tv = "alsa_output.pci-0000_08_00.1.pro-output-3";
+    multimedia =
+      let
+        audioDevices = {
+          headphones = "alsa_output.pci-0000_08_00.1.pro-output-10";
+          tv = "alsa_output.pci-0000_08_00.1.pro-output-3";
+        };
+      in
+      {
+        audio = {
+          plugins = [ "audio" "jack" "pulse" "alsa" ];
+          clockRate = 44100;
+          hiddenPorts = [
+            "alsa_output.pci-0000_08_00.1.pro-output-0"
+            "alsa_output.pci-0000_08_00.1.pro-output-1"
+            "alsa_output.pci-0000_08_00.1.pro-output-2"
+            "alsa_output.pci-0000_08_00.1.pro-output-4"
+            "alsa_output.pci-0000_08_00.1.pro-output-5"
+            "alsa_output.pci-0000_08_00.1.pro-output-6"
+            "alsa_output.pci-0000_08_00.1.pro-output-7"
+            "alsa_output.pci-0000_08_00.1.pro-output-8"
+            "alsa_output.pci-0000_08_00.1.pro-output-9"
+            "alsa_output.pci-0000_08_00.1.pro-output-11"
+          ];
+          renamedPorts = [
+            {
+              target = audioDevices.headphones;
+              newName = "Headphones";
+            }
+            {
+              target = audioDevices.tv;
+              newName = "TV";
+            }
+          ];
+          loopbackModules = [
+            #{
+            #  fileName = "90-discord-splitter";
+            #  nodeName = "discord_splitter";
+            #  nodeDescription = "Sink for splitting Discord capture audio";
+            #  targetOutput = audioDevices.headphones;
+            #}
+          ];
+          sinkModules = [
+            #{
+            #  fileName = "93-tv-headphones-sink";
+            #  nodeName = "tv_headphones_sink";
+            #  nodeDescription = "TV/Headphone Combine Stream";
+            #  targets = [
+            #    audioDevices.headphones
+            #    audioDevices.tv
+            #  ];
+            #}
+          ];
+        };
+        gstreamer = {
+          enable = true;
+          enableUgly = true;
+        };
       };
-    in {
-      audio = {
-        plugins = [ "audio" "jack" "pulse" "alsa" ];
-        clockRate = 44100;
-        hiddenPorts = [
-          "alsa_output.pci-0000_08_00.1.pro-output-0"
-          "alsa_output.pci-0000_08_00.1.pro-output-1"
-          "alsa_output.pci-0000_08_00.1.pro-output-2"
-          "alsa_output.pci-0000_08_00.1.pro-output-4"
-          "alsa_output.pci-0000_08_00.1.pro-output-5"
-          "alsa_output.pci-0000_08_00.1.pro-output-6"
-          "alsa_output.pci-0000_08_00.1.pro-output-7"
-          "alsa_output.pci-0000_08_00.1.pro-output-8"
-          "alsa_output.pci-0000_08_00.1.pro-output-9"
-          "alsa_output.pci-0000_08_00.1.pro-output-11"
-        ];
-        renamedPorts = [
-          {
-            target = audioDevices.headphones;
-            newName = "Headphones";
-          }
-          {
-            target = audioDevices.tv;
-            newName = "TV";
-          }
-        ];
-        loopbackModules = [
-          #{
-          #  fileName = "90-discord-splitter";
-          #  nodeName = "discord_splitter";
-          #  nodeDescription = "Sink for splitting Discord capture audio";
-          #  targetOutput = audioDevices.headphones;
-          #}
-        ];
-        sinkModules = [
-          #{
-          #  fileName = "93-tv-headphones-sink";
-          #  nodeName = "tv_headphones_sink";
-          #  nodeDescription = "TV/Headphone Combine Stream";
-          #  targets = [
-          #    audioDevices.headphones
-          #    audioDevices.tv
-          #  ];
-          #}
-        ];
-      };
-      gstreamer = {
-        enable = true;
-        enableUgly = true;
-      };
-    };
     desktop = {
       niri = {
         enable = false;
@@ -171,7 +173,7 @@
       enableWineAsio = true;
       enableWineFonts = true;
     };
-  }; 
+  };
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

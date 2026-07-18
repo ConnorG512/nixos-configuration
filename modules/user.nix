@@ -1,8 +1,8 @@
-{config, pkgs, lib, ... }:
+{ config, pkgs, lib, ... }:
 
 let
   cfg = config.systemConfiguration.user;
-in 
+in
 {
   options.systemConfiguration.user = {
     name = lib.mkOption {
@@ -14,21 +14,21 @@ in
 
     groupList = lib.mkOption {
       type = lib.types.listOf lib.types.str;
-      default = [];
+      default = [ ];
       description = "List of groups to provide to the user.";
       example = [ "wheel" "video" ];
     };
 
     userPackageList = lib.mkOption {
       type = lib.types.listOf lib.types.package;
-      default = [];
+      default = [ ];
       description = "Packages to install on a user level.";
       example = with pkgs; [ firefox mpv ];
     };
 
     configFileList = lib.mkOption {
       type = lib.types.attrsOf lib.types.path;
-      default = {};
+      default = { };
       description = "Map of destination paths to source dotfile paths.";
       example = {
         ".zshrc" = ./dotfiles/zshrc;
@@ -39,12 +39,12 @@ in
   config = {
     programs.zsh.enable = true;
 
-      users.users.${cfg.name} = {
-        isNormalUser = true;
-        extraGroups = cfg.groupList;
-        initialPassword = "changeme";
-        shell = pkgs.zsh;
-      };
+    users.users.${cfg.name} = {
+      isNormalUser = true;
+      extraGroups = cfg.groupList;
+      initialPassword = "changeme";
+      shell = pkgs.zsh;
+    };
 
     home-manager.users.${cfg.name} = {
       home.stateVersion = "24.11";

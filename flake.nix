@@ -11,14 +11,13 @@
   };
 
   outputs =
-    inputs@{
-      self,
-      nixpkgs,
-      nvf,
-      home-manager,
-      nff,
-      msc,
-      ...
+    inputs@{ self
+    , nixpkgs
+    , nvf
+    , home-manager
+    , nff
+    , msc
+    , ...
     }:
     let
       system = "x86_64-linux";
@@ -31,7 +30,7 @@
     in
     {
       formatter.${system} = pkgsUnfree.nixpkgs-fmt;
-      
+
       nixosConfigurations = {
         desktop = nixpkgs.lib.nixosSystem {
           pkgs = pkgsUnfree;
@@ -52,7 +51,7 @@
         };
 
         laptop = nixpkgs.lib.nixosSystem {
-          pkgs = pkgsUnfree; 
+          pkgs = pkgsUnfree;
           modules = [
             home-manager.nixosModules.home-manager
             {

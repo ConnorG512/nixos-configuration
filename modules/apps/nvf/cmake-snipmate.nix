@@ -37,7 +37,7 @@
       endfunction()
     '';
   }
-  
+
   {
     trigger = "set";
     body = ''
@@ -54,7 +54,7 @@
       endif()
     '';
   }
-  
+
   {
     trigger = "if_elseif";
     body = ''
@@ -64,7 +64,7 @@
       endif()
     '';
   }
-  
+
   {
     trigger = "if_elseif_else";
     body = ''
@@ -75,7 +75,7 @@
       endif()
     '';
   }
-  
+
   {
     trigger = "find_package";
     body = ''
@@ -101,7 +101,7 @@
       )
     '';
   }
-  
+
   {
     trigger = "target_include_directories";
     body = ''
@@ -118,7 +118,7 @@
       install(TARGETS $1 $2 DESTINATION $3)
     '';
   }
-  
+
   {
     trigger = "target_compile_options";
     body = ''

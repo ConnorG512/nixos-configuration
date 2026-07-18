@@ -2,7 +2,7 @@
 
 let
   cfg = config.systemConfiguration.gaming;
-in 
+in
 {
   options.systemConfiguration.gaming = {
     enableSteam = lib.mkOption {
@@ -18,7 +18,7 @@ in
       description = "Enable to use of heroic launcher.";
       example = true;
     };
-    
+
     enableLsfg = lib.mkOption {
       type = lib.types.bool;
       default = false;
@@ -32,21 +32,21 @@ in
       description = "Enable GameMode";
       example = true;
     };
-    
+
     enableMangohud = lib.mkOption {
       type = lib.types.bool;
       default = false;
       description = "Enable Mangohud";
       example = true;
     };
-    
+
     enableUmu = lib.mkOption {
       type = lib.types.bool;
       default = false;
       description = "Enable Umu launcher.";
       example = true;
     };
-    
+
     enablelGogDownloader = lib.mkOption {
       type = lib.types.bool;
       default = false;
@@ -57,7 +57,7 @@ in
     extraPackages = lib.mkOption {
       type = lib.types.listOf lib.types.package;
       default = [ ];
-      description =  "List of extra packages to add to system packages.";
+      description = "List of extra packages to add to system packages.";
       example = [ pkgs.mangohud pkgs.gamemode ];
     };
   };
@@ -66,8 +66,8 @@ in
     (lib.mkIf cfg.enableSteam {
       programs.steam = {
         enable = true;
-        remotePlay.openFirewall = true;                                     # Open ports in the firewall for Steam Remote Play
-        dedicatedServer.openFirewall = true;                                # Open ports in the firewall for Source Dedicated Server
+        remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
+        dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
         localNetworkGameTransfers.openFirewall = true;
 
         gamescopeSession.enable = true;
@@ -86,7 +86,7 @@ in
 
     {
       environment.systemPackages = cfg.extraPackages
-        ++ lib.optionals cfg.enableLsfg [ pkgs.lsfg-vk pkgs.lsfg-vk-ui ] 
+        ++ lib.optionals cfg.enableLsfg [ pkgs.lsfg-vk pkgs.lsfg-vk-ui ]
         ++ lib.optional cfg.enableHeroic pkgs.heroic
         ++ lib.optional cfg.enableUmu pkgs.umu-launcher
         ++ lib.optional cfg.enablelGogDownloader pkgs.lgogdownloader

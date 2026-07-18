@@ -19,7 +19,7 @@
       formatter.$1 = $2.nixpkgs-fmt;
     '';
   }
-  
+
   {
     trigger = "callPackage";
     body = ''
@@ -51,7 +51,7 @@
       }
     '';
   }
-  
+
   {
     trigger = "mkOption";
     body = ''
@@ -92,7 +92,7 @@
       ''';
     '';
   }
-  
+
   {
     trigger = "installPhase";
     body = ''
@@ -103,7 +103,7 @@
       ''';
     '';
   }
-  
+
   {
     trigger = "mkShell";
     body = ''
@@ -134,7 +134,7 @@
       ];
     '';
   }
-  
+
   {
     trigger = "import";
     body = ''

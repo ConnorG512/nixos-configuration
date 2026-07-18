@@ -4,7 +4,7 @@ let
   patterns = import ./patterns.nix;
   pointers = import ./pointers.nix;
   builder = import ./builder.nix;
-in 
+in
 [
   {
     trigger = "turnary";
@@ -33,15 +33,15 @@ in
       concept $1 = $2;
     '';
   }
-  
+
   {
-  trigger = "concept requires";
-  body = ''
-    concept $1 = requires($2)
-    {
+    trigger = "concept requires";
+    body = ''
+      concept $1 = requires($2)
+      {
       
-    };
-  '';
+      };
+    '';
   }
 
   {

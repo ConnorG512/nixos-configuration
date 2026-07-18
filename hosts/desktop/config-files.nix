@@ -1,27 +1,27 @@
 { self, ... }:
 
 {
-    ".zshrc" = "${self}/dotfiles/.zshrc";
-    ".config/alacritty/alacritty.toml" = "${self}/dotfiles/.config/alacritty/alacritty.toml";
-    ".config/ghostty/config.ghostty" = "${self}/dotfiles/.config/ghostty/config.ghostty";
-    ".config/fastfetch/config.jsonc" = "${self}/dotfiles/.config/fastfetch/config.jsonc";
-    ".config/btop/btop.conf" = "${self}/dotfiles/.config/btop/btop.conf";
+  ".zshrc" = "${self}/dotfiles/.zshrc";
+  ".config/alacritty/alacritty.toml" = "${self}/dotfiles/.config/alacritty/alacritty.toml";
+  ".config/ghostty/config.ghostty" = "${self}/dotfiles/.config/ghostty/config.ghostty";
+  ".config/fastfetch/config.jsonc" = "${self}/dotfiles/.config/fastfetch/config.jsonc";
+  ".config/btop/btop.conf" = "${self}/dotfiles/.config/btop/btop.conf";
 
-    ".config/tofi/config" = "${self}/dotfiles/.config/tofi/config";
-    ".config/waybar/config.jsonc" = "${self}/dotfiles/.config/waybar/config.jsonc";
-    ".config/waybar/style.css" = "${self}/dotfiles/.config/waybar/style.css";
+  ".config/tofi/config" = "${self}/dotfiles/.config/tofi/config";
+  ".config/waybar/config.jsonc" = "${self}/dotfiles/.config/waybar/config.jsonc";
+  ".config/waybar/style.css" = "${self}/dotfiles/.config/waybar/style.css";
 
-    ".config/niri/config.kdl" = "${self}/dotfiles/.config/niri/config.kdl";
+  ".config/niri/config.kdl" = "${self}/dotfiles/.config/niri/config.kdl";
 
-    ".config/tmux/tmux.conf" = "${self}/dotfiles/.config/tmux/tmux.conf";
+  ".config/tmux/tmux.conf" = "${self}/dotfiles/.config/tmux/tmux.conf";
 
-    ".config/mako/config" = "${self}/dotfiles/.config/mako/config";
+  ".config/mako/config" = "${self}/dotfiles/.config/mako/config";
 
-    ".config/fuzzel/fuzzel.ini" = "${self}/dotfiles/.config/fuzzel/fuzzel.ini";
-    ".config/fuzzel/blue.ini" = "${self}/dotfiles/.config/fuzzel/blue.ini";
+  ".config/fuzzel/fuzzel.ini" = "${self}/dotfiles/.config/fuzzel/fuzzel.ini";
+  ".config/fuzzel/blue.ini" = "${self}/dotfiles/.config/fuzzel/blue.ini";
 
-    ".config/hypr/hyprlock.conf" = "${self}/dotfiles/.config/hypr/hyprlock.conf";
-    ".config/hypr/hyprpaper.conf" = "${self}/dotfiles/.config/hypr/hyprpaper.conf";
+  ".config/hypr/hyprlock.conf" = "${self}/dotfiles/.config/hypr/hyprlock.conf";
+  ".config/hypr/hyprpaper.conf" = "${self}/dotfiles/.config/hypr/hyprpaper.conf";
 
-    "Pictures/wallpaper/pexels-riccardo-bertolo-4245826.jpg" = "${self}/wallpaper/pexels-riccardo-bertolo-4245826.jpg";
+  "Pictures/wallpaper/pexels-riccardo-bertolo-4245826.jpg" = "${self}/wallpaper/pexels-riccardo-bertolo-4245826.jpg";
 }

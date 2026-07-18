@@ -2,7 +2,7 @@
 
 {
   programs.nff = {
-    enable = true; 
+    enable = true;
 
     settings = {
 
@@ -20,7 +20,7 @@
       };
 
       display = {
-        
+
         percent = {
           type = 9;
           color = {
@@ -34,7 +34,7 @@
           type = "string";
           width = 32;
         };
-        
+
         bar = {
           width = 0;
         };

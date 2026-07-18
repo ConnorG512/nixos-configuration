@@ -24,28 +24,28 @@
       $1(const $1 &other) = $2;
     '';
   }
-  
+
   {
     trigger = "copyAssignment";
     body = ''
       $1& operator=(const $1 &other) = $2;
     '';
   }
-  
+
   {
     trigger = "moveConstruct";
     body = ''
       $1($1&& other) noexcept = $2;
     '';
   }
-  
+
   {
     trigger = "moveAssignment";
     body = ''
       $1& operator=($1 &&other) noexcept = $2;
     '';
   }
-  
+
   {
     trigger = "basicClass";
     body = ''

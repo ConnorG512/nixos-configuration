@@ -2,7 +2,7 @@
 
 let
   cfg = config.systemConfiguration.wine;
-in 
+in
 {
   options.systemConfiguration.wine = {
     package = lib.mkOption {
@@ -28,13 +28,13 @@ in
   };
 
   config = {
-  lib.mkIf ( cfg.package != "none" ) {
-      environment.systemPackages = [ 
-        pkgs.wine64Packages.${cfg.package}
-        pkgs.winetricks
-      ]
-      ++ lib.optional cfg.enableWineAsio [ pkgs.wineasio ]
-      ++ lib.optional cfg.enableWineFonts [ pkgs.wine64Packages.fonts ];
-    };
+    lib.mkIf ( cfg.package != "none" ) {
+    environment.systemPackages = [
+      pkgs.wine64Packages.${cfg.package}
+      pkgs.winetricks
+    ]
+    ++ lib.optional cfg.enableWineAsio [ pkgs.wineasio ]
+    ++ lib.optional cfg.enableWineFonts [ pkgs.wine64Packages.fonts ];
   };
+};
 }

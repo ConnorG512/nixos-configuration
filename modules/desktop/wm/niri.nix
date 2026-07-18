@@ -2,7 +2,7 @@
 
 let
   cfg = config.systemConfiguration.desktop.niri;
-in 
+in
 {
   options.systemConfiguration.desktop.niri = {
     enable = lib.mkOption {
@@ -11,7 +11,7 @@ in
       description = "Enable the use of Niri";
       example = true;
     };
-    
+
     enableSatellite = lib.mkOption {
       type = lib.types.bool;
       default = false;
@@ -30,7 +30,7 @@ in
       environment.systemPackages = with pkgs; [
         xdg-desktop-portal-gtk
         xdg-desktop-portal-gnome
-        
+
         hyprlock
         hyprpaper
         mako
@@ -40,12 +40,12 @@ in
         alacritty
         fuzzel
       ];
-      
+
       programs.nautilus-open-any-terminal = {
-        enable = true; 
+        enable = true;
         terminal = "alacritty";
       };
-      
+
       services = {
         gvfs.enable = true;
         gnome = {

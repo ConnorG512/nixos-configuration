@@ -5,21 +5,21 @@
       $1 = {}
     '';
   }
-  
+
   {
     trigger = "local";
     body = ''
       local $1 = $0
     '';
   }
-  
+
   {
     trigger = "global";
     body = ''
       $1 = $0
     '';
   }
-  
+
   {
     trigger = "while";
     body = ''
@@ -29,7 +29,7 @@
       end
     '';
   }
-  
+
   {
     trigger = "function";
     body = ''
@@ -40,7 +40,7 @@
       end
     '';
   }
-  
+
   {
     trigger = "if";
     body = ''
@@ -49,7 +49,7 @@
       end
     '';
   }
-  
+
   {
     trigger = "ifelse";
     body = ''

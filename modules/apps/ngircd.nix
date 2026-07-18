@@ -15,9 +15,9 @@
         DNS = no
     '';
   };
-  
+
   networking.firewall = {
     allowedTCPPorts = [ 6667 ];
     allowedUDPPorts = [ 6667 ];
-  }; 
+  };
 }

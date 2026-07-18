@@ -1,8 +1,8 @@
-{pkgs, cfg, lib, ... }: 
+{ pkgs, cfg, lib, ... }:
 
 {
   hardware.graphics = {
-    enable = true; 
+    enable = true;
     enable32Bit = true;
 
     extraPackages = with pkgs; [
@@ -22,7 +22,7 @@
     intel-gpu-tools
     mesa
   ];
-  
+
   environment.sessionVariables = {
     LIBVA_DRIVER_NAME = "iHD";
   };

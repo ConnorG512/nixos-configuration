@@ -9,7 +9,7 @@
       }
     '';
   }
-  
+
   {
     trigger = "returnDerefPointerConst";
     body = ''
@@ -68,7 +68,7 @@
       std::unique_ptr<$1, decltype(&$2)> $0 {nullptr, &$2}; 
     '';
   }
-  
+
   {
     trigger = "uniqPtrWithDeleter";
     body = ''
