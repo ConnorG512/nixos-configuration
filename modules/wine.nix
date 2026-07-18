@@ -27,8 +27,7 @@ in
     };
   };
 
-  config = {
-    lib.mkIf ( cfg.package != "none" ) {
+  config = lib.mkIf (cfg.package != "none") {
     environment.systemPackages = [
       pkgs.wine64Packages.${cfg.package}
       pkgs.winetricks
@@ -36,5 +35,4 @@ in
     ++ lib.optional cfg.enableWineAsio [ pkgs.wineasio ]
     ++ lib.optional cfg.enableWineFonts [ pkgs.wine64Packages.fonts ];
   };
-};
 }
