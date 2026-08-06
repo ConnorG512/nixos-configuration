@@ -90,6 +90,7 @@ in
         audacious
         b3sum
         xeyes
+        par2cmdline
 
         yazi
         ghostty
