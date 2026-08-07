@@ -36,6 +36,10 @@ in
         { name = "VIDEOS"; value = "$HOME/Videos"; }
         { name = "PUBLIC"; value = "$HOME/Public"; }
       ] ++ lib.optionals (cfg.varList != [ ]) cfg.varList);
+
+      environment.sessionVariables = {
+        PATH = [ "$HOME/.local/bin" ];
+      };
     }
 
     (lib.mkIf (cfg.shell == "zsh") {
