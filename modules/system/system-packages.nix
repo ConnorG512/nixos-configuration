@@ -91,6 +91,7 @@ in
         b3sum
         xeyes
         par2cmdline
+        dex
 
         yazi
         ghostty
