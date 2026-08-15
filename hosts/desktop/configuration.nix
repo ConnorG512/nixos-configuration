@@ -155,6 +155,7 @@
         gstreamer = {
           enable = true;
           enableUgly = true;
+          enableBad = true;
         };
       };
     desktop = {
