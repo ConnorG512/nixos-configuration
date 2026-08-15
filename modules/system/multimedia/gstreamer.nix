@@ -30,7 +30,6 @@ in
       environment.systemPackages = [
         pkgs.gst_all_1.gstreamer
         pkgs.gst_all_1.gst-libav
-        pkgs.gst_all_1.gst-vaapi
         pkgs.gst_all_1.gst-plugins-base
         pkgs.gst_all_1.gst-plugins-good
       ];
