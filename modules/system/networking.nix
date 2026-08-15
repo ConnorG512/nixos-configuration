@@ -104,7 +104,7 @@ in
       # https://www.cloudflare.com/learning/dns/what-is-1.1.1.1/
       # https://quad9.net/service/service-addresses-and-features/
       networking = {
-        networkmanager.dns = "none";
+        networkmanager.dns = lib.mkForce "none";
         nameservers =
           lib.optionals (cfg.dns == "google") [ "8.8.8.8" "8.8.4.4" "2001:4860:4860::8888" ]
           ++ lib.optionals (cfg.dns == "malwareAdultBlocking") [ "1.1.1.3" "1.0.0.3" "2606:4700:4700::1113" ]
