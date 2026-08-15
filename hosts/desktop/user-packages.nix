@@ -34,7 +34,6 @@ with pkgs; [
   steam
   prismlauncher
   steamtinkerlaunch
-  heroic
 
   # Web browsing:
   tor-browser
@@ -51,9 +50,6 @@ with pkgs; [
   obsidian
 
   # Entertainment:
-  spotify
-  termusic
-  youtube-tui
   mpv
   feh
 

@@ -20,8 +20,6 @@ with pkgs; [
 
   libreoffice-qt6-fresh
 
-  spotify
-  termusic
   mpv
 
   discord
