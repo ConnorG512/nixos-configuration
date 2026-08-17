@@ -1,7 +1,6 @@
 { ... }:
 
 {
-
   boot.loader = {
     systemd-boot = {
       enable = true;
@@ -18,4 +17,6 @@
       efiSysMountPoint = "/boot";
     };
   };
+
+  systemd.enableEmergencyMode = false;
 }
