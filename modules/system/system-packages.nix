@@ -92,6 +92,7 @@ in
         xeyes
         par2cmdline
         dex
+        _7zip-zstd
 
         yazi
         ghostty
