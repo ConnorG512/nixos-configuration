@@ -93,6 +93,7 @@ in
         par2cmdline
         dex
         _7zip-zstd
+        flac
 
         yazi
         ghostty
