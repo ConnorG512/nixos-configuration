@@ -1,17 +1,9 @@
-dry-run-desktop:
-  echo "Running dry run desktop"
-  nixos-rebuild dry-run --flake  .#desktop --impure
+dry-run host="desktop":
+  echo "Running dry run {{host}}"
+  nixos-rebuild dry-run --flake  .#{{host}} --impure
 
-dry-run-laptop:
-  echo "Running dry run laptop"
-  nixos-rebuild dry-run --flake  .#laptop --impure
-
-build-desktop:
-  echo "Building desktop."
-  nixos-rebuild boot --flake  .#desktop --impure
+build host="desktop":
+  echo "Building {{host}}."
+  nixos-rebuild boot --flake  .#{{host}} --impure
   echo "Done, please reboot."
 
-build-laptop:
-  echo "Building laptop."
-  nixos-rebuild boot --flake  .#laptop --impure
-  echo "Done, please reboot."
