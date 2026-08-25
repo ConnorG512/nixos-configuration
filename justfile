@@ -1,9 +1,9 @@
-dry-run host="desktop":
+dry-run host:
   @echo "Running dry run {{host}}"
   nixos-rebuild dry-run --flake  .#{{host}} --impure
   @echo "Done."
 
-build mode="boot" host="desktop":
+build host mode="boot":
   @echo "Building {{host}} with mode: {{mode}}."
   nixos-rebuild {{mode}} --flake  .#{{host}} --impure
   @echo "Done."
