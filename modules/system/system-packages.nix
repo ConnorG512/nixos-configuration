@@ -2,14 +2,6 @@
 
 let
   cfg = config.systemConfiguration.sysPackages;
-
-  wlPackages = with pkgs; [
-    wlr-randr
-    wl-clipboard
-  ];
-  x11Packages = with pkgs; [
-    xrandr
-  ];
 in
 {
   options.systemConfiguration.sysPackages = {
@@ -19,16 +11,11 @@ in
       description = "Whether to install system packages for x11 or wayland protocols";
     };
 
-    installManPages = lib.mkOption {
+    installModernUnixTools = lib.mkOption {
       type = lib.types.bool;
-      default = false;
-      description = "Whether to include the man pages in system configuration.";
-    };
-
-    installMangohudPackages = lib.mkOption {
-      type = lib.types.bool;
-      default = false;
-      description = "Whether to install mangohud / goverlay.";
+      default = true;
+      description = "Enable modern Unix alternatvies.";
+      example = with pkgs; [ mpv feh ];
     };
 
     extraPackages = lib.mkOption {
@@ -39,39 +26,15 @@ in
     };
   };
 
-  config = lib.mkMerge [
-    # Wayland defaults:
-    (lib.mkIf (cfg.displayType == "wl") {
-      environment.systemPackages = wlPackages;
-    })
-
-    # X11 Defaults:
-    (lib.mkIf (cfg.displayType == "x11") {
-      environment.systemPackages = x11Packages;
-    })
-
-    (lib.mkIf (cfg.displayType == "both") {
-      environment.systemPackages = x11Packages ++ wlPackages;
-    })
-
-    (lib.mkIf cfg.installManPages {
-      environment.systemPackages = with pkgs; [
-        man
-        man-pages
-        man-pages-posix
-      ];
-    })
-
-    (lib.mkIf cfg.installMangohudPackages {
-      environment.systemPackages = with pkgs; [
-        mangohud
-        goverlay
-      ];
-    })
-
-    # Common: 
-    {
-      environment.systemPackages = with pkgs; [
+  config = {
+    environment.systemPackages =
+      let
+        wlPackages = with pkgs; [
+          wlr-randr
+          wl-clipboard
+        ];
+      in
+      with pkgs; [
         fuse3
         exfat
         su
@@ -82,8 +45,6 @@ in
         file
         fileinfo
         fzf
-        fd
-        ripgrep
         tree
         lsof
         stow
@@ -94,10 +55,19 @@ in
         dex
         _7zip-zstd
         flac
+        just
+
+        tldr
 
         yazi
         ghostty
-      ] ++ cfg.extraPackages;
-    }
-  ];
+
+        man
+        man-pages
+        man-pages-posix
+      ] ++ cfg.extraPackages ++ lib.optionals cfg.installModernUnixTools [ bat ripgrep fd delta duf eza broot sd cheat gping ]
+      ++ lib.optionals (cfg.displayType == "wl") wlPackages
+      ++ lib.optional (cfg.displayType == "x11") pkgs.xrandr
+      ++ lib.optionals (cfg.displayType == "both") (lib.flatten wlPackages ++ [ pkgs.xrandr ]);
+  };
 }

@@ -90,7 +90,7 @@ in
         ++ lib.optional cfg.enableHeroic pkgs.heroic
         ++ lib.optional cfg.enableUmu pkgs.umu-launcher
         ++ lib.optional cfg.enablelGogDownloader pkgs.lgogdownloader
-        ++ lib.optional cfg.enableMangohud pkgs.mangohud;
+        ++ lib.optionals cfg.enableMangohud [ pkgs.mangohud pkgs.goverlay ];
     }
   ];
 }

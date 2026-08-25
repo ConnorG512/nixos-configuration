@@ -63,7 +63,6 @@
   systemConfiguration = {
     sysPackages = {
       displayType = "wl";
-      installManPages = true;
       extraPackages = with pkgs; [
         tmux
         btop
