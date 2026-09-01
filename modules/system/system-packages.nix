@@ -65,7 +65,7 @@ in
         man
         man-pages
         man-pages-posix
-      ] ++ cfg.extraPackages ++ lib.optionals cfg.installModernUnixTools [ bat ripgrep fd delta duf eza broot sd cheat gping ]
+      ] ++ cfg.extraPackages ++ lib.optionals cfg.installModernUnixTools [ bat ripgrep fd delta duf eza broot sd cheat gping dust ]
       ++ lib.optionals (cfg.displayType == "wl") wlPackages
       ++ lib.optional (cfg.displayType == "x11") pkgs.xrandr
       ++ lib.optionals (cfg.displayType == "both") (lib.flatten wlPackages ++ [ pkgs.xrandr ]);
