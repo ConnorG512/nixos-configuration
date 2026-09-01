@@ -28,6 +28,7 @@ in
         { name = "LOCAL"; value = "$HOME/.local"; }
         { name = "LSHARE"; value = "$HOME/.local/share"; }
         { name = "LSTATE"; value = "$HOME/.local/state"; }
+        { name = "LDESKTOPFILES"; value = "$HOME/.local/share/applications"; }
         { name = "LBIN"; value = "$HOME/.local/bin"; }
         { name = "XDG_CONFIG_HOME"; value = "$HOME/.config"; }
         { name = "DOCUMENTS"; value = "$HOME/Documents"; }
