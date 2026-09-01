@@ -5,7 +5,7 @@ dry-run host:
 
 build host mode="boot":
   @echo "Building {{host}} with mode: {{mode}}."
-  nixos-rebuild {{mode}} --flake  .#{{host}} --impure
+  sudo nixos-rebuild {{mode}} --flake  .#{{host}} --impure
   @echo "Done."
 
 format:
