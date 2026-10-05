@@ -56,6 +56,7 @@ in
         _7zip-zstd
         flac
         just
+        icoutils
 
         tldr
 

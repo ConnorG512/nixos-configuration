@@ -48,7 +48,7 @@
     "${self}/modules/apps/gamescope.nix"
     "${self}/modules/apps/podman.nix"
     "${self}/modules/apps/machine-vm.nix"
-    "${self}/modules/apps/nvf/nvim-nvf.nix"
+    "${self}/modules/apps/nvf/nvf.nix"
     "${self}/modules/apps/nff.nix"
     "${self}/modules/apps/ngircd.nix"
     "${self}/modules/apps/gpu-screen-recorder.nix"
