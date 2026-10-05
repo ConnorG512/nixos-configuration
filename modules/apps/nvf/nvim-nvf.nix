@@ -113,6 +113,15 @@
                 "sh"
               ];
             };
+            "haskell-language-server" = {
+              cmd = [ "haskell-language-server-wrapper" ];
+              filetypes = [
+                "haskell"
+                "lhaskell"
+                "hs"
+                "lhs"
+              ];
+            };
           };
         };
         filetree.neo-tree = {
@@ -138,6 +147,13 @@
           };
           nix = {
             enable = true;
+          };
+          haskell = {
+            enable = true;
+            dap.enable = true;
+            extensions.haskell-tools = {
+              enable = true;
+            };
           };
         };
         autocomplete.nvim-cmp = {
