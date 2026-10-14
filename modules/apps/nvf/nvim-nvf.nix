@@ -122,6 +122,12 @@
                 "lhs"
               ];
             };
+            "c3-lsp" = {
+              cmd = [ "c3-lsp" ];
+              filetypes = [
+                "c3"
+              ];
+            };
           };
         };
         filetree.neo-tree = {
