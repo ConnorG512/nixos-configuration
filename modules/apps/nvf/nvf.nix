@@ -1,12 +1,13 @@
-{ nvf
-, ...
-}:
+{ nvf, pkgs, ... }:
 
 {
+  imports = [
+    ./vim/vim.nix
+  ];
+
   programs.nvf = {
     enable = true;
     enableManpages = true;
-    settings.vim = import ./vim/vim.nix;
   };
 
   environment.variables = {
