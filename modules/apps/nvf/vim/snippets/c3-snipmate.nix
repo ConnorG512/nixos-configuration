@@ -32,7 +32,7 @@
   {
     trigger = "param";
     body = ''
-      @param $1 : '$2'
+      @param [$1] $2
     '';
   }
 
@@ -40,6 +40,13 @@
     trigger = "extern";
     body = ''
       extern $0
+    '';
+  }
+  
+  {
+    trigger = "array";
+    body = ''
+      $1[$2] $3 = { $0 };
     '';
   }
 
@@ -59,7 +66,7 @@
       }
     '';
   }
-
+  
   {
     trigger = "constset";
     body = ''
@@ -182,7 +189,7 @@
     body = ''
       fn $1 $2($3) @test
       {
-
+        $0
       }
     '';
   }
@@ -191,6 +198,20 @@
     trigger = "cast";
     body = ''
       ($1)$0
+    '';
+  }
+
+  {
+    trigger = "typeof";
+    body = ''
+      $Typeof($1)$0
+    '';
+  }
+
+  {
+    trigger = "const";
+    body = ''
+      const
     '';
   }
 
@@ -207,4 +228,40 @@
       != 0$0
     '';
   }
+  
+  {
+    trigger = "longlit";
+    body = ''
+      $1l$0
+    '';
+  }
+  
+  {
+    trigger = "int128lit";
+    body = ''
+      $1ll$0
+    '';
+  }
+  
+  {
+    trigger = "uintlit";
+    body = ''
+      $1u$0
+    '';
+  }
+  
+  {
+    trigger = "ulonglit";
+    body = ''
+      $1ul$0
+    '';
+  }
+
+  {
+    trigger = "uint128lit";
+    body = ''
+      $1ull$0
+    '';
+  }
+
 ]
