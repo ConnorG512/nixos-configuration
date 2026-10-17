@@ -9,18 +9,21 @@
       enable = true;
       servers = import ./lsp-servers.nix;
     };
-    treesitter.indent.enable = true;
+
+    treesitter = {
+      enable = true;
+      indent.enable = true;
+      grammars = [
+        # https://nvf.notashelf.dev/options.html#option-vim.treesitter.grammars
+        pkgs.vimPlugins.nvim-treesitter.parsers.c3
+        pkgs.vimPlugins.nvim-treesitter.parsers.dockerfile
+      ];
+    };
 
     clipboard.providers = {
       wl-copy.enable = true;
       xclip.enable = false;
       xsel.enable = false;
-    };
-
-    extraPlugins = {
-      c3-treesitter = {
-        package = pkgs.vimPlugins.nvim-treesitter-parsers.c3;
-      };
     };
 
     options = {
