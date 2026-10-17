@@ -1,7 +1,3 @@
-{ nvf
-, ...
-}:
-
 let
   keymapList = [
     {
@@ -24,6 +20,4 @@ let
     silent = true;
   };
 in
-{
-  programs.nvf.keymaps = map createKeymap keymapList;
-}
+  map createKeymap keymapList
