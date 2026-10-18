@@ -18,7 +18,7 @@ with pkgs; [
   tor-browser
   kdePackages.dolphin
 
-  libreoffice-qt6-fresh
+  libreoffice-qt6
 
   mpv
 

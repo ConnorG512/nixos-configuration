@@ -45,7 +45,7 @@ with pkgs; [
   inkscape
   blender
   obs-studio
-  libreoffice-qt6-fresh
+  libreoffice-qt6
   blender
   obsidian
 
