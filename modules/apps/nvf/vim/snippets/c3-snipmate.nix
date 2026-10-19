@@ -195,6 +195,16 @@
   }
 
   {
+    trigger = "macro";
+    body = ''
+      macro $1 @$2($3)
+      {
+        $0
+      }
+    '';
+  }
+
+  {
     trigger = "cast";
     body = ''
       ($1)$0
