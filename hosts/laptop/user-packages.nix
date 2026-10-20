@@ -26,6 +26,4 @@ with pkgs; [
 
   moonlight-qt
 
-  wayvr
-  wivrn
 ]

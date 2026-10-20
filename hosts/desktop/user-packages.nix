@@ -63,5 +63,8 @@ with pkgs; [
   discord-canary
   irssi
 
+  wayvr
+  wivrn
+
   inputs.msc.packages.x86_64-linux.release
 ]
