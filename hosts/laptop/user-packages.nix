@@ -25,4 +25,7 @@ with pkgs; [
   discord
 
   moonlight-qt
+
+  wayvr
+  wivrn
 ]
