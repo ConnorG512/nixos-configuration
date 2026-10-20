@@ -80,7 +80,7 @@
     network = {
       hostName = "nixos-desktop";
       enable = true;
-      additionalPorts = [ 53317 8080 47989 ];
+      additionalPorts = [ 53317 8080 47989 5353 9757 ];
       enableOpenssh = true;
       enableAvahi = true;
       dns = "hardened";
