@@ -42,6 +42,27 @@
       extern $0
     '';
   }
+
+  {
+    trigger = "public";
+    body = ''
+      @public$0
+    '';
+  }
+  
+  {
+    trigger = "private";
+    body = ''
+      @private$0
+    '';
+  }
+  
+  {
+    trigger = "local";
+    body = ''
+      @local$0
+    '';
+  }
   
   {
     trigger = "array";
@@ -197,7 +218,7 @@
   {
     trigger = "macro";
     body = ''
-      macro $1 @$2($3)
+      macro $1 $2($3)
       {
         $0
       }
