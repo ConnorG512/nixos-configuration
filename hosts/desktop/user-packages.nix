@@ -60,7 +60,7 @@ with pkgs; [
   podman-tui
 
   # Communication:
-  discord-canary
+  discord
   irssi
 
   wayvr
