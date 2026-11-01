@@ -48,7 +48,7 @@
     "${self}/modules/apps/gamescope.nix"
     "${self}/modules/apps/podman.nix"
     "${self}/modules/apps/machine-vm.nix"
-    
+
     "${self}/modules/apps/nvf/nvf.nix"
     "${self}/modules/apps/nvf/vim/vim.nix"
 
@@ -176,6 +176,23 @@
       enableWineFonts = true;
     };
   };
+
+  systemd.services."systemd-nspawn@archlinux" = {
+    description = "Arch Linux Container";
+    wantedBy = [ "multi-user.target" ];
+    after = [ "network.target" ];
+
+    serviceConfig = {
+      ExecStart = "${pkgs.systemd}/bin/systemd-nspawn --quiet --keep-unit --boot --link-journal=try-guest --network-veth --machine=archlinux --directory=/var/lib/machines/archlinux";
+      DeviceAllow = [
+        "/dev/dri/card1 rw"
+        "/dev/dri/renderD128 rw"
+      ];
+      Restart = "on-failure";
+      RestartSec = "5s";
+    };
+  };
+  
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

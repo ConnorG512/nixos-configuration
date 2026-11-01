@@ -49,21 +49,21 @@
       @public$0
     '';
   }
-  
+
   {
     trigger = "private";
     body = ''
       @private$0
     '';
   }
-  
+
   {
     trigger = "local";
     body = ''
       @local$0
     '';
   }
-  
+
   {
     trigger = "array";
     body = ''
@@ -87,7 +87,7 @@
       }
     '';
   }
-  
+
   {
     trigger = "constset";
     body = ''
@@ -97,7 +97,7 @@
       }
     '';
   }
-  
+
   {
     trigger = "struct";
     body = ''
@@ -117,7 +117,7 @@
       }
     '';
   }
-  
+
   {
     trigger = "module";
     body = ''
@@ -134,7 +134,7 @@
       }
     '';
   }
-  
+
   {
     trigger = "foreachreference";
     body = ''
@@ -144,7 +144,7 @@
       }
     '';
   }
-  
+
   {
     trigger = "for";
     body = ''
@@ -154,7 +154,7 @@
       }
     '';
   }
-  
+
   {
     trigger = "forsemi";
     body = ''
@@ -164,7 +164,7 @@
       }
     '';
   }
-  
+
   {
     trigger = "while";
     body = ''
@@ -184,7 +184,7 @@
       }
     '';
   }
-  
+
   {
     trigger = "else";
     body = ''
@@ -252,35 +252,35 @@
       != null$0
     '';
   }
-  
+
   {
     trigger = "notezero";
     body = ''
       != 0$0
     '';
   }
-  
+
   {
     trigger = "longlit";
     body = ''
       $1l$0
     '';
   }
-  
+
   {
     trigger = "int128lit";
     body = ''
       $1ll$0
     '';
   }
-  
+
   {
     trigger = "uintlit";
     body = ''
       $1u$0
     '';
   }
-  
+
   {
     trigger = "ulonglit";
     body = ''

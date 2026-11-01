@@ -20,4 +20,4 @@ let
     silent = true;
   };
 in
-  map createKeymap keymapList
+map createKeymap keymapList

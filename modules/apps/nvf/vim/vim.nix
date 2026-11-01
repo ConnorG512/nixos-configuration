@@ -37,7 +37,7 @@
     autopairs.nvim-autopairs.enable = true;
     statusline.lualine.enable = true;
     telescope.enable = true;
-    
+
     keymaps = import ./keymaps.nix;
 
     ui = {
@@ -50,15 +50,15 @@
         };
       };
     };
-    
+
     mini = {
       surround.enable = true;
       comment.enable = true;
-    }; 
+    };
     binds = {
       whichKey.enable = true;
       cheatsheet.enable = true;
-    }; 
+    };
     utility.nix-develop.enable = true;
     filetree.neo-tree.enable = true;
     snippets.luasnip = import ./luasnip.nix;
