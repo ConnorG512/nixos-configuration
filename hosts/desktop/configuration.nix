@@ -183,7 +183,7 @@
     after = [ "network.target" ];
 
     serviceConfig = {
-      ExecStart = "${pkgs.systemd}/bin/systemd-nspawn --quiet --keep-unit --boot --link-journal=try-guest --network-veth --machine=archlinux --directory=/var/lib/machines/archlinux";
+      ExecStart = "${pkgs.systemd}/bin/systemd-nspawn --quiet --keep-unit --boot --link-journal=try-guest --machine=archlinux --directory=/var/lib/machines/archlinux";
       DeviceAllow = [
         "/dev/dri/card1 rw"
         "/dev/dri/renderD128 rw"
