@@ -15,6 +15,9 @@ autoload -Uz compinit
 compinit
 # End of lines added by compinstall
 
+# Alias
+alias arch='machinectl shell connor@archlinux'
+
 # Zsh functions
 # Open a file with fuzzy finder when a directory provided as the first argument
 function fzof() {
