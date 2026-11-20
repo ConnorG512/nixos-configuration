@@ -54,6 +54,7 @@ in
         par2cmdline
         dex
         _7zip-zstd
+        rar
         flac
         just
         icoutils
