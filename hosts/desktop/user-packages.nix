@@ -34,6 +34,7 @@ with pkgs; [
   steam
   prismlauncher
   steamtinkerlaunch
+  easyrpg-player
 
   # Web browsing:
   tor-browser
