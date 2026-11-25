@@ -51,7 +51,7 @@ in
         audacious
         b3sum
         xeyes
-        par2cmdline
+        par2cmdline-turbo
         dex
         _7zip-zstd
         rar
